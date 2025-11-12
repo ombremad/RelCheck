@@ -15,6 +15,6 @@ struct notifymeApp: App {
         WindowGroup {
             ContactsView()
         }
-        .modelContainer(for: Contact.self)
+        .modelContainer(for: [Contact.self, Notification.self])
     }
 }

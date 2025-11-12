@@ -42,6 +42,7 @@ struct ContactsView: View {
                         Image(systemName: "questionmark.app.fill")
                             .resizable()
                             .scaledToFit()
+                            .foregroundStyle(LinearGradient(colors: [.accent, .mint], startPoint: .top, endPoint: .bottom))
                             .frame(maxWidth: 55)
                         HStack {
                             Spacer()
@@ -100,7 +101,7 @@ struct ContactsView: View {
                     NavigationLink {
                         DebugView()
                     } label: {
-                        Label("DEBUG", systemImage: "ant")
+                        Label("button.debug", systemImage: "ant")
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {

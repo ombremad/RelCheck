@@ -64,16 +64,6 @@ class NotificationManager {
         return identifier
     }
     
-    // Cancel a specific notification
-    func cancelNotification(identifier: String) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
-    }
-    
-    // Cancel all notifications
-    func cancelAllNotifications() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    }
-    
     // Get all pending notifications
     func getPendingNotifications(completion: @escaping ([UNNotificationRequest]) -> Void) {
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
@@ -81,5 +71,15 @@ class NotificationManager {
                 completion(requests)
             }
         }
+    }
+    
+    // Cancel a specific notification
+    func deleteNotification(identifier: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
+    // Cancel all notifications
+    func deleteAllNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 }

@@ -11,6 +11,16 @@
         }
       }
     },
+    "button.debug" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug"
+          }
+        }
+      }
+    },
     "button.delete" : {
       "localizations" : {
         "en" : {
@@ -74,9 +84,21 @@
     "contacts.everyXDays %lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Every %lld days"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Every %lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Every %lld days"
+                }
+              }
+            }
           }
         }
       }
@@ -101,11 +123,65 @@
         }
       }
     },
-    "DEBUG" : {
-
+    "debug.deleteAllContacts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete all contacts"
+          }
+        }
+      }
     },
-    "ID: %@" : {
-
+    "debug.deleteAllSystemScheduledNotifications" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete all scheduled notifications"
+          }
+        }
+      }
+    },
+    "debug.header.actions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions"
+          }
+        }
+      }
+    },
+    "debug.header.scheduledNotifications" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scheduled notifications"
+          }
+        }
+      }
+    },
+    "debug.id %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID: %@"
+          }
+        }
+      }
+    },
+    "debug.noScheduledNotification" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No scheduled notification"
+          }
+        }
+      }
     },
     "newContact.header.contactInformation" : {
       "localizations" : {
@@ -140,9 +216,21 @@
     "newContact.stepper.everyXDays %lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Every %lld days"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Every %lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Every %lld days"
+                }
+              }
+            }
           }
         }
       }
@@ -156,9 +244,6 @@
           }
         }
       }
-    },
-    "No scheduled notifications" : {
-
     }
   },
   "version" : "1.1"

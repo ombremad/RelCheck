@@ -7,43 +7,55 @@
 
 
 import SwiftUI
+import SwiftData
 
 struct DebugView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     @State private var pendingNotifications: [UNNotificationRequest] = []
 
     var body: some View {
         List {
-            if pendingNotifications.isEmpty {
-                Text("No scheduled notifications")
-                    .foregroundStyle(.secondary)
-            } else {
-                ForEach(pendingNotifications, id: \.identifier) { notification in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(notification.content.title)
-                            .font(.headline)
-                        Text(notification.content.body)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        
-                        if let trigger = notification.trigger as? UNTimeIntervalNotificationTrigger {
-                            let fireDate = Date(timeIntervalSinceNow: trigger.timeInterval)
-                            Text(fireDate.formatted(date: .long, time: .shortened))
-                                .font(.caption)
-                                .foregroundStyle(.blue)
+            Section {
+                if pendingNotifications.isEmpty {
+                    Text("debug.noScheduledNotification")
+                        .foregroundStyle(.secondary)
+                } else {
+                    ForEach(pendingNotifications, id: \.identifier) { notification in
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(notification.content.title)
+                                .font(.headline)
+                            Text(notification.content.body)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            if let trigger = notification.trigger as? UNTimeIntervalNotificationTrigger {
+                                let fireDate = Date(timeIntervalSinceNow: trigger.timeInterval)
+                                Text(fireDate.formatted(date: .long, time: .shortened))
+                                    .font(.caption)
+                                    .foregroundStyle(.accent)
+                            }
+                            Text("debug.id \(notification.identifier)")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
                         }
-                        
-                        Text("ID: \(notification.identifier)")
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                     }
-                    .padding(.vertical, 4)
                 }
+            } header: {
+                Text("debug.header.scheduledNotifications")
+            }
+            Section {
+                Button("debug.deleteAllSystemScheduledNotifications") {
+                    NotificationManager.shared.deleteAllNotifications()
+                    loadNotifications()
+                }
+                Button("debug.deleteAllContacts") {
+                    try? modelContext.delete(model: Contact.self)
+                }
+            } header: {
+                Text("debug.header.actions")
             }
         }
-        .onAppear {
-            loadNotifications()
-        }
-        .refreshable {
+        .task {
             loadNotifications()
         }
     }
