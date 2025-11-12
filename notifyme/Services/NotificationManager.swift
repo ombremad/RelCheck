@@ -20,7 +20,6 @@ class NotificationManager {
             if let error = error {
                 print("Error requesting permission: \(error)")
             }
-            
             DispatchQueue.main.async {
                 completion(granted)
             }

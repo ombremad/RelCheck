@@ -13,22 +13,52 @@ struct ContactsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Contact.name) private var contacts: [Contact]
     
+    var sortedContacts: [Contact] {
+        contacts.sorted { contact1, contact2 in
+            let date1 = contact1.nextUpcomingNotification?.date
+            let date2 = contact2.nextUpcomingNotification?.date
+            
+            // Contacts without notifications come first
+            switch (date1, date2) {
+            case (nil, nil):
+                return contact1.name < contact2.name // Sort by name if both nil
+            case (nil, _):
+                return true  // contact1 has no notification, comes first
+            case (_, nil):
+                return false // contact2 has no notification, comes first
+            case (let d1?, let d2?):
+                return d1 < d2 // Both have notifications, sort by date
+            }
+        }
+    }
+    
     @State private var permissionGranted = false
     
     var body: some View {
         NavigationStack {
             List {
                 if contacts.isEmpty {
-                    Text("contacts.contactListIsEmpty")
+                    VStack(alignment: .center, spacing: 16) {
+                        Image(systemName: "questionmark.app.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 55)
+                        HStack {
+                            Spacer()
+                            Text("contacts.contactListIsEmpty")
+                            Spacer()
+                        }
+                    }
+                    .frame(minHeight: 200)
                 } else {
-                    ForEach(contacts) { contact in
+                    ForEach(sortedContacts) { contact in
                         VStack(alignment: .leading, spacing: 4) {
                             Text(contact.name)
                                 .font(.headline)
                             Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
                                 .font(.caption)
-                            if contact.nextNotificationDateFormatted != nil {
-                                Text("contacts.nextNotificationScheduledOn \(contact.nextNotificationDateFormatted!)")
+                            if let nextNotification = contact.nextUpcomingNotification {
+                                Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
                                     .font(.caption2)
                             }
                         }

@@ -13,20 +13,21 @@ struct NewContactView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     
-    @State private var newContact: Contact = Contact(name: "", daysBetweenNotifications: 7, nextNotification: nil)
-    
-    private var isNameValid: Bool {
-        !newContact.name.trimmingCharacters(in: .whitespaces).isEmpty
+    @State private var name: String = ""
+    @State private var daysBetweenNotifications: Int = 7
+
+    private var isContactValid: Bool {
+        !name.trimmingCharacters(in: .whitespaces).isEmpty
     }
     
     var body: some View {
         NavigationStack {
             Form {
                 Section("newContact.header.contactInformation") {
-                    TextField("newContact.inputField.name", text: $newContact.name)
+                    TextField("newContact.inputField.name", text: $name)
                 }
                 Section("newContact.header.notificationSetting") {
-                    Stepper("newContact.stepper.everyXDays \(newContact.daysBetweenNotifications)", value: $newContact.daysBetweenNotifications, in: 1...60)
+                    Stepper("newContact.stepper.everyXDays \(daysBetweenNotifications)", value: $daysBetweenNotifications, in: 1...60)
                 }
             }
             .navigationTitle("newContact.title")
@@ -34,19 +35,34 @@ struct NewContactView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("button.save") {
-                        // Calculate and generate next notification Date for the contact
-                        newContact.nextNotificationDate = Calendar.current.date(byAdding: DateComponents(day: newContact.daysBetweenNotifications), to: .now)
-                        
-                        // Schedule next notification and get its ID
-                        newContact.nextNotificationID = NotificationManager.shared.scheduleNotification(title: "notification.hello", body: "notification.scheduledNotificationGreeting", timeInterval: newContact.nextNotificationDate?.timeIntervalSinceNow ?? 0)
-                        
-                        // Save new contact in model and dismiss
-                        modelContext.insert(newContact)
-                        dismiss()
+                        saveContact()
                     }
-                    .disabled(!isNameValid)
+                    .disabled(!isContactValid)
                 }
             }
         }
+    }
+    
+    private func saveContact() {
+        let newContact = Contact(name: name, daysBetweenNotifications: daysBetweenNotifications)
+        modelContext.insert(newContact)
+        createNotification(for: newContact)
+        dismiss()
+    }
+    
+    private func createNotification(for contact: Contact) {
+        guard let nextDate = Calendar.current.date(
+            byAdding: DateComponents(day: contact.daysBetweenNotifications),
+            to: .now
+        ) else {
+            return
+        }
+        let notification = Notification(date: nextDate, contact: contact)
+        notification.notificationID = NotificationManager.shared.scheduleNotification(
+            title: "notification.reminder.title \(contact.name)",
+            body: "notification.reminder.body \(contact.name)",
+            timeInterval: nextDate.timeIntervalSinceNow
+        )
+        modelContext.insert(notification)
     }
 }

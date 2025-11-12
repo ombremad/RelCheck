@@ -13,15 +13,19 @@ import SwiftData
 class Contact {
     var name: String
     var daysBetweenNotifications: Int
-    var nextNotificationDate: Date?
-    var nextNotificationDateFormatted: String? {
-        nextNotificationDate?.formatted(date: .abbreviated, time: .omitted)
-    }
-    var nextNotificationID: String?
     
-    init(name: String, daysBetweenNotifications: Int, nextNotification: Date?) {
+    @Relationship(deleteRule: .cascade, inverse: \Notification.contact)
+    var notifications: [Notification] = []
+
+    var nextUpcomingNotification: Notification? {
+        notifications
+            .filter { !$0.isCompleted && $0.date > Date() }
+            .sorted { $0.date < $1.date }
+            .first
+    }
+    
+    init(name: String, daysBetweenNotifications: Int) {
         self.name = name
         self.daysBetweenNotifications = daysBetweenNotifications
-        self.nextNotificationDate = nextNotification ?? Date()
     }
 }
