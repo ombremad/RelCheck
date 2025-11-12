@@ -13,6 +13,8 @@ struct ContactsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Contact.name) private var contacts: [Contact]
     
+    @State private var permissionGranted = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -20,7 +22,6 @@ struct ContactsView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(contact.name)
                             .font(.headline)
-                        
                         HStack {
                             Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
                                 .font(.caption)
@@ -35,6 +36,18 @@ struct ContactsView: View {
                         }
                     }
                 }
+                if permissionGranted == false {
+                    Section {
+                        HStack {
+                            Image(systemName: "exclamationmark.circle")
+                                .font(.title)
+                            Text("contacts.authorizationWarning.content")
+                        }
+                    } header: {
+                        Text("contacts.authorizationWarning.title")
+                    }
+                    .listRowBackground(Color.yellow)
+                }
             }
             .navigationTitle("contacts.title")
             .toolbar {
@@ -44,6 +57,11 @@ struct ContactsView: View {
                     } label: {
                         Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
                     }
+                }
+            }
+            .task {
+                NotificationManager.shared.requestPermission { granted in
+                    permissionGranted = granted
                 }
             }
         }

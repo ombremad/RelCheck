@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "• Next: %@" : {
-
-    },
     "button.addContact" : {
       "localizations" : {
         "en" : {
@@ -44,6 +41,36 @@
         }
       }
     },
+    "contacts.authorizationWarning.content" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to allow notifications in iOS if you want this app to work properly."
+          }
+        }
+      }
+    },
+    "contacts.authorizationWarning.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        }
+      }
+    },
+    "contacts.everyXDays %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every %lld days"
+          }
+        }
+      }
+    },
     "contacts.title" : {
       "localizations" : {
         "en" : {
@@ -53,9 +80,6 @@
           }
         }
       }
-    },
-    "Every %lld days" : {
-
     },
     "newContact.header.contactInformation" : {
       "localizations" : {
@@ -108,6 +132,7 @@
       }
     },
     "onboarding.button.requestNotificationsAccess" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -124,6 +149,7 @@
       }
     },
     "onboarding.notificationExplanation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -140,6 +166,7 @@
       }
     },
     "onboarding.notificationTitle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
