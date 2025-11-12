@@ -33,18 +33,9 @@ class NotificationManager {
             UIApplication.shared.open(url)
         }
     }
-    
-    // Check current permission status
-    func checkPermissionStatus(completion: @escaping (Bool) -> Void) {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                completion(settings.authorizationStatus == .authorized)
-            }
-        }
-    }
-    
+        
     // Schedule a local notification
-    func scheduleNotification(title: String, body: String, timeInterval: TimeInterval, identifier: String = UUID().uuidString) {
+    func scheduleNotification(title: String, body: String, timeInterval: TimeInterval, identifier: String = UUID().uuidString) -> String {
         // Create the notification content
         let content = UNMutableNotificationContent()
         content.title = title
@@ -69,6 +60,9 @@ class NotificationManager {
                 print("Notification scheduled with identifier: \(identifier)")
             }
         }
+        
+        // Returns notification ID (as String)
+        return identifier
     }
     
     // Cancel a specific notification

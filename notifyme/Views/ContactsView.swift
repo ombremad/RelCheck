@@ -27,8 +27,8 @@ struct ContactsView: View {
                                 .font(.headline)
                             Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
                                 .font(.caption)
-                            if contact.nextNotification != nil {
-                                Text("contacts.nextNotificationScheduledOn \(contact.nextNotificationFormatted)")
+                            if contact.nextNotificationDateFormatted != nil {
+                                Text("contacts.nextNotificationScheduledOn \(contact.nextNotificationDateFormatted!)")
                                     .font(.caption2)
                             }
                         }

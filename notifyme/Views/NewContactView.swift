@@ -34,7 +34,13 @@ struct NewContactView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("button.save") {
-                        newContact.nextNotification = Calendar.current.date(byAdding: DateComponents(day: newContact.daysBetweenNotifications), to: .now)
+                        // Calculate and generate next notification Date for the contact
+                        newContact.nextNotificationDate = Calendar.current.date(byAdding: DateComponents(day: newContact.daysBetweenNotifications), to: .now)
+                        
+                        // Schedule next notification and get its ID
+                        newContact.nextNotificationID = NotificationManager.shared.scheduleNotification(title: "notification.hello", body: "notification.scheduledNotificationGreeting", timeInterval: newContact.nextNotificationDate?.timeIntervalSinceNow ?? 0)
+                        
+                        // Save new contact in model and dismiss
                         modelContext.insert(newContact)
                         dismiss()
                     }

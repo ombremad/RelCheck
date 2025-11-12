@@ -13,14 +13,15 @@ import SwiftData
 class Contact {
     var name: String
     var daysBetweenNotifications: Int
-    var nextNotification: Date?
-    var nextNotificationFormatted: String {
-        nextNotification?.formatted(date: .abbreviated, time: .omitted) ?? "never"
+    var nextNotificationDate: Date?
+    var nextNotificationDateFormatted: String? {
+        nextNotificationDate?.formatted(date: .abbreviated, time: .omitted)
     }
+    var nextNotificationID: String?
     
     init(name: String, daysBetweenNotifications: Int, nextNotification: Date?) {
         self.name = name
         self.daysBetweenNotifications = daysBetweenNotifications
-        self.nextNotification = nextNotification ?? Date()
+        self.nextNotificationDate = nextNotification ?? Date()
     }
 }
