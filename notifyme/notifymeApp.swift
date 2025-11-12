@@ -13,7 +13,7 @@ import SwiftData
 struct notifymeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContactsView()
         }
         .modelContainer(for: Contact.self)
     }

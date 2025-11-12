@@ -1,7 +1,37 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "• Next: %@" : {
+
+    },
+    "Add Contact" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Contact Information" : {
+
+    },
     "Contacts" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Every %lld days" : {
+
+    },
+    "Name" : {
+
+    },
+    "New Contact" : {
+
+    },
+    "Next notification" : {
+
+    },
+    "Notification Settings" : {
 
     },
     "onboarding.button.requestNotificationsAccess" : {
@@ -51,6 +81,9 @@
           }
         }
       }
+    },
+    "Save" : {
+
     }
   },
   "version" : "1.1"
