@@ -79,9 +79,11 @@ struct ContactsView: View {
                         HStack(alignment: .top) {
                             Image(systemName: "exclamationmark.circle")
                                 .font(.title)
+                                .foregroundStyle(.black)
                             VStack(alignment: .leading) {
                                 Text("contacts.authorizationWarning.content")
                                     .font(.subheadline)
+                                    .foregroundStyle(.black)
                                 Button("contacts.authorizationWarning.openSettings") {
                                     NotificationManager.shared.openSettings()
                                 }

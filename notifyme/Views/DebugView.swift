@@ -12,7 +12,7 @@ import SwiftData
 struct DebugView: View {
     @Environment(\.modelContext) private var modelContext
     
-    @State private var pendingNotifications: [UNNotificationRequest] = []
+    @State private var pendingNotifications: [UNNotificationRequest] = [] 
 
     var body: some View {
         List {
