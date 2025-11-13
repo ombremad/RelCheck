@@ -8,12 +8,40 @@
             "state" : "translated",
             "value" : "Add a contact"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter un contact"
+          }
+        }
+      }
+    },
+    "button.checkIn" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pris contact"
+          }
         }
       }
     },
     "button.debug" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Debug"
@@ -28,6 +56,12 @@
             "state" : "translated",
             "value" : "Delete"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
         }
       }
     },
@@ -37,6 +71,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
           }
         }
       }
@@ -48,6 +88,12 @@
             "state" : "translated",
             "value" : "You need to allow notifications in iOS if you want this app to work properly."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu dois autoriser les notifications dans iOS pour que cette app fonctionne correctement."
+          }
         }
       }
     },
@@ -57,6 +103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open iOS settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir les paramètres iOS"
           }
         }
       }
@@ -68,6 +120,12 @@
             "state" : "translated",
             "value" : "Warning"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attention"
+          }
         }
       }
     },
@@ -77,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contacts list is empty for now."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La liste de contacts est vide pour l’instant."
           }
         }
       }
@@ -100,6 +164,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Chaque jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tous les %lld jours"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -109,6 +191,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Next notification scheduled on %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prochaine notification prévue le %@"
           }
         }
       }
@@ -120,6 +208,12 @@
             "state" : "translated",
             "value" : "Contacts"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact"
+          }
         }
       }
     },
@@ -130,12 +224,24 @@
             "state" : "translated",
             "value" : "Delete all data"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer toutes les données"
+          }
         }
       }
     },
     "debug.header.actions" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actions"
@@ -150,12 +256,24 @@
             "state" : "translated",
             "value" : "Scheduled notifications"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications planifiées"
+          }
         }
       }
     },
     "debug.id %@" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID: %@"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ID: %@"
@@ -170,6 +288,12 @@
             "state" : "translated",
             "value" : "Make demo notification"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer une notification de démo"
+          }
         }
       }
     },
@@ -179,6 +303,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No scheduled notification"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de notification planifiée"
           }
         }
       }
@@ -190,6 +320,12 @@
             "state" : "translated",
             "value" : "Debug menu"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu de debug"
+          }
         }
       }
     },
@@ -199,6 +335,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contact information"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information du contact"
           }
         }
       }
@@ -210,6 +352,12 @@
             "state" : "translated",
             "value" : "Notification setting"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres de notification"
+          }
         }
       }
     },
@@ -219,6 +367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
           }
         }
       }
@@ -242,6 +396,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Chaque jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tous les %lld jours"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -251,6 +423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "New contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveau contact"
           }
         }
       }
@@ -262,6 +440,12 @@
             "state" : "translated",
             "value" : "Now’s the time to get back in touch."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il est temps de reprendre contact."
+          }
         }
       }
     },
@@ -271,6 +455,76 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Say hi to %@!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dis bonjour à %@!"
+          }
+        }
+      }
+    },
+    "singleContact.checkInCompleted" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check in completed!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact pris !"
+          }
+        }
+      }
+    },
+    "singleContact.checkInOverdue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-in is overdue. Get back in touch as soon as possible!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prise de contact en retard. Reprend contact aussi vite que possible !"
+          }
+        }
+      }
+    },
+    "singleContact.didYouJustCheckInWith %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did you just check in with %@?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu viens de prendre contact avec %@ ?"
+          }
+        }
+      }
+    },
+    "singleContact.nextCheckInIsDueBy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next check-in is due by"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prochaine prise de contact d’ici le"
           }
         }
       }

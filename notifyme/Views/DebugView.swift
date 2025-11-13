@@ -48,7 +48,7 @@ struct DebugView: View {
                     let _ =  NotificationManager.shared.scheduleNotification(
                         title: String(localized: "notification.reminder.title \(String("Dembo"))"),
                         body: String(localized: "notification.reminder.body"),
-                        timeInterval: 15
+                        timeInterval: 10
                     )
                 }
                 Button("debug.deleteAllData", systemImage: "trash") {

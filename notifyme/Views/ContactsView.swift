@@ -53,16 +53,20 @@ struct ContactsView: View {
                     .frame(minHeight: 200)
                 } else {
                     ForEach(sortedContacts) { contact in
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(contact.name)
-                                .font(.headline)
-                            Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                            if let nextNotification = contact.nextUpcomingNotification {
-                                Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
-                                    .font(.caption)
-                                    .foregroundStyle(.accent)
+                        NavigationLink {
+                            SingleContactView(contact: contact)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(contact.name)
+                                    .font(.headline)
+                                Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                if let nextNotification = contact.nextUpcomingNotification {
+                                    Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
+                                        .font(.caption)
+                                        .foregroundStyle(.accent)
+                                }
                             }
                         }
                         .swipeActions {
@@ -91,7 +95,7 @@ struct ContactsView: View {
                                 Button("contacts.authorizationWarning.openSettings") {
                                     NotificationManager.shared.openSettings()
                                 }
-                                .buttonStyle(.borderedProminent)
+                                .buttonStyle(.glassProminent)
                             }
                         }
                     }
