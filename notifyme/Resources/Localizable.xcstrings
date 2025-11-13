@@ -65,6 +65,9 @@
         }
       }
     },
+    "button.edit" : {
+
+    },
     "button.save" : {
       "localizations" : {
         "en" : {

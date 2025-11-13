@@ -13,6 +13,7 @@ struct SingleContactView: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var contact: Contact
     @State private var hasCheckedIn: Bool = false
+    @State private var isPresented: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -22,7 +23,7 @@ struct SingleContactView: View {
                         Image(systemName: contact.iconName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 34)
+                            .frame(width: 34, height: 34)
                             .foregroundStyle(.secondary)
                         VStack(alignment: .leading) {
                             Text(contact.name)
@@ -32,6 +33,13 @@ struct SingleContactView: View {
                                 .foregroundStyle(.secondary)
                         }
                         Spacer()
+                        Button {
+                            isPresented = true
+                        } label: {
+                            Label("button.edit", systemImage: "slider.vertical.3")
+                        }
+                        .labelStyle(.iconOnly)
+                        .buttonStyle(.glassProminent)
                     }
                 }
                 if hasCheckedIn {
@@ -101,10 +109,22 @@ struct SingleContactView: View {
             }
             .navigationTitle($contact.name)
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $isPresented) {
+                Form {
+                    Section("newContact.header.notificationSetting") {
+                        Stepper("newContact.stepper.everyXDays \(contact.daysBetweenNotifications)", value: $contact.daysBetweenNotifications, in: 1...60)
+                    }
+                }
+                .onChange(of: contact.daysBetweenNotifications) {
+                    replaceNotification()
+                }
+                .presentationDragIndicator(.hidden)
+                .presentationDetents([.fraction(0.20)])
+            }
         }
     }
     
-    private func checkIn() {
+    private func replaceNotification() {
         // Delete iOS scheduled notification
         if let nextNotification = contact.nextUpcomingNotification {
             NotificationManager.shared.deleteNotification(identifier: nextNotification.notificationID!)
@@ -125,6 +145,9 @@ struct SingleContactView: View {
             timeInterval: nextDate.timeIntervalSinceNow
         )
         modelContext.insert(notification)
+    }
+    private func checkIn() {
+        replaceNotification()
         // Create new model check-in
         let checkIn = CheckIn(date: .now, contact: contact)
         modelContext.insert(checkIn)
