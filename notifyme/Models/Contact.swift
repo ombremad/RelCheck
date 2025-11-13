@@ -29,10 +29,10 @@ class Contact {
     }
     
     var icon: AppIcon {
-        AppIcon(rawValue: iconName) ?? .personfill
+        AppIcon(rawValue: iconName) ?? .personFill
     }
 
-    init(name: String, daysBetweenNotifications: Int, icon: AppIcon = .personfill) {
+    init(name: String, daysBetweenNotifications: Int, icon: AppIcon = .personFill) {
         self.name = name
         self.daysBetweenNotifications = daysBetweenNotifications
         self.iconName = icon.rawValue
@@ -41,23 +41,37 @@ class Contact {
 
 enum AppIcon: String, CaseIterable {
     
-    case personfill = "person.fill"
-    case figure2andchildholdinghands = "figure.2.and.child.holdinghands"
-    case figureaustralianfootball = "figure.australian.football"
-    case figuredance = "figure.dance"
-    case figurediscsports = "figure.disc.sports"
-    case figureequestriansports = "figure.equestrian.sports"
-    case figureroll = "figure.roll"
-    case figureskiingdownhill = "figure.skiing.downhill"
-    case airplaneupright = "airplane.up.right"
-    case brainfilledheadprofile = "brain.filled.head.profile"
-    case carrearfill = "car.rear.fill"
-    case dollarsign = "dollarsign"
-    case eyeglasses = "eyeglasses"
-    case figurestanddress = "figure.stand.dress"
-    case gamecontrollerfill = "gamecontroller.fill"
-    case heartfill = "heart.fill"
-    case motorcyclefill = "motorcycle.fill"
+    case sunMaxFill = "sun.max.fill"
+    case moonStarsFill = "moon.stars.fill"
+    case cloudSunFill = "cloud.sun.fill"
+    case cloudBoltRainFill = "cloud.bolt.rain.fill"
+    case flameFill = "flame.fill"
+    case snowflake = "snowflake"
+    case leafFill = "leaf.fill"
+    case pawprintFill = "pawprint.fill"
+    case boltFill = "bolt.fill"
+    case heartFill = "heart.fill"
+    case starFill = "star.fill"
+    case sparkle = "sparkle"
+    case faceSmiling = "face.smiling"
+    case faceDashed = "face.dashed"
+    case brain = "brain"
+    case lightbulbFill = "lightbulb.fill"
+    case gamecontrollerFill = "gamecontroller.fill"
+    case paintbrushPointedFill = "paintbrush.pointed.fill"
+    case musicNote = "music.note"
+    case wandAndSparkles = "wand.and.sparkles"
+    case bookFill = "book.fill"
+    case figureWalk = "figure.walk"
+    case figureRun = "figure.run"
+    case bicycle = "bicycle"
+    case sparkles = "sparkles"
+    case crownFill = "crown.fill"
+    case globeEuropeAfricaFill = "globe.europe.africa.fill"
+    case rainbow = "rainbow"
+    case handThumbsupFill = "hand.thumbsup.fill"
+    case handThumbsdownFill = "hand.thumbsdown.fill"
+    case personFill = "person.fill"
     
     var image: Image {
         Image(systemName: self.rawValue)

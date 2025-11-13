@@ -15,7 +15,7 @@ struct NewContactView: View {
     
     @State private var name: String = ""
     @State private var daysBetweenNotifications: Int = 7
-    @State private var selectedIcon: AppIcon = .personfill
+    @State private var selectedIcon: AppIcon = .personFill
 
     private var isContactValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty
