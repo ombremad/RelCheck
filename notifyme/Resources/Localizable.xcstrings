@@ -370,7 +370,20 @@
       }
     },
     "newContact.header.contactIcon" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact icon"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icône du contact"
+          }
+        }
+      }
     },
     "newContact.header.contactInformation" : {
       "localizations" : {
@@ -529,7 +542,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prêt à nourrir tes liens ?"
+            "value" : "Ready to revive your social bonds?"
           }
         },
         "fr" : {
