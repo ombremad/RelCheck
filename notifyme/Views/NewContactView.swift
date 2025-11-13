@@ -34,7 +34,7 @@ struct NewContactView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("button.save") {
+                    Button("button.save", systemImage: "checkmark") {
                         saveContact()
                     }
                     .disabled(!isContactValid)
@@ -59,8 +59,8 @@ struct NewContactView: View {
         }
         let notification = Notification(date: nextDate, contact: contact)
         notification.notificationID = NotificationManager.shared.scheduleNotification(
-            title: "notification.reminder.title \(contact.name)",
-            body: "notification.reminder.body \(contact.name)",
+            title: String(localized: "notification.reminder.title \(contact.name)"),
+            body: String(localized: "notification.reminder.body"),
             timeInterval: nextDate.timeIntervalSinceNow
         )
         modelContext.insert(notification)

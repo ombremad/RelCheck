@@ -42,6 +42,7 @@ struct ContactsView: View {
                         Image(systemName: "questionmark.app.fill")
                             .resizable()
                             .scaledToFit()
+                            .foregroundStyle(LinearGradient(colors: [.accent, .mint], startPoint: .top, endPoint: .bottom))
                             .frame(maxWidth: 55)
                         HStack {
                             Spacer()
@@ -52,19 +53,25 @@ struct ContactsView: View {
                     .frame(minHeight: 200)
                 } else {
                     ForEach(sortedContacts) { contact in
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(contact.name)
-                                .font(.headline)
-                            Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                .font(.caption)
-                            if let nextNotification = contact.nextUpcomingNotification {
-                                Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
-                                    .font(.caption2)
+                        NavigationLink {
+                            SingleContactView(contact: contact)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(contact.name)
+                                    .font(.headline)
+                                Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                if let nextNotification = contact.nextUpcomingNotification {
+                                    Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
+                                        .font(.caption)
+                                        .foregroundStyle(.accent)
+                                }
                             }
                         }
                         .swipeActions {
                             Button(role: .destructive) {
-                                modelContext.delete(contact)
+                                deleteContact(contact)
                             } label: {
                                 Label("button.delete", systemImage: "trash")
                             }
@@ -73,26 +80,37 @@ struct ContactsView: View {
                 }
                 if permissionGranted == false {
                     Section {
-                        HStack(alignment: .top) {
+                        HStack(alignment: .top, spacing: 12) {
                             Image(systemName: "exclamationmark.circle")
-                                .font(.title)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 38)
+                                .foregroundStyle(.black)
                             VStack(alignment: .leading) {
+                                Text("contacts.authorizationWarning.title")
+                                    .font(.headline)
                                 Text("contacts.authorizationWarning.content")
                                     .font(.subheadline)
+                                    .foregroundStyle(.black)
                                 Button("contacts.authorizationWarning.openSettings") {
                                     NotificationManager.shared.openSettings()
                                 }
-                                .buttonStyle(.borderedProminent)
+                                .buttonStyle(.glassProminent)
                             }
                         }
-                    } header: {
-                        Text("contacts.authorizationWarning.title")
                     }
                     .listRowBackground(Color.yellow)
                 }
             }
             .navigationTitle("contacts.title")
             .toolbar {
+                ToolbarItem(placement: .secondaryAction) {
+                    NavigationLink {
+                        DebugView()
+                    } label: {
+                        Label("button.debug", systemImage: "ant")
+                    }
+                }
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink {
                         NewContactView()
@@ -107,6 +125,16 @@ struct ContactsView: View {
                 }
             }
         }
+    }
+    
+    private func deleteContact(_ contact: Contact) {
+        for notification in contact.notifications {
+            if let notificationID = notification.notificationID {
+                NotificationManager.shared.deleteNotification(identifier: notificationID)
+            }
+            modelContext.delete(notification)
+        }
+        modelContext.delete(contact)
     }
 }
 
