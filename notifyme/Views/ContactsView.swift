@@ -42,7 +42,7 @@ struct ContactsView: View {
                         Image(systemName: "questionmark.app.fill")
                             .resizable()
                             .scaledToFit()
-                            .foregroundStyle(LinearGradient(colors: [.accent, .mint], startPoint: .top, endPoint: .bottom))
+                            .foregroundStyle(LinearGradient.primary)
                             .frame(maxWidth: 55)
                         HStack {
                             Spacer()
@@ -56,16 +56,29 @@ struct ContactsView: View {
                         NavigationLink {
                             SingleContactView(contact: contact)
                         } label: {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(contact.name)
-                                    .font(.headline)
-                                Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                if let nextNotification = contact.nextUpcomingNotification {
-                                    Text("contacts.nextNotificationScheduledOn \(nextNotification.dateFormatted)")
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(contact.name)
+                                        .font(.headline)
+                                    Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
                                         .font(.caption)
-                                        .foregroundStyle(.accent)
+                                        .foregroundStyle(.tertiary)
+                                }
+                                Spacer()
+                                if let nextNotification = contact.nextUpcomingNotification {
+                                    Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
+                                        .font(.caption2.bold())
+                                        .padding(8)
+                                        .foregroundStyle(.white)
+                                        .background(LinearGradient.primary)
+                                        .cornerRadius(12)
+                                } else {
+                                    Text("contacts.nextCheckInOverdue")
+                                        .font(.caption2.bold())
+                                        .padding(8)
+                                        .foregroundStyle(.white)
+                                        .background(LinearGradient.destructive)
+                                        .cornerRadius(12)
                                 }
                             }
                         }

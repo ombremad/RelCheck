@@ -34,7 +34,7 @@ struct SingleContactView: View {
                         }
                         .foregroundStyle(.white)
                         .frame(minHeight: 200)
-                        .listRowBackground(LinearGradient(colors: [.accent, .mint], startPoint: .top, endPoint: .bottom))
+                        .listRowBackground(LinearGradient.primary)
                     }
                 } else {
                     Section {
@@ -42,7 +42,7 @@ struct SingleContactView: View {
                             Image(systemName: "questionmark.message.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .foregroundStyle(LinearGradient(colors: [.accent, .mint], startPoint: .top, endPoint: .bottom))
+                                .foregroundStyle(LinearGradient.primary)
                                 .frame(maxWidth: 55)
                             HStack {
                                 Spacer()

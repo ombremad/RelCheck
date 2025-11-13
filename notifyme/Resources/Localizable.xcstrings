@@ -185,21 +185,30 @@
         }
       }
     },
-    "contacts.nextNotificationScheduledOn %@" : {
+    "contacts.nextCheckInDays %lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next notification scheduled on %@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prochaine notification prévue le %@"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Next check in %lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Next check in %lld days"
+                }
+              }
+            }
           }
         }
       }
+    },
+    "contacts.nextCheckInOverdue" : {
+
     },
     "contacts.title" : {
       "localizations" : {
