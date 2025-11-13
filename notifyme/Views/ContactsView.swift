@@ -58,9 +58,13 @@ struct ContactsView: View {
                             NavigationLink {
                                 SingleContactView(contact: contact)
                             } label: {
-                                HStack {
+                                HStack(spacing: 8) {
+                                    Image(systemName: contact.iconName)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundStyle(.secondary)
+                                        .frame(width: 28, height: 28)
                                     VStack(alignment: .leading) {
-                                        Image(systemName: contact.iconName)
                                         Text(contact.name)
                                             .font(.headline)
                                         Text("contacts.everyXDays \(contact.daysBetweenNotifications)")

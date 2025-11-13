@@ -681,6 +681,46 @@
         }
       }
     },
+    "singleContact.everyXDays %@ %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You will check with %1$@ every day."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You will check with %1$@ every %2$lld days."
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tu contacteras %1$@ tous les jours."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tu contacteras %1$@ tous les %2$lld jours."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "singleContact.header.lastCheckIns" : {
       "localizations" : {
         "en" : {

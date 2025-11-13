@@ -17,46 +17,59 @@ struct SingleContactView: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section {
+                    HStack {
+                        Image(systemName: contact.iconName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 34)
+                            .foregroundStyle(.secondary)
+                        VStack(alignment: .leading) {
+                            Text(contact.name)
+                                .font(.headline)
+                            Text("singleContact.everyXDays \(contact.name) \(contact.daysBetweenNotifications)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                    }
+                }
                 if hasCheckedIn {
-                    Section {
-                        VStack(alignment: .center, spacing: 16) {
-                            Image(systemName: "checkmark.message.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: 55)
-                            HStack {
-                                Spacer()
-                                Text("singleContact.checkInCompleted")
-                                    .font(.headline)
-                                Spacer()
-                            }
+                    VStack(alignment: .center, spacing: 16) {
+                        Image(systemName: "checkmark.message.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: 55)
+                        HStack {
+                            Spacer()
+                            Text("singleContact.checkInCompleted")
+                                .font(.headline)
+                            Spacer()
                         }
-                        .foregroundStyle(.white)
-                        .frame(minHeight: 200)
-                        .listRowBackground(LinearGradient.primary)
                     }
+                    .foregroundStyle(.white)
+                    .frame(minHeight: 200)
+                    .listRowBackground(LinearGradient.primary)
                 } else {
-                    Section {
-                        VStack(alignment: .center, spacing: 16) {
-                            Image(systemName: "questionmark.message.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(LinearGradient.primary)
-                                .frame(maxWidth: 55)
-                            HStack {
-                                Spacer()
-                                Text("singleContact.didYouJustCheckInWith \(contact.name)")
-                                    .font(.headline)
-                                Spacer()
-                            }
-                            Button("button.checkIn") {
-                                checkIn()
-                            }
-                            .buttonStyle(.glassProminent)
+                    VStack(alignment: .center, spacing: 16) {
+                        Image(systemName: "questionmark.message.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(LinearGradient.primary)
+                            .frame(maxWidth: 55)
+                        HStack {
+                            Spacer()
+                            Text("singleContact.didYouJustCheckInWith \(contact.name)")
+                                .font(.headline)
+                            Spacer()
                         }
-                        .frame(minHeight: 200)
+                        Button("button.checkIn") {
+                            checkIn()
+                        }
+                        .buttonStyle(.glassProminent)
                     }
+                    .frame(minHeight: 200)
                 }
                 Section {
                     VStack(alignment: .leading) {
@@ -87,6 +100,7 @@ struct SingleContactView: View {
                 }
             }
             .navigationTitle($contact.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
