@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct ContactsView: View {
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Contact.name) private var contacts: [Contact]
     
@@ -35,111 +36,114 @@ struct ContactsView: View {
     @State private var permissionGranted = false
     
     var body: some View {
-        NavigationStack {
-            List {
-                if contacts.isEmpty {
-                    VStack(alignment: .center, spacing: 16) {
-                        Image(systemName: "questionmark.app.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(LinearGradient.primary)
-                            .frame(maxWidth: 55)
-                        HStack {
-                            Spacer()
-                            Text("contacts.contactListIsEmpty")
-                            Spacer()
-                        }
-                    }
-                    .frame(minHeight: 200)
-                } else {
-                    ForEach(sortedContacts) { contact in
-                        NavigationLink {
-                            SingleContactView(contact: contact)
-                        } label: {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(contact.name)
-                                        .font(.headline)
-                                    Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                        .font(.caption)
-                                        .foregroundStyle(.tertiary)
-                                }
-                                Spacer()
-                                if let nextNotification = contact.nextUpcomingNotification {
-                                    Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
-                                        .font(.caption2.bold())
-                                        .padding(8)
-                                        .foregroundStyle(.white)
-                                        .background(LinearGradient.primary)
-                                        .cornerRadius(12)
-                                } else {
-                                    Text("contacts.nextCheckInOverdue")
-                                        .font(.caption2.bold())
-                                        .padding(8)
-                                        .foregroundStyle(.white)
-                                        .background(LinearGradient.destructive)
-                                        .cornerRadius(12)
-                                }
-                            }
-                        }
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                deleteContact(contact)
-                            } label: {
-                                Label("button.delete", systemImage: "trash")
-                            }
-                        }
-                    }
-                }
-                if permissionGranted == false {
-                    Section {
-                        HStack(alignment: .top, spacing: 12) {
-                            Image(systemName: "exclamationmark.circle")
+        if hasSeenOnboarding {
+            NavigationStack {
+                List {
+                    if contacts.isEmpty {
+                        VStack(alignment: .center, spacing: 16) {
+                            Image(systemName: "questionmark.app.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(maxWidth: 38)
-                                .foregroundStyle(.black)
-                            VStack(alignment: .leading) {
-                                Text("contacts.authorizationWarning.title")
-                                    .font(.headline)
-                                Text("contacts.authorizationWarning.content")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.black)
-                                Button("contacts.authorizationWarning.openSettings") {
-                                    NotificationManager.shared.openSettings()
+                                .foregroundStyle(LinearGradient.primary)
+                                .frame(maxWidth: 55)
+                            HStack {
+                                Spacer()
+                                Text("contacts.contactListIsEmpty")
+                                Spacer()
+                            }
+                        }
+                        .frame(minHeight: 200)
+                    } else {
+                        ForEach(sortedContacts) { contact in
+                            NavigationLink {
+                                SingleContactView(contact: contact)
+                            } label: {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(contact.name)
+                                            .font(.headline)
+                                        Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
+                                            .font(.caption)
+                                            .foregroundStyle(.tertiary)
+                                    }
+                                    Spacer()
+                                    if let nextNotification = contact.nextUpcomingNotification {
+                                        Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
+                                            .font(.caption2.bold())
+                                            .padding(8)
+                                            .foregroundStyle(.white)
+                                            .background(LinearGradient.primary)
+                                            .cornerRadius(12)
+                                    } else {
+                                        Text("contacts.nextCheckInOverdue")
+                                            .font(.caption2.bold())
+                                            .padding(8)
+                                            .foregroundStyle(.white)
+                                            .background(LinearGradient.destructive)
+                                            .cornerRadius(12)
+                                    }
                                 }
-                                .buttonStyle(.glassProminent)
+                            }
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    deleteContact(contact)
+                                } label: {
+                                    Label("button.delete", systemImage: "trash")
+                                }
                             }
                         }
                     }
-                    .listRowBackground(Color.yellow)
-                }
-            }
-            .navigationTitle("contacts.title")
-            .toolbar {
-                ToolbarItem(placement: .secondaryAction) {
-                    NavigationLink {
-                        DebugView()
-                    } label: {
-                        Label("button.debug", systemImage: "ant")
+                    if permissionGranted == false {
+                        Section {
+                            HStack(alignment: .top, spacing: 12) {
+                                Image(systemName: "exclamationmark.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 38)
+                                    .foregroundStyle(.black)
+                                VStack(alignment: .leading) {
+                                    Text("contacts.authorizationWarning.title")
+                                        .font(.headline)
+                                    Text("contacts.authorizationWarning.content")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.black)
+                                    Button("contacts.authorizationWarning.openSettings") {
+                                        NotificationManager.shared.openSettings()
+                                    }
+                                    .buttonStyle(.glassProminent)
+                                }
+                            }
+                        }
+                        .listRowBackground(Color.yellow)
                     }
                 }
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink {
-                        NewContactView()
-                    } label: {
-                        Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
+                .navigationTitle("contacts.title")
+                .toolbar {
+                    ToolbarItem(placement: .secondaryAction) {
+                        NavigationLink {
+                            DebugView()
+                        } label: {
+                            Label("button.debug", systemImage: "ant")
+                        }
+                    }
+                    ToolbarItem(placement: .primaryAction) {
+                        NavigationLink {
+                            NewContactView()
+                        } label: {
+                            Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
+                        }
+                    }
+                }
+                .task {
+                    NotificationManager.shared.requestPermission { granted in
+                        permissionGranted = granted
                     }
                 }
             }
-            .task {
-                NotificationManager.shared.requestPermission { granted in
-                    permissionGranted = granted
-                }
-            }
+        } else {
+            OnboardingView()
         }
     }
-    
     private func deleteContact(_ contact: Contact) {
         for notification in contact.notifications {
             if let notificationID = notification.notificationID {
@@ -150,6 +154,7 @@ struct ContactsView: View {
         modelContext.delete(contact)
     }
 }
+
 
 #Preview {
     ContactsView()

@@ -204,11 +204,42 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Prochain contact dans %lld jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Prochain contact dans %lld jours"
+                }
+              }
+            }
+          }
         }
       }
     },
     "contacts.nextCheckInOverdue" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overdue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En retard"
+          }
+        }
+      }
     },
     "contacts.title" : {
       "localizations" : {
@@ -474,6 +505,134 @@
         }
       }
     },
+    "onboarding.button.start" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        }
+      }
+    },
+    "onboarding.ready" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prêt à nourrir tes liens ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prêt à nourrir tes liens ?"
+          }
+        }
+      }
+    },
+    "onboardingCard.01.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-ins with your special ones help with your wellbeing and joy."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prendre contact avec ceux qu’on aime renforce ton bien-être et ta joie de vivre."
+          }
+        }
+      }
+    },
+    "onboardingCard.01.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay close to your relatives"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reste proche de tes proches"
+          }
+        }
+      }
+    },
+    "onboardingCard.02.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A simple notification reminds you to stay connected, one step at a time."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une notification douce te rappellera de créer du lien, un pas à la fois."
+          }
+        }
+      }
+    },
+    "onboardingCard.02.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A tiny regular gesture"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un petit geste chaque semaine"
+          }
+        }
+      }
+    },
+    "onboardingCard.03.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share a simple text, a phone call, a photo… and keep the bond alive!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partage un message, un appel ou un sourire. Les liens sincères font grandir ton cœur."
+          }
+        }
+      }
+    },
+    "onboardingCard.03.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create worthy memories"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crée des souvenirs durables"
+          }
+        }
+      }
+    },
     "singleContact.checkInCompleted" : {
       "localizations" : {
         "en" : {
@@ -513,6 +672,12 @@
             "state" : "translated",
             "value" : "Last check-ins"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Derniers contacts"
+          }
         }
       }
     },
@@ -522,6 +687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Next planned check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prochain contact planifié"
           }
         }
       }
@@ -533,6 +704,12 @@
             "state" : "translated",
             "value" : "You haven’t checked in with %@ yet."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu n’as pas encore pris contact avec %@."
+          }
         }
       }
     },
@@ -542,6 +719,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Overdue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En retard"
           }
         }
       }

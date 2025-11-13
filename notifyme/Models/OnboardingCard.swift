@@ -15,8 +15,8 @@ struct OnboardingCard: View {
     var body: some View {
         VStack(spacing: 30) {
             Image(systemName: imageName)
-                .font(.system(size: 80))
-                .foregroundColor(.purple)
+                .font(.system(size: 64))
+                .foregroundStyle(LinearGradient.primary)
                 .padding(.top, 60)
             
             Text(title)
