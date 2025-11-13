@@ -20,6 +20,11 @@ class Notification {
     var dateFormatted: String {
         date.formatted(date: .complete, time: .omitted)
     }
+    
+    var daysLeftUntilDate: Int {
+        let timeInterval = date.timeIntervalSinceNow
+        return Int((timeInterval / 86400) + 1)
+    }
         
     init(date: Date, contact: Contact) {
         self.date = date
