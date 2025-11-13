@@ -60,6 +60,7 @@ struct ContactsView: View {
                             } label: {
                                 HStack {
                                     VStack(alignment: .leading) {
+                                        Image(systemName: contact.iconName)
                                         Text(contact.name)
                                             .font(.headline)
                                         Text("contacts.everyXDays \(contact.daysBetweenNotifications)")

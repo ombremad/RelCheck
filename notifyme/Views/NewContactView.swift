@@ -15,6 +15,7 @@ struct NewContactView: View {
     
     @State private var name: String = ""
     @State private var daysBetweenNotifications: Int = 7
+    @State private var selectedIcon: AppIcon = .personfill
 
     private var isContactValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty
@@ -26,6 +27,21 @@ struct NewContactView: View {
                 Section("newContact.header.contactInformation") {
                     TextField("newContact.inputField.name", text: $name)
                 }
+                Section("newContact.header.contactIcon") {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
+                            ForEach(AppIcon.allCases, id: \.self) { icon in
+                                icon.image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundStyle(selectedIcon == icon ? .accent : .primary)
+                                    .frame(width: 36, height: 36)
+                                    .onTapGesture {
+                                        selectedIcon = icon
+                                    }
+                            }
+                    }
+                }
+
                 Section("newContact.header.notificationSetting") {
                     Stepper("newContact.stepper.everyXDays \(daysBetweenNotifications)", value: $daysBetweenNotifications, in: 1...60)
                 }
@@ -44,7 +60,7 @@ struct NewContactView: View {
     }
     
     private func saveContact() {
-        let newContact = Contact(name: name, daysBetweenNotifications: daysBetweenNotifications)
+        let newContact = Contact(name: name, daysBetweenNotifications: daysBetweenNotifications, icon: selectedIcon)
         modelContext.insert(newContact)
         createNotification(for: newContact)
         dismiss()
@@ -65,4 +81,8 @@ struct NewContactView: View {
         )
         modelContext.insert(notification)
     }
+}
+
+#Preview {
+    NewContactView()
 }

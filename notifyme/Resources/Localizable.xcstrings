@@ -369,6 +369,9 @@
         }
       }
     },
+    "newContact.header.contactIcon" : {
+
+    },
     "newContact.header.contactInformation" : {
       "localizations" : {
         "en" : {
