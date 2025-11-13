@@ -54,7 +54,8 @@ struct OnboardingView: View {
             }
             .padding()
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
         .background(Color(.systemGroupedBackground))
     }
 }
