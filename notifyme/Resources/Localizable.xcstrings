@@ -28,7 +28,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pris contact"
+            "value" : "Contact pris"
           }
         }
       }
@@ -66,7 +66,20 @@
       }
     },
     "button.edit" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éditer"
+          }
+        }
+      }
     },
     "button.save" : {
       "localizations" : {
@@ -174,7 +187,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Chaque jour"
+                  "value" : "Tous les jours"
                 }
               },
               "other" : {
@@ -196,7 +209,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Next check in %lld day"
+                  "value" : "Next check tomorrow"
                 }
               },
               "other" : {
@@ -214,7 +227,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Prochain contact dans %lld jour"
+                  "value" : "Prochain contact demain"
                 }
               },
               "other" : {
@@ -372,6 +385,22 @@
         }
       }
     },
+    "editContact.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Édition du contact"
+          }
+        }
+      }
+    },
     "newContact.header.contactIcon" : {
       "localizations" : {
         "en" : {
@@ -462,7 +491,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Chaque jour"
+                  "value" : "Tous les jours"
                 }
               },
               "other" : {
@@ -668,6 +697,70 @@
         }
       }
     },
+    "singleContact.deleteAlert.destructiveButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        }
+      }
+    },
+    "singleContact.deleteAlert.dismissButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
+    "singleContact.deleteAlert.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you really want to delete the contact? You cannot undo this action!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veux-tu vraiment supprimer ce contact ? Cette action est irréversible !"
+          }
+        }
+      }
+    },
+    "singleContact.deleteAlert.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer le contact"
+          }
+        }
+      }
+    },
     "singleContact.didYouJustCheckInWith %@" : {
       "localizations" : {
         "en" : {
@@ -751,7 +844,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prochain contact planifié"
+            "value" : "Prochain contact prévu"
           }
         }
       }

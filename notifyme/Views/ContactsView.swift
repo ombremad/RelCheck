@@ -12,6 +12,7 @@ import SwiftData
 struct ContactsView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @Environment(\.modelContext) private var modelContext
+    
     @Query(sort: \Contact.name) private var contacts: [Contact]
     
     var sortedContacts: [Contact] {
@@ -133,7 +134,7 @@ struct ContactsView: View {
                     }
                     ToolbarItem(placement: .primaryAction) {
                         NavigationLink {
-                            NewContactView()
+                            ContactFormView()
                         } label: {
                             Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
                         }

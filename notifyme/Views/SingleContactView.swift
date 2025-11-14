@@ -10,10 +10,12 @@ import SwiftUI
 import SwiftData
 
 struct SingleContactView: View {
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    
     @Bindable var contact: Contact
     @State private var hasCheckedIn: Bool = false
-    @State private var isPresented: Bool = false
+    @State private var showDeleteAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -32,14 +34,6 @@ struct SingleContactView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
-                        Spacer()
-                        Button {
-                            isPresented = true
-                        } label: {
-                            Label("button.edit", systemImage: "slider.vertical.3")
-                        }
-                        .labelStyle(.iconOnly)
-                        .buttonStyle(.glassProminent)
                     }
                 }
                 if hasCheckedIn {
@@ -97,6 +91,7 @@ struct SingleContactView: View {
                 Section {
                     if contact.checkIns.isEmpty {
                         Text("singleContact.noCheckInsYet \(contact.name)")
+                            .font(.subheadline)
                     } else {
                         ForEach(contact.checkIns.reversed()) { checkIn in
                             Text(checkIn.dateFormatted)
@@ -109,21 +104,40 @@ struct SingleContactView: View {
             }
             .navigationTitle($contact.name)
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $isPresented) {
-                Form {
-                    Section("newContact.header.notificationSetting") {
-                        Stepper("newContact.stepper.everyXDays \(contact.daysBetweenNotifications)", value: $contact.daysBetweenNotifications, in: 1...60)
+            .alert("singleContact.deleteAlert.title", isPresented: $showDeleteAlert) {
+                Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
+                    deleteContact(contact)
+                    dismiss()
+                }
+                Button("singleContact.deleteAlert.dismissButton", role: .cancel) {}
+            } message: {
+                Text("singleContact.deleteAlert.message")
+            }
+            .toolbar {
+                ToolbarItem(placement: .secondaryAction) {
+                    NavigationLink {
+                        ContactFormView(contact: contact)
+                    } label: {
+                        Label("button.edit", systemImage: "pencil")
                     }
                 }
-                .onChange(of: contact.daysBetweenNotifications) {
-                    replaceNotification()
+                ToolbarItem(placement: .secondaryAction) {
+                    Button("button.delete", systemImage: "trash") {
+                        showDeleteAlert = true
+                    }
                 }
-                .presentationDragIndicator(.hidden)
-                .presentationDetents([.fraction(0.20)])
             }
         }
     }
     
+    private func checkIn() {
+        replaceNotification()
+        // Create new model check-in
+        let checkIn = CheckIn(date: .now, contact: contact)
+        modelContext.insert(checkIn)
+        // Change state in view
+        hasCheckedIn = true
+    }
     private func replaceNotification() {
         // Delete iOS scheduled notification
         if let nextNotification = contact.nextUpcomingNotification {
@@ -146,13 +160,15 @@ struct SingleContactView: View {
         )
         modelContext.insert(notification)
     }
-    private func checkIn() {
-        replaceNotification()
-        // Create new model check-in
-        let checkIn = CheckIn(date: .now, contact: contact)
-        modelContext.insert(checkIn)
-        // Change state in view
-        hasCheckedIn = true
+    private func deleteContact(_ contact: Contact) {
+        for notification in contact.notifications {
+            if let notificationID = notification.notificationID {
+                NotificationManager.shared.deleteNotification(identifier: notificationID)
+            }
+            modelContext.delete(notification)
+        }
+        modelContext.delete(contact)
+        dismiss()
     }
 }
 
