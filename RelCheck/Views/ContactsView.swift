@@ -116,7 +116,7 @@ struct ContactsView: View {
                                     Button("contacts.authorizationWarning.openSettings") {
                                         NotificationManager.shared.openSettings()
                                     }
-                                    .buttonStyle(.glassProminent)
+                                    .buttonStyle(AppButton())
                                 }
                             }
                         }

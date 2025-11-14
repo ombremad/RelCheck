@@ -69,7 +69,7 @@ struct SingleContactView: View {
                         Button("button.checkIn") {
                             checkIn()
                         }
-                        .buttonStyle(.glassProminent)
+                        .buttonStyle(AppButton())
                     }
                     .frame(minHeight: 200)
                 }

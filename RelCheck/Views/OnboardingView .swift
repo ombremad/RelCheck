@@ -49,7 +49,7 @@ struct OnboardingView: View {
                         Spacer()
                     }
                 }
-                .buttonStyle(.glassProminent)
+                .buttonStyle(AppButton())
                 .padding(.horizontal)
             }
             .padding()
