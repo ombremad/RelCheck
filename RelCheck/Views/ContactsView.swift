@@ -127,9 +127,9 @@ struct ContactsView: View {
                 .toolbar {
                     ToolbarItem(placement: .secondaryAction) {
                         NavigationLink {
-                            DebugView()
+                            AboutView()
                         } label: {
-                            Label("button.debug", systemImage: "ant")
+                            Label("button.about", systemImage: "person.fill.questionmark")
                         }
                     }
                     ToolbarItem(placement: .primaryAction) {
