@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct notifymeApp: App {
+struct RelCheckApp: App {
     var body: some Scene {
         WindowGroup {
             ContactsView()

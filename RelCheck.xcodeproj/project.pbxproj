@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		4394AA812EC4B46200167683 /* notifyme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notifyme.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4394AA812EC4B46200167683 /* RelCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4394AA832EC4B46200167683 /* notifyme */ = {
+		4394AA832EC4B46200167683 /* RelCheck */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = notifyme;
+			path = RelCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		4394AA782EC4B46200167683 = {
 			isa = PBXGroup;
 			children = (
-				4394AA832EC4B46200167683 /* notifyme */,
+				4394AA832EC4B46200167683 /* RelCheck */,
 				4394AA822EC4B46200167683 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		4394AA822EC4B46200167683 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4394AA812EC4B46200167683 /* notifyme.app */,
+				4394AA812EC4B46200167683 /* RelCheck.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4394AA802EC4B46200167683 /* notifyme */ = {
+		4394AA802EC4B46200167683 /* RelCheck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4394AAA22EC4B46300167683 /* Build configuration list for PBXNativeTarget "notifyme" */;
+			buildConfigurationList = 4394AAA22EC4B46300167683 /* Build configuration list for PBXNativeTarget "RelCheck" */;
 			buildPhases = (
 				4394AA7D2EC4B46200167683 /* Sources */,
 				4394AA7E2EC4B46200167683 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4394AA832EC4B46200167683 /* notifyme */,
+				4394AA832EC4B46200167683 /* RelCheck */,
 			);
-			name = notifyme;
+			name = RelCheck;
 			packageProductDependencies = (
 			);
 			productName = notifyme;
-			productReference = 4394AA812EC4B46200167683 /* notifyme.app */;
+			productReference = 4394AA812EC4B46200167683 /* RelCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4394AA7C2EC4B46200167683 /* Build configuration list for PBXProject "notifyme" */;
+			buildConfigurationList = 4394AA7C2EC4B46200167683 /* Build configuration list for PBXProject "RelCheck" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -100,7 +100,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4394AA802EC4B46200167683 /* notifyme */,
+				4394AA802EC4B46200167683 /* RelCheck */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +336,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4394AA7C2EC4B46200167683 /* Build configuration list for PBXProject "notifyme" */ = {
+		4394AA7C2EC4B46200167683 /* Build configuration list for PBXProject "RelCheck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4394AAA02EC4B46300167683 /* Debug */,
@@ -345,7 +345,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4394AAA22EC4B46300167683 /* Build configuration list for PBXNativeTarget "notifyme" */ = {
+		4394AAA22EC4B46300167683 /* Build configuration list for PBXNativeTarget "RelCheck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4394AAA32EC4B46300167683 /* Debug */,
