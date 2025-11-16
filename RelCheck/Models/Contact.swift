@@ -11,23 +11,25 @@ import SwiftData
 
 @Model
 class Contact {
-    var name: String
-    var daysBetweenNotifications: Int
-    var iconName: String
+    var name: String = ""
+    var daysBetweenNotifications: Int = 7
+    var iconName: String = AppIcon.personFill.rawValue
     
     @Relationship(deleteRule: .cascade, inverse: \Notification.contact)
-    var notifications: [Notification] = []
+    var notifications: [Notification]? = []
     
     @Relationship(deleteRule: .cascade, inverse: \CheckIn.contact)
-    var checkIns: [CheckIn] = []
+    var checkIns: [CheckIn]? = []
 
+    @Transient
     var nextUpcomingNotification: Notification? {
-        notifications
+        notifications?
             .filter { !$0.isCompleted && $0.date > Date() }
             .sorted { $0.date < $1.date }
             .first
     }
     
+    @Transient
     var icon: AppIcon {
         AppIcon(rawValue: iconName) ?? .personFill
     }

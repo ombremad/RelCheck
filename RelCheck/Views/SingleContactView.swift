@@ -89,11 +89,12 @@ struct SingleContactView: View {
                     Label("singleContact.nextCheckIn", systemImage: "calendar")
                 }
                 Section {
-                    if contact.checkIns.isEmpty {
+                    if contact.checkIns?.isEmpty == true {
                         Text("singleContact.noCheckInsYet \(contact.name)")
                             .font(.subheadline)
                     } else {
-                        ForEach(contact.checkIns.reversed()) { checkIn in
+                        
+                        ForEach(contact.checkIns?.reversed() ?? []) { checkIn in
                             Text(checkIn.dateFormatted)
                                 .font(.subheadline)
                         }
@@ -161,7 +162,7 @@ struct SingleContactView: View {
         modelContext.insert(notification)
     }
     private func deleteContact(_ contact: Contact) {
-        for notification in contact.notifications {
+        for notification in contact.notifications ?? [] {
             if let notificationID = notification.notificationID {
                 NotificationManager.shared.deleteNotification(identifier: notificationID)
             }

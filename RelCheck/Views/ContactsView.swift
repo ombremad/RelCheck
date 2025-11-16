@@ -151,7 +151,7 @@ struct ContactsView: View {
         }
     }
     private func deleteContact(_ contact: Contact) {
-        for notification in contact.notifications {
+        for notification in contact.notifications ?? [] {
             if let notificationID = notification.notificationID {
                 NotificationManager.shared.deleteNotification(identifier: notificationID)
             }

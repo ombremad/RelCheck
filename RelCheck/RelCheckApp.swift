@@ -15,6 +15,6 @@ struct RelCheckApp: App {
         WindowGroup {
             ContactsView()
         }
-        .modelContainer(for: [Contact.self, Notification.self])
+        .modelContainer(for: [CheckIn.self, Contact.self, Notification.self])
     }
 }
