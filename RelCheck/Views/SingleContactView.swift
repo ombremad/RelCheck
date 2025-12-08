@@ -9,6 +9,7 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct SingleContactView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext

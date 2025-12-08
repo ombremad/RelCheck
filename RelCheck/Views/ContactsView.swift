@@ -9,6 +9,7 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct ContactsView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @Environment(\.modelContext) private var modelContext
@@ -35,6 +36,7 @@ struct ContactsView: View {
     }
     
     @State private var permissionGranted = false
+    @State private var hasReconciledNotifications = false
     
     var body: some View {
         if hasSeenOnboarding {
@@ -140,16 +142,23 @@ struct ContactsView: View {
                         }
                     }
                 }
+                
                 .task {
                     NotificationManager.shared.requestPermission { granted in
                         permissionGranted = granted
                     }
+                    if !hasReconciledNotifications {
+                        NotificationManager.shared.reconcileNotifications(contacts: contacts)
+                        hasReconciledNotifications = true
+                    }
                 }
+                
             }
         } else {
             OnboardingView()
         }
     }
+    
     private func deleteContact(_ contact: Contact) {
         for notification in contact.notifications ?? [] {
             if let notificationID = notification.notificationID {
@@ -159,6 +168,7 @@ struct ContactsView: View {
         }
         modelContext.delete(contact)
     }
+
 }
 
 

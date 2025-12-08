@@ -9,6 +9,7 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct DebugView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
