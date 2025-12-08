@@ -77,6 +77,7 @@ struct ContactFormView: View {
             existingContact.name = name
             existingContact.daysBetweenNotifications = daysBetweenNotifications
             existingContact.iconName = selectedIcon.rawValue
+            try? modelContext.save()
         } else {
             // create a new contact
             let newContact = Contact(
@@ -85,6 +86,7 @@ struct ContactFormView: View {
                 icon: selectedIcon
             )
             modelContext.insert(newContact)
+            try? modelContext.save()
             // initialize the first notification
             createNotification(for: newContact)
         }
@@ -105,6 +107,7 @@ struct ContactFormView: View {
             timeInterval: nextDate.timeIntervalSinceNow
         )
         modelContext.insert(notification)
+        try? modelContext.save()
     }
 }
 

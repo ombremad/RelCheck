@@ -137,6 +137,7 @@ struct SingleContactView: View {
         // Create new model check-in
         let checkIn = CheckIn(date: .now, contact: contact)
         modelContext.insert(checkIn)
+        try? modelContext.save()
         // Change state in view
         hasCheckedIn = true
     }
@@ -161,6 +162,7 @@ struct SingleContactView: View {
             timeInterval: nextDate.timeIntervalSinceNow
         )
         modelContext.insert(notification)
+        try? modelContext.save()
     }
     private func deleteContact(_ contact: Contact) {
         for notification in contact.notifications ?? [] {
