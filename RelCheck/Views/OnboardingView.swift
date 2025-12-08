@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
-    
+    let onComplete: () -> Void
+
     var body: some View {
         TabView {
             OnboardingCard(
@@ -37,7 +37,7 @@ struct OnboardingView: View {
                     .fontWeight(.bold)
                 
                 Button(action: {
-                    hasSeenOnboarding = true
+                    onComplete()
                 }) {
                     HStack {
                         Spacer()
@@ -58,6 +58,6 @@ struct OnboardingView: View {
     }
 }
 
-#Preview {
-    OnboardingView()
-}
+//#Preview {
+//    OnboardingView()
+//}

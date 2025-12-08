@@ -561,6 +561,22 @@
         }
       }
     },
+    "error.contactNotFound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Contact not found"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur : Contact introuvable"
+          }
+        }
+      }
+    },
     "fastCheckIn.intro" : {
       "localizations" : {
         "en" : {

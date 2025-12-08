@@ -18,55 +18,53 @@ struct FastCheckInView: View {
     @State private var selectedContacts: [Contact] = []
     
     var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    Text("fastCheckIn.intro")
-                        .font(.callout)
-                }
-                
-                Section {
-                    ForEach(contacts) { contact in
-                        let isSelected = selectedContacts.contains(contact)
-                        
-                        HStack(spacing: 8) {
-                            Image(systemName: contact.iconName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundStyle(isSelected ? .white : .secondary)
-                                .frame(width: 28, height: 28)
-                            Text(contact.name)
-                                .font(.headline)
-                                .foregroundStyle(isSelected ? .white : .primary)
-                            Spacer()
-                        }
-                        .contentShape(Rectangle())
-                        .listRowBackground(isSelected ? Color.accentColor : nil)
-                        
-                        .onTapGesture {
-                            if selectedContacts.contains(contact) {
-                                withAnimation {
-                                    selectedContacts.removeAll(where: { $0 == contact })
-                                }
-                            } else {
-                                withAnimation {
-                                    selectedContacts.append(contact)
-                                }
+        List {
+            Section {
+                Text("fastCheckIn.intro")
+                    .font(.callout)
+            }
+            
+            Section {
+                ForEach(contacts) { contact in
+                    let isSelected = selectedContacts.contains(contact)
+                    
+                    HStack(spacing: 8) {
+                        Image(systemName: contact.iconName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundStyle(isSelected ? .white : .secondary)
+                            .frame(width: 28, height: 28)
+                        Text(contact.name)
+                            .font(.headline)
+                            .foregroundStyle(isSelected ? .white : .primary)
+                        Spacer()
+                    }
+                    .contentShape(Rectangle())
+                    .listRowBackground(isSelected ? Color.accentColor : nil)
+                    
+                    .onTapGesture {
+                        if selectedContacts.contains(contact) {
+                            withAnimation {
+                                selectedContacts.removeAll(where: { $0 == contact })
+                            }
+                        } else {
+                            withAnimation {
+                                selectedContacts.append(contact)
                             }
                         }
                     }
-                }                
+                }
             }
-            
-            .navigationTitle("fastCheckIn.title")
-            .navigationBarTitleDisplayMode(.inline)
-            
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("button.save", systemImage: "checkmark") {
-                        saveRecap()
-                        dismiss()
-                    }
+        }
+        
+        .navigationTitle("fastCheckIn.title")
+        .navigationBarTitleDisplayMode(.inline)
+        
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("button.save", systemImage: "checkmark") {
+                    saveRecap()
+                    dismiss()
                 }
             }
         }

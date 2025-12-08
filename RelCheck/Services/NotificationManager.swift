@@ -5,7 +5,6 @@
 //  Created by Anne Ferret on 12/11/2025.
 //
 
-
 import SwiftUI
 import UserNotifications
 
@@ -74,7 +73,7 @@ class NotificationManager {
             userInfo: ["action": "viewContact", "contactID": contactID],
             identifier: identifier
         )
-    }
+    }    
     
     // Schedule daily recap at 8pm
     func scheduleFastCheckInNotification(
@@ -91,7 +90,7 @@ class NotificationManager {
         // If 8pm today has already passed, schedule for 8pm tomorrow
         if targetDate <= now {
             targetDate = calendar.date(byAdding: .day, value: 1, to: targetDate)!
-        }
+    }
         
         return scheduleNotificationAtDate(
             title: title,

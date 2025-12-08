@@ -11,15 +11,18 @@ import SwiftData
 
 @main
 struct RelCheckApp: App {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @State private var navigator = AppNavigator()
+    private let notificationDelegate = NotificationDelegate()
+
+    init() {
+        UNUserNotificationCenter.current().delegate = notificationDelegate
+        notificationDelegate.navigator = navigator
+    }
     
     var body: some Scene {
         WindowGroup {
-            if hasSeenOnboarding {
-                ContactsView()
-            } else {
-                OnboardingView()
-            }
+            RootView()
+                .environment(navigator)
         }
         .modelContainer(for: [CheckIn.self, Contact.self, Notification.self, Settings.self])
     }
