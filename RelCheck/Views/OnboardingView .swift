@@ -37,9 +37,7 @@ struct OnboardingView: View {
                     .fontWeight(.bold)
                 
                 Button(action: {
-                    withAnimation {
-                        hasSeenOnboarding = true
-                    }
+                    hasSeenOnboarding = true
                 }) {
                     HStack {
                         Spacer()
