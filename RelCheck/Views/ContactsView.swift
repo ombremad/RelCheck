@@ -15,7 +15,8 @@ struct ContactsView: View {
     @Environment(\.modelContext) private var modelContext
     
     @Query(sort: \Contact.name) private var contacts: [Contact]
-    
+    @Query private var settings: [Settings]
+
     var sortedContacts: [Contact] {
         contacts.sorted { contact1, contact2 in
             let date1 = contact1.nextUpcomingNotification?.date
@@ -129,9 +130,23 @@ struct ContactsView: View {
                 .toolbar {
                     ToolbarItem(placement: .secondaryAction) {
                         NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Label("button.settings", systemImage: "gear")
+                        }
+                    }
+                    ToolbarItem(placement: .secondaryAction) {
+                        NavigationLink {
                             AboutView()
                         } label: {
                             Label("button.about", systemImage: "person.fill.questionmark")
+                        }
+                    }
+                    ToolbarItem(placement: .secondaryAction) {
+                        NavigationLink {
+                            DailyRecapView()
+                        } label: {
+                            Text("dailyRecap.title")
                         }
                     }
                     ToolbarItem(placement: .primaryAction) {
@@ -144,13 +159,22 @@ struct ContactsView: View {
                 }
                 
                 .task {
+                    // Check notifications permissions
                     NotificationManager.shared.requestPermission { granted in
                         permissionGranted = granted
                     }
+                    
+                    // Reconcile notifications
                     if !hasReconciledNotifications {
                         NotificationManager.shared.reconcileNotifications(contacts: contacts)
                         hasReconciledNotifications = true
                     }
+                    
+                    // Init settings if they don't exist
+                    if settings.isEmpty {
+                        let newSettings = Settings(dailyRecap: false)
+                            modelContext.insert(newSettings)
+                        }
                 }
                 
             }

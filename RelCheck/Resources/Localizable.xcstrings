@@ -241,6 +241,22 @@
         }
       }
     },
+    "button.settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
+          }
+        }
+      }
+    },
     "contacts.authorizationWarning.content" : {
       "localizations" : {
         "en" : {
@@ -413,6 +429,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contacts"
+          }
+        }
+      }
+    },
+    "dailyRecap.intro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select every contact you’ve talked to in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionne tous les contacts avec qui tu as parlé ces dernières 24 heures."
+          }
+        }
+      }
+    },
+    "dailyRecap.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily recap"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Récapitulatif quotidien"
           }
         }
       }
@@ -837,6 +885,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crée des souvenirs durables"
+          }
+        }
+      }
+    },
+    "settings.dailyRecap.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily recap"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Récapitulatif quotidien"
+          }
+        }
+      }
+    },
+    "settings.dailyRecap.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every day, receive a notification allowing you to fast check-in every contact you’ve talked with in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaque jour, reçois une notification permettant de cocher rapidement chaque contact avec qui tu as parlé dans les dernières 24 heures."
+          }
+        }
+      }
+    },
+    "settings.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
           }
         }
       }
