@@ -10,9 +10,9 @@ import SwiftData
 
 @Model
 class Settings {
-    var dailyRecap: Bool = false
+    var fastCheckIn: Bool = false
     
-    init(dailyRecap: Bool) {
-        self.dailyRecap = dailyRecap
+    init(fastCheckIn: Bool = false) {
+        self.fastCheckIn = fastCheckIn
     }
 }

@@ -12,7 +12,7 @@ import SwiftData
 @main
 struct RelCheckApp: App {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
-
+    
     var body: some Scene {
         WindowGroup {
             if hasSeenOnboarding {

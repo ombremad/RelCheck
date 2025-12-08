@@ -49,16 +49,6 @@ struct DebugView: View {
                 Text("debug.header.scheduledNotifications")
             }
             Section {
-                Button("debug.makeDemoNotification", systemImage: "app.badge") {
-                    let _ =  NotificationManager.shared.scheduleNotification(
-                        title: String(localized: "notification.reminder.title \(String("Dembo"))"),
-                        body: String(localized: "notification.reminder.body"),
-                        timeInterval: 10
-                    )
-                    hasMadeDemoNotification = true
-                }
-                .opacity(hasMadeDemoNotification ? 0.3 : 1)
-                .disabled(hasMadeDemoNotification)
                 Button("debug.seeOnboardingAgain", systemImage: "rectangle.stack") {
                     hasSeenOnboarding = false
                 }

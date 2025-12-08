@@ -11,13 +11,22 @@ import SwiftData
 
 @MainActor
 struct ContactsView: View {
-//    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @Environment(\.modelContext) private var modelContext
     
+    @Query private var settingsArray: [Settings]
     @Query(sort: \Contact.name) private var contacts: [Contact]
-    @Query private var settings: [Settings]
 
-    var sortedContacts: [Contact] {
+    // Computed properties
+    private var settings: Settings {
+        if let existing = settingsArray.first {
+            return existing
+        }
+        let newSettings = Settings()
+        modelContext.insert(newSettings)
+        return newSettings
+    }
+
+    private var sortedContacts: [Contact] {
         contacts.sorted { contact1, contact2 in
             let date1 = contact1.nextUpcomingNotification?.date
             let date2 = contact2.nextUpcomingNotification?.date
@@ -129,6 +138,13 @@ struct ContactsView: View {
                 .toolbar {
                     ToolbarItem(placement: .secondaryAction) {
                         NavigationLink {
+                            FastCheckInView()
+                        } label: {
+                            Label("fastCheckIn.title", systemImage: "person.fill.checkmark.and.xmark")
+                        }
+                    }
+                    ToolbarItem(placement: .secondaryAction) {
+                        NavigationLink {
                             SettingsView()
                         } label: {
                             Label("button.settings", systemImage: "gear")
@@ -138,14 +154,7 @@ struct ContactsView: View {
                         NavigationLink {
                             AboutView()
                         } label: {
-                            Label("button.about", systemImage: "person.fill.questionmark")
-                        }
-                    }
-                    ToolbarItem(placement: .secondaryAction) {
-                        NavigationLink {
-                            DailyRecapView()
-                        } label: {
-                            Text("dailyRecap.title")
+                            Label("button.about", systemImage: "questionmark.text.page")
                         }
                     }
                     ToolbarItem(placement: .primaryAction) {
@@ -166,14 +175,11 @@ struct ContactsView: View {
                     // Reconcile notifications
                     if !hasReconciledNotifications {
                         NotificationManager.shared.reconcileNotifications(contacts: contacts)
+                        if settings.fastCheckIn == true {
+                            let _ = NotificationManager.shared.scheduleFastCheckInNotification()
+                        }
                         hasReconciledNotifications = true
                     }
-                    
-                    // Init settings if they don't exist
-                    if settings.isEmpty {
-                        let newSettings = Settings(dailyRecap: false)
-                            modelContext.insert(newSettings)
-                        }
                 }
                 
         }

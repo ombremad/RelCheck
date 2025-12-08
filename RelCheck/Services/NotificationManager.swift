@@ -32,70 +32,74 @@ class NotificationManager {
             UIApplication.shared.open(url)
         }
     }
-        
-    // Schedule a local notification
-    func scheduleNotification(title: String, body: String, timeInterval: TimeInterval, identifier: String = UUID().uuidString) -> String {
-        // Create the notification content
+    
+    // Schedule contact notification at a time interval
+    func scheduleContactNotification(
+        title: String,
+        body: String,
+        timeInterval: TimeInterval,
+        contactID: String,
+        identifier: String = UUID().uuidString
+    ) -> String {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = .default
         
-        // Create a time-based trigger
+        content.userInfo = [
+            "contactID": contactID,
+            "action": "viewContact"
+        ]
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
-        // Create the request
-        let request = UNNotificationRequest(
-            identifier: identifier,
-            content: content,
-            trigger: trigger
-        )
+        UNUserNotificationCenter.current().add(request)
         
-        // Schedule the notification
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            } else {
-                print("Notification scheduled with identifier: \(identifier)")
-            }
-        }
-        
-        // Returns notification ID (as String)
         return identifier
     }
     
-    // Schedule a local notification at a specific date
-    func scheduleNotificationAtDate(title: String, body: String, date: Date, identifier: String = UUID().uuidString) -> String {
-        // Create the notification content
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = .default
-        
-        // Calculate time interval from now to the target date
-        let timeInterval = date.timeIntervalSinceNow
-        
-        // Create a time-based trigger (more reliable than calendar trigger for specific dates)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        
-        // Create the request
-        let request = UNNotificationRequest(
-            identifier: identifier,
-            content: content,
-            trigger: trigger
+    // Schedule contact notification at a specific date
+    func scheduleContactNotificationAtDate(
+        title: String,
+        body: String,
+        date: Date,
+        contactID: String,
+        identifier: String = UUID().uuidString
+    ) -> String {
+        scheduleNotificationAtDate(
+            title: title,
+            body: body,
+            date: date,
+            userInfo: ["action": "viewContact", "contactID": contactID],
+            identifier: identifier
         )
+    }
+    
+    // Schedule daily recap at 8pm
+    func scheduleFastCheckInNotification(
+        title: String = String(localized: "notification.fastCheckIn.title"),
+        body: String = String(localized: "notification.fastCheckIn.body"),
+        identifier: String = "fast-check-in"
+    ) -> String {
+        let now = Date()
+        let calendar = Calendar.current
         
-        // Schedule the notification
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            } else {
-                print("Notification scheduled for \(date) with identifier: \(identifier)")
-            }
+        // Try to get today at 8pm
+        var targetDate = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
+        
+        // If 8pm today has already passed, schedule for 8pm tomorrow
+        if targetDate <= now {
+            targetDate = calendar.date(byAdding: .day, value: 1, to: targetDate)!
         }
         
-        // Returns notification ID (as String)
-        return identifier
+        return scheduleNotificationAtDate(
+            title: title,
+            body: body,
+            date: targetDate,
+            userInfo: ["action": "viewFastCheckIn"],
+            identifier: identifier
+        )
     }
     
     // Get all pending notifications
@@ -135,11 +139,12 @@ class NotificationManager {
             let title = String(localized: "notification.reminder.title \(contact.name)")
             let body = String(localized: "notification.reminder.body")
             
-            // Schedule the notification using the exact date from the notification object
-            let identifier = scheduleNotificationAtDate(
+            // Schedule the contact notification using the exact date from the notification object
+            let identifier = scheduleContactNotificationAtDate(
                 title: title,
                 body: body,
                 date: nextNotification.date,
+                contactID: contact.id.debugDescription,
                 identifier: nextNotification.notificationID ?? UUID().uuidString
             )
             
@@ -148,7 +153,28 @@ class NotificationManager {
                 nextNotification.notificationID = identifier
             }
         }
-        
-        print("Reconciled notifications for \(contacts.count) contacts")
     }
+    
+    private func scheduleNotificationAtDate(
+        title: String,
+        body: String,
+        date: Date,
+        userInfo: [String: Any],
+        identifier: String
+    ) -> String {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        content.userInfo = userInfo
+        
+        let timeInterval = date.timeIntervalSinceNow
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+        
+        return identifier
+    }
+
 }

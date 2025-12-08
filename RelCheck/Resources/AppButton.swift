@@ -22,8 +22,8 @@ struct AppButton: ButtonStyle {
                 .foregroundStyle(.white)
                 .padding(.vertical, 6)
                 .padding(.horizontal, 16)
-                .background(.accent)
-                .clipShape(.capsule)
+                .background(Color.accentColor)
+                .clipShape(Capsule())
         }
     }
 }

@@ -433,38 +433,6 @@
         }
       }
     },
-    "dailyRecap.intro" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select every contact you’ve talked to in the last 24 hours."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélectionne tous les contacts avec qui tu as parlé ces dernières 24 heures."
-          }
-        }
-      }
-    },
-    "dailyRecap.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Daily recap"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Récapitulatif quotidien"
-          }
-        }
-      }
-    },
     "debug.deleteAllUserData" : {
       "localizations" : {
         "en" : {
@@ -529,22 +497,6 @@
         }
       }
     },
-    "debug.makeDemoNotification" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Make demo notification (15 sec.)"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Créer une notification de démo (15 sec.)"
-          }
-        }
-      }
-    },
     "debug.noScheduledNotification" : {
       "localizations" : {
         "en" : {
@@ -605,6 +557,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Édition du contact"
+          }
+        }
+      }
+    },
+    "fastCheckIn.intro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select every contact you’ve talked to in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionne toutes les personnes avec qui tu as pris contact ces dernières 24 heures."
+          }
+        }
+      }
+    },
+    "fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
           }
         }
       }
@@ -725,6 +709,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveau contact"
+          }
+        }
+      }
+    },
+    "notification.fastCheckIn.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time for your daily recap!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reviens sur tes dernières 24 heures !"
+          }
+        }
+      }
+    },
+    "notification.fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
           }
         }
       }
@@ -889,23 +905,23 @@
         }
       }
     },
-    "settings.dailyRecap.label" : {
+    "settings.fastCheckIn.label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Daily recap"
+            "value" : "Fast check-in"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Récapitulatif quotidien"
+            "value" : "Sélection rapide"
           }
         }
       }
     },
-    "settings.dailyRecap.subtitle" : {
+    "settings.fastCheckIn.subtitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -916,7 +932,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chaque jour, reçois une notification permettant de cocher rapidement chaque contact avec qui tu as parlé dans les dernières 24 heures."
+            "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
           }
         }
       }

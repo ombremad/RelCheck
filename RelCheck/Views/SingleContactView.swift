@@ -142,11 +142,13 @@ struct SingleContactView: View {
         hasCheckedIn = true
     }
     private func replaceNotification() {
+        
         // Delete iOS scheduled notification
         if let nextNotification = contact.nextUpcomingNotification {
             NotificationManager.shared.deleteNotification(identifier: nextNotification.notificationID!)
             modelContext.delete(nextNotification)
         }
+        
         // Create new iOS schedule notification
         guard let nextDate = Calendar.current.date(
             byAdding: DateComponents(day: contact.daysBetweenNotifications),
@@ -154,16 +156,19 @@ struct SingleContactView: View {
         ) else {
             return
         }
+        
         // Create new model notification
         let notification = Notification(date: nextDate, contact: contact)
-        notification.notificationID = NotificationManager.shared.scheduleNotification(
+        notification.notificationID = NotificationManager.shared.scheduleContactNotification(
             title: String(localized: "notification.reminder.title \(contact.name)"),
             body: String(localized: "notification.reminder.body"),
-            timeInterval: nextDate.timeIntervalSinceNow
+            timeInterval: nextDate.timeIntervalSinceNow,
+            contactID: contact.id.debugDescription
         )
         modelContext.insert(notification)
         try? modelContext.save()
     }
+    
     private func deleteContact(_ contact: Contact) {
         for notification in contact.notifications ?? [] {
             if let notificationID = notification.notificationID {

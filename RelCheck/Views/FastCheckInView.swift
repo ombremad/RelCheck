@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @MainActor
-struct DailyRecapView: View {
+struct FastCheckInView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     
@@ -21,7 +21,7 @@ struct DailyRecapView: View {
         NavigationStack {
             List {
                 Section {
-                    Text("dailyRecap.intro")
+                    Text("fastCheckIn.intro")
                         .font(.callout)
                 }
                 
@@ -58,7 +58,7 @@ struct DailyRecapView: View {
                 }                
             }
             
-            .navigationTitle("dailyRecap.title")
+            .navigationTitle("fastCheckIn.title")
             .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
@@ -89,10 +89,11 @@ struct DailyRecapView: View {
             }
 
             let notification = Notification(date: nextDate, contact: contact)
-            notification.notificationID = NotificationManager.shared.scheduleNotification(
+            notification.notificationID = NotificationManager.shared.scheduleContactNotification(
                 title: String(localized: "notification.reminder.title \(contact.name)"),
                 body: String(localized: "notification.reminder.body"),
-                timeInterval: nextDate.timeIntervalSinceNow
+                timeInterval: nextDate.timeIntervalSinceNow,
+                contactID: contact.id.debugDescription
             )
             modelContext.insert(notification)
 
@@ -108,5 +109,5 @@ struct DailyRecapView: View {
 }
 
 #Preview {
-    DailyRecapView()
+    FastCheckInView()
 }
