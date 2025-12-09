@@ -30,7 +30,6 @@ struct RootView: View {
                                     Text("error.contactNotFound")
                                 }
                         }
-                        
                     }
             }
         } else {

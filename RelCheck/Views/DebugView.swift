@@ -12,7 +12,7 @@ import SwiftData
 @MainActor
 struct DebugView: View {
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
     
     @State private var pendingNotifications: [UNNotificationRequest] = []
     
@@ -50,7 +50,7 @@ struct DebugView: View {
             }
             Section {
                 Button("debug.seeOnboardingAgain", systemImage: "rectangle.stack") {
-                    hasSeenOnboarding = false
+                    hasCompletedOnboarding = false
                 }
                 Button("debug.deleteAllUserData", systemImage: "trash") {
                     try? modelContext.delete(model: Contact.self)

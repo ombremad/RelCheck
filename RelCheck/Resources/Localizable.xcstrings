@@ -814,13 +814,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ready to revive your social bonds?"
+            "value" : "Welcome onboard!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prêt à nourrir tes liens ?"
+            "value" : "Bienvenue à bord !"
           }
         }
       }
@@ -830,13 +830,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Check-ins with your special ones help with your wellbeing and joy."
+            "value" : "Not everyone manages to stay in touch with their loved ones naturally. Some people just aren’t wired this way. That's where RelCheck come in."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prendre contact avec ceux qu’on aime renforce ton bien-être et ta joie de vivre."
+            "value" : "Tout le monde n’arrive pas à garder contact avec ses proches. Certain·es n’y arrivent pas naturellement. C’est là que RelCheck vient à la rescousse."
           }
         }
       }
@@ -846,13 +846,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stay close to your relatives"
+            "value" : "Here to help"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reste proche de tes proches"
+            "value" : "Là pour aider"
           }
         }
       }
@@ -862,13 +862,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A simple notification reminds you to stay connected, one step at a time."
+            "value" : "First, add a person into the app, and define how often you want to be reminded to contact them again."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une notification douce te rappellera de créer du lien, un pas à la fois."
+            "value" : "D’abord, ajoute une personne dans l’app, et choisis à quelle fréquence tu veux être rappelé·e de reprendre contact."
           }
         }
       }
@@ -878,13 +878,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A tiny regular gesture"
+            "value" : "Add a new contact"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Un petit geste chaque semaine"
+            "value" : "Ajoute un nouveau contact"
           }
         }
       }
@@ -894,13 +894,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share a simple text, a phone call, a photo… and keep the bond alive!"
+            "value" : "You get a notification when it’s time to get back in touch with someone."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partage un message, un appel ou un sourire. Les liens sincères font grandir ton cœur."
+            "value" : "Tu reçois une notification quand il est temps de renouer le contact avec quelqu’un."
           }
         }
       }
@@ -910,13 +910,77 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Create worthy memories"
+            "value" : "Notifications"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Crée des souvenirs durables"
+            "value" : "Notifications"
+          }
+        }
+      }
+    },
+    "onboardingCard.04.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Talk to someone the way you want (call, text…), and simply check-in in the app. You can check-in when it’s time by tapping the notification, or early directly in the app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parle à quelqu’un de la manière de ton choix (appel, SMS…), et indique à l’app une prise de contact. Tu peux le faire à l’échéance en cliquant sur la notification, ou à tout moment dans l’app."
+          }
+        }
+      }
+    },
+    "onboardingCard.04.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prise de contact"
+          }
+        }
+      }
+    },
+    "onboardingCard.05.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can also toggle the “fast check-in\" in Settings. Every day, you’ll get a notification to select quickly, of all your contacts, the ones you’ve made contact with today."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu peux aussi activer la sélection rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
+          }
+        }
+      }
+    },
+    "onboardingCard.05.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
           }
         }
       }
