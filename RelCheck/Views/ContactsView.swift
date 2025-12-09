@@ -107,6 +107,10 @@ struct ContactsView: View {
                             Label("button.delete", systemImage: "trash")
                         }
                     }
+//                    Button("DEBUG NOTIFICATION") {
+//                        NotificationManager.shared.scheduleDebugContactNotification(contact: contact)
+//                    }
+//                        .font(.caption)
                 }
             }
             if permissionGranted == false {

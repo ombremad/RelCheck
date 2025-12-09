@@ -34,19 +34,17 @@ class NotificationManager {
     
     // Schedule contact notification at a time interval
     func scheduleContactNotification(
-        title: String,
-        body: String,
         timeInterval: TimeInterval,
-        contactID: String,
+        contact: Contact,
         identifier: String = UUID().uuidString
     ) -> String {
         let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
+        content.title = String(localized: "notification.reminder.title \(contact.name)")
+        content.body = String(localized: "notification.reminder.body")
         content.sound = .default
         
         content.userInfo = [
-            "contactID": contactID,
+            "contactID": contact.id.uuidString,
             "action": "viewContact"
         ]
         
@@ -60,39 +58,36 @@ class NotificationManager {
     
     // Schedule contact notification at a specific date
     func scheduleContactNotificationAtDate(
-        title: String,
-        body: String,
         date: Date,
-        contactID: String,
+        contact: Contact,
         identifier: String = UUID().uuidString
     ) -> String {
         scheduleNotificationAtDate(
-            title: title,
-            body: body,
+            title: String(localized: "notification.reminder.title \(contact.name)"),
+            body: String(localized: "notification.reminder.body"),
             date: date,
-            userInfo: ["action": "viewContact", "contactID": contactID],
+            userInfo: ["action": "viewContact", "contactID": contact.id.uuidString],
             identifier: identifier
         )
     }    
     
     // Schedule daily recap at 8pm
-    func scheduleFastCheckInNotification(
-        title: String = String(localized: "notification.fastCheckIn.title"),
-        body: String = String(localized: "notification.fastCheckIn.body"),
-        identifier: String = "fast-check-in"
-    ) -> String {
-        let now = Date()
-        let calendar = Calendar.current
+    func scheduleFastCheckInNotification() {
+        let title = String(localized: "notification.fastCheckIn.title")
+        let body = String(localized: "notification.fastCheckIn.body")
+        let identifier = "fast-check-in"
         
         // Try to get today at 8pm
+        let now = Date()
+        let calendar = Calendar.current
         var targetDate = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
         
         // If 8pm today has already passed, schedule for 8pm tomorrow
         if targetDate <= now {
             targetDate = calendar.date(byAdding: .day, value: 1, to: targetDate)!
-    }
+        }
         
-        return scheduleNotificationAtDate(
+        let _ = scheduleNotificationAtDate(
             title: title,
             body: body,
             date: targetDate,
@@ -135,15 +130,10 @@ class NotificationManager {
                 continue
             }
             
-            let title = String(localized: "notification.reminder.title \(contact.name)")
-            let body = String(localized: "notification.reminder.body")
-            
             // Schedule the contact notification using the exact date from the notification object
             let identifier = scheduleContactNotificationAtDate(
-                title: title,
-                body: body,
                 date: nextNotification.date,
-                contactID: contact.id.debugDescription,
+                contact: contact,
                 identifier: nextNotification.notificationID ?? UUID().uuidString
             )
             
@@ -175,5 +165,17 @@ class NotificationManager {
         
         return identifier
     }
+    
+    
+    // DEBUG
+//    func scheduleDebugContactNotification(contact: Contact) {
+//        let _ = scheduleNotificationAtDate(
+//            title: String(localized: "notification.reminder.title \(contact.name)"),
+//            body: String(localized: "notification.reminder.body"),
+//            date: Date.now.addingTimeInterval(10),
+//            userInfo: ["action": "viewContact", "contactID": contact.id.uuidString],
+//            identifier: "debug-notification"
+//        )
+//    }
 
 }

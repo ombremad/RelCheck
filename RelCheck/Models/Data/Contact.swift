@@ -11,6 +11,7 @@ import SwiftData
 
 @Model
 class Contact {
+    var id: UUID = UUID()
     var name: String = ""
     var daysBetweenNotifications: Int = 7
     var iconName: String = AppIcon.personFill.rawValue
@@ -35,6 +36,7 @@ class Contact {
     }
 
     init(name: String, daysBetweenNotifications: Int, icon: AppIcon = .personFill) {
+        self.id = UUID()
         self.name = name
         self.daysBetweenNotifications = daysBetweenNotifications
         self.iconName = icon.rawValue
