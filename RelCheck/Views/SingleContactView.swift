@@ -158,10 +158,8 @@ struct SingleContactView: View {
         // Create new model notification
         let notification = Notification(date: nextDate, contact: contact)
         notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-            title: String(localized: "notification.reminder.title \(contact.name)"),
-            body: String(localized: "notification.reminder.body"),
             timeInterval: nextDate.timeIntervalSinceNow,
-            contactID: contact.id.debugDescription
+            contact: contact
         )
         modelContext.insert(notification)
         try? modelContext.save()

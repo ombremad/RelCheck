@@ -41,10 +41,11 @@ struct RootView: View {
     
     @MainActor
     private func fetchContactByID(_ idString: String) -> Contact? {
-        let descriptor = FetchDescriptor<Contact>()
-        guard let contacts = try? modelContext.fetch(descriptor) else {
-            return nil
-        }
-        return contacts.first { $0.id.debugDescription == idString }
+        guard let uuid = UUID(uuidString: idString) else { return nil }
+        
+        let descriptor = FetchDescriptor<Contact>(
+            predicate: #Predicate { $0.id == uuid }
+        )
+        return try? modelContext.fetch(descriptor).first
     }
 }
