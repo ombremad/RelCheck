@@ -7,24 +7,34 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
-    
+    let onComplete: () -> Void
+
     var body: some View {
         TabView {
             OnboardingCard(
                 title: String(localized: "onboardingCard.01.title"),
                 message: String(localized: "onboardingCard.01.message"),
-                imageName: "person.2.fill"
+                imageName: "person.line.dotted.person.fill"
             )
             OnboardingCard(
                 title: String(localized: "onboardingCard.02.title"),
                 message: String(localized: "onboardingCard.02.message"),
-                imageName: "bell.badge.fill"
+                imageName: "person.fill.badge.plus"
             )
             OnboardingCard(
                 title: String(localized: "onboardingCard.03.title"),
                 message: String(localized: "onboardingCard.03.message"),
-                imageName: "heart.circle.fill"
+                imageName: "bell.badge.fill"
+            )
+            OnboardingCard(
+                title: String(localized: "onboardingCard.04.title"),
+                message: String(localized: "onboardingCard.04.message"),
+                imageName: "checkmark.message.fill"
+            )
+            OnboardingCard(
+                title: String(localized: "onboardingCard.05.title"),
+                message: String(localized: "onboardingCard.05.message"),
+                imageName: "hare.fill"
             )
             
             VStack(spacing: 20) {
@@ -37,9 +47,7 @@ struct OnboardingView: View {
                     .fontWeight(.bold)
                 
                 Button(action: {
-                    withAnimation {
-                        hasSeenOnboarding = true
-                    }
+                    onComplete()
                 }) {
                     HStack {
                         Spacer()
@@ -60,6 +68,6 @@ struct OnboardingView: View {
     }
 }
 
-#Preview {
-    OnboardingView()
-}
+//#Preview {
+//    OnboardingView()
+//}

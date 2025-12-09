@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct ContactFormView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
@@ -34,38 +35,36 @@ struct ContactFormView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            Form {
-                Section("newContact.header.contactInformation") {
-                    TextField("newContact.inputField.name", text: $name)
-                }
-                Section("newContact.header.contactIcon") {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
-                        ForEach(AppIcon.allCases, id: \.self) { icon in
-                            icon.image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundStyle(selectedIcon == icon ? .accent : .primary)
-                                .frame(width: 36, height: 36)
-                                .onTapGesture {
-                                    selectedIcon = icon
-                                }
-                        }
+        Form {
+            Section("newContact.header.contactInformation") {
+                TextField("newContact.inputField.name", text: $name)
+            }
+            Section("newContact.header.contactIcon") {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
+                    ForEach(AppIcon.allCases, id: \.self) { icon in
+                        icon.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundStyle(selectedIcon == icon ? .accent : .primary)
+                            .frame(width: 36, height: 36)
+                            .onTapGesture {
+                                selectedIcon = icon
+                            }
                     }
-                }
-                Section("newContact.header.notificationSetting") {
-                    Stepper("newContact.stepper.everyXDays \(daysBetweenNotifications)", value: $daysBetweenNotifications, in: 1...60)
                 }
             }
-            .navigationTitle(isEditing ? "editContact.title" : "newContact.title")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("button.save", systemImage: "checkmark") {
-                        saveContact()
-                    }
-                    .disabled(!isContactValid)
+            Section("newContact.header.notificationSetting") {
+                Stepper("newContact.stepper.everyXDays \(daysBetweenNotifications)", value: $daysBetweenNotifications, in: 1...60)
+            }
+        }
+        .navigationTitle(isEditing ? "editContact.title" : "newContact.title")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("button.save", systemImage: "checkmark") {
+                    saveContact()
                 }
+                .disabled(!isContactValid)
             }
         }
     }
@@ -76,6 +75,7 @@ struct ContactFormView: View {
             existingContact.name = name
             existingContact.daysBetweenNotifications = daysBetweenNotifications
             existingContact.iconName = selectedIcon.rawValue
+            try? modelContext.save()
         } else {
             // create a new contact
             let newContact = Contact(
@@ -84,6 +84,7 @@ struct ContactFormView: View {
                 icon: selectedIcon
             )
             modelContext.insert(newContact)
+            try? modelContext.save()
             // initialize the first notification
             createNotification(for: newContact)
         }
@@ -98,12 +99,14 @@ struct ContactFormView: View {
             return
         }
         let notification = Notification(date: nextDate, contact: contact)
-        notification.notificationID = NotificationManager.shared.scheduleNotification(
+        notification.notificationID = NotificationManager.shared.scheduleContactNotification(
             title: String(localized: "notification.reminder.title \(contact.name)"),
             body: String(localized: "notification.reminder.body"),
-            timeInterval: nextDate.timeIntervalSinceNow
+            timeInterval: nextDate.timeIntervalSinceNow,
+            contactID: contact.id.debugDescription
         )
         modelContext.insert(notification)
+        try? modelContext.save()
     }
 }
 

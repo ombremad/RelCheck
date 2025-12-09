@@ -241,6 +241,22 @@
         }
       }
     },
+    "button.settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
+          }
+        }
+      }
+    },
     "contacts.authorizationWarning.content" : {
       "localizations" : {
         "en" : {
@@ -481,22 +497,6 @@
         }
       }
     },
-    "debug.makeDemoNotification" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Make demo notification (15 sec.)"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Créer une notification de démo (15 sec.)"
-          }
-        }
-      }
-    },
     "debug.noScheduledNotification" : {
       "localizations" : {
         "en" : {
@@ -557,6 +557,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Édition du contact"
+          }
+        }
+      }
+    },
+    "error.contactNotFound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Contact not found"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur : Contact introuvable"
+          }
+        }
+      }
+    },
+    "fastCheckIn.intro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select every contact you’ve talked to in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionne toutes les personnes avec qui tu as pris contact ces dernières 24 heures."
+          }
+        }
+      }
+    },
+    "fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
           }
         }
       }
@@ -681,6 +729,38 @@
         }
       }
     },
+    "notification.fastCheckIn.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time for your daily recap!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reviens sur tes dernières 24 heures !"
+          }
+        }
+      }
+    },
+    "notification.fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
+          }
+        }
+      }
+    },
     "notification.reminder.body" : {
       "localizations" : {
         "en" : {
@@ -734,13 +814,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ready to revive your social bonds?"
+            "value" : "Welcome onboard!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prêt à nourrir tes liens ?"
+            "value" : "Bienvenue à bord !"
           }
         }
       }
@@ -750,13 +830,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Check-ins with your special ones help with your wellbeing and joy."
+            "value" : "Not everyone manages to stay in touch with their loved ones naturally. Some people just aren’t wired this way. That's where RelCheck come in."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prendre contact avec ceux qu’on aime renforce ton bien-être et ta joie de vivre."
+            "value" : "Tout le monde n’arrive pas à garder contact avec ses proches. Certain·es n’y arrivent pas naturellement. C’est là que RelCheck vient à la rescousse."
           }
         }
       }
@@ -766,13 +846,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stay close to your relatives"
+            "value" : "Here to help"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reste proche de tes proches"
+            "value" : "Là pour aider"
           }
         }
       }
@@ -782,13 +862,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A simple notification reminds you to stay connected, one step at a time."
+            "value" : "First, add a person into the app, and define how often you want to be reminded to contact them again."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une notification douce te rappellera de créer du lien, un pas à la fois."
+            "value" : "D’abord, ajoute une personne dans l’app, et choisis à quelle fréquence tu veux être rappelé·e de reprendre contact."
           }
         }
       }
@@ -798,13 +878,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A tiny regular gesture"
+            "value" : "Add a new contact"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Un petit geste chaque semaine"
+            "value" : "Ajoute un nouveau contact"
           }
         }
       }
@@ -814,13 +894,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share a simple text, a phone call, a photo… and keep the bond alive!"
+            "value" : "You get a notification when it’s time to get back in touch with someone."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partage un message, un appel ou un sourire. Les liens sincères font grandir ton cœur."
+            "value" : "Tu reçois une notification quand il est temps de renouer le contact avec quelqu’un."
           }
         }
       }
@@ -830,13 +910,125 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Create worthy memories"
+            "value" : "Notifications"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Crée des souvenirs durables"
+            "value" : "Notifications"
+          }
+        }
+      }
+    },
+    "onboardingCard.04.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Talk to someone the way you want (call, text…), and simply check-in in the app. You can check-in when it’s time by tapping the notification, or early directly in the app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parle à quelqu’un de la manière de ton choix (appel, SMS…), et indique à l’app une prise de contact. Tu peux le faire à l’échéance en cliquant sur la notification, ou à tout moment dans l’app."
+          }
+        }
+      }
+    },
+    "onboardingCard.04.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prise de contact"
+          }
+        }
+      }
+    },
+    "onboardingCard.05.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can also toggle the “fast check-in\" in Settings. Every day, you’ll get a notification to select quickly, of all your contacts, the ones you’ve made contact with today."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu peux aussi activer la sélection rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
+          }
+        }
+      }
+    },
+    "onboardingCard.05.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
+          }
+        }
+      }
+    },
+    "settings.fastCheckIn.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
+          }
+        }
+      }
+    },
+    "settings.fastCheckIn.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every day, receive a notification allowing you to fast check-in every contact you’ve talked with in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
+          }
+        }
+      }
+    },
+    "settings.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
           }
         }
       }

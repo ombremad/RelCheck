@@ -9,13 +9,24 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct ContactsView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @Environment(\.modelContext) private var modelContext
     
+    @Query private var settingsArray: [Settings]
     @Query(sort: \Contact.name) private var contacts: [Contact]
-    
-    var sortedContacts: [Contact] {
+
+    // Computed properties
+    private var settings: Settings {
+        if let existing = settingsArray.first {
+            return existing
+        }
+        let newSettings = Settings()
+        modelContext.insert(newSettings)
+        return newSettings
+    }
+
+    private var sortedContacts: [Contact] {
         contacts.sorted { contact1, contact2 in
             let date1 = contact1.nextUpcomingNotification?.date
             let date2 = contact2.nextUpcomingNotification?.date
@@ -35,121 +46,144 @@ struct ContactsView: View {
     }
     
     @State private var permissionGranted = false
+    @State private var hasReconciledNotifications = false
     
     var body: some View {
-        if hasSeenOnboarding {
-            NavigationStack {
-                List {
-                    if contacts.isEmpty {
-                        VStack(alignment: .center, spacing: 16) {
-                            Image(systemName: "questionmark.app.fill")
+        List {
+            if contacts.isEmpty {
+                VStack(alignment: .center, spacing: 16) {
+                    Image(systemName: "questionmark.app.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(LinearGradient.primary)
+                        .frame(maxWidth: 55)
+                    HStack {
+                        Spacer()
+                        Text("contacts.contactListIsEmpty")
+                        Spacer()
+                    }
+                }
+                .frame(minHeight: 200)
+            } else {
+                ForEach(sortedContacts) { contact in
+                    NavigationLink {
+                        SingleContactView(contact: contact)
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: contact.iconName)
                                 .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(LinearGradient.primary)
-                                .frame(maxWidth: 55)
-                            HStack {
-                                Spacer()
-                                Text("contacts.contactListIsEmpty")
-                                Spacer()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundStyle(.secondary)
+                                .frame(width: 28, height: 28)
+                            VStack(alignment: .leading) {
+                                Text(contact.name)
+                                    .font(.headline)
+                                Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
+                                    .font(.caption)
+                                    .foregroundStyle(.tertiary)
                             }
-                        }
-                        .frame(minHeight: 200)
-                    } else {
-                        ForEach(sortedContacts) { contact in
-                            NavigationLink {
-                                SingleContactView(contact: contact)
-                            } label: {
-                                HStack(spacing: 8) {
-                                    Image(systemName: contact.iconName)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .foregroundStyle(.secondary)
-                                        .frame(width: 28, height: 28)
-                                    VStack(alignment: .leading) {
-                                        Text(contact.name)
-                                            .font(.headline)
-                                        Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                            .font(.caption)
-                                            .foregroundStyle(.tertiary)
-                                    }
-                                    Spacer()
-                                    if let nextNotification = contact.nextUpcomingNotification {
-                                        Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
-                                            .font(.caption2.bold())
-                                            .padding(8)
-                                            .foregroundStyle(.white)
-                                            .background(LinearGradient.primary)
-                                            .cornerRadius(12)
-                                    } else {
-                                        Text("contacts.nextCheckInOverdue")
-                                            .font(.caption2.bold())
-                                            .padding(8)
-                                            .foregroundStyle(.white)
-                                            .background(LinearGradient.destructive)
-                                            .cornerRadius(12)
-                                    }
-                                }
-                            }
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    deleteContact(contact)
-                                } label: {
-                                    Label("button.delete", systemImage: "trash")
-                                }
+                            Spacer()
+                            if let nextNotification = contact.nextUpcomingNotification {
+                                Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
+                                    .font(.caption2.bold())
+                                    .padding(8)
+                                    .foregroundStyle(.white)
+                                    .background(LinearGradient.primary)
+                                    .cornerRadius(12)
+                            } else {
+                                Text("contacts.nextCheckInOverdue")
+                                    .font(.caption2.bold())
+                                    .padding(8)
+                                    .foregroundStyle(.white)
+                                    .background(LinearGradient.destructive)
+                                    .cornerRadius(12)
                             }
                         }
                     }
-                    if permissionGranted == false {
-                        Section {
-                            HStack(alignment: .top, spacing: 12) {
-                                Image(systemName: "exclamationmark.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 38)
-                                    .foregroundStyle(.black)
-                                VStack(alignment: .leading) {
-                                    Text("contacts.authorizationWarning.title")
-                                        .font(.headline)
-                                    Text("contacts.authorizationWarning.content")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.black)
-                                    Button("contacts.authorizationWarning.openSettings") {
-                                        NotificationManager.shared.openSettings()
-                                    }
-                                    .buttonStyle(AppButton())
-                                }
-                            }
-                        }
-                        .listRowBackground(Color.yellow)
-                    }
-                }
-                .navigationTitle("contacts.title")
-                .toolbar {
-                    ToolbarItem(placement: .secondaryAction) {
-                        NavigationLink {
-                            AboutView()
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            deleteContact(contact)
                         } label: {
-                            Label("button.about", systemImage: "person.fill.questionmark")
+                            Label("button.delete", systemImage: "trash")
                         }
-                    }
-                    ToolbarItem(placement: .primaryAction) {
-                        NavigationLink {
-                            ContactFormView()
-                        } label: {
-                            Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
-                        }
-                    }
-                }
-                .task {
-                    NotificationManager.shared.requestPermission { granted in
-                        permissionGranted = granted
                     }
                 }
             }
-        } else {
-            OnboardingView()
+            if permissionGranted == false {
+                Section {
+                    HStack(alignment: .top, spacing: 12) {
+                        Image(systemName: "exclamationmark.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 38)
+                            .foregroundStyle(.black)
+                        VStack(alignment: .leading) {
+                            Text("contacts.authorizationWarning.title")
+                                .font(.headline)
+                            Text("contacts.authorizationWarning.content")
+                                .font(.subheadline)
+                                .foregroundStyle(.black)
+                            Button("contacts.authorizationWarning.openSettings") {
+                                NotificationManager.shared.openSettings()
+                            }
+                            .buttonStyle(AppButton())
+                        }
+                    }
+                }
+                .listRowBackground(Color.yellow)
+            }
+        }
+        
+        .navigationTitle("contacts.title")
+        
+        .toolbar {
+            ToolbarItem(placement: .secondaryAction) {
+                NavigationLink {
+                    FastCheckInView()
+                } label: {
+                    Label("fastCheckIn.title", systemImage: "person.fill.checkmark.and.xmark")
+                }
+            }
+            ToolbarItem(placement: .secondaryAction) {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Label("button.settings", systemImage: "gear")
+                }
+            }
+            ToolbarItem(placement: .secondaryAction) {
+                NavigationLink {
+                    AboutView()
+                } label: {
+                    Label("button.about", systemImage: "questionmark.text.page")
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink {
+                    ContactFormView()
+                } label: {
+                    Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
+                }
+            }
+        }
+        
+        .task {
+            // Check notifications permissions
+            NotificationManager.shared.requestPermission { granted in
+                permissionGranted = granted
+            }
+            
+            // Reconcile notifications
+            if !hasReconciledNotifications {
+                NotificationManager.shared.reconcileNotifications(contacts: contacts)
+                if settings.fastCheckIn == true {
+                    let _ = NotificationManager.shared.scheduleFastCheckInNotification()
+                }
+                hasReconciledNotifications = true
+            }
         }
     }
+    
     private func deleteContact(_ contact: Contact) {
         for notification in contact.notifications ?? [] {
             if let notificationID = notification.notificationID {
@@ -159,6 +193,7 @@ struct ContactsView: View {
         }
         modelContext.delete(contact)
     }
+
 }
 
 

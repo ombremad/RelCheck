@@ -9,9 +9,10 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct DebugView: View {
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
     
     @State private var pendingNotifications: [UNNotificationRequest] = []
     
@@ -48,18 +49,8 @@ struct DebugView: View {
                 Text("debug.header.scheduledNotifications")
             }
             Section {
-                Button("debug.makeDemoNotification", systemImage: "app.badge") {
-                    let _ =  NotificationManager.shared.scheduleNotification(
-                        title: String(localized: "notification.reminder.title \(String("Dembo"))"),
-                        body: String(localized: "notification.reminder.body"),
-                        timeInterval: 10
-                    )
-                    hasMadeDemoNotification = true
-                }
-                .opacity(hasMadeDemoNotification ? 0.3 : 1)
-                .disabled(hasMadeDemoNotification)
                 Button("debug.seeOnboardingAgain", systemImage: "rectangle.stack") {
-                    hasSeenOnboarding = false
+                    hasCompletedOnboarding = false
                 }
                 Button("debug.deleteAllUserData", systemImage: "trash") {
                     try? modelContext.delete(model: Contact.self)

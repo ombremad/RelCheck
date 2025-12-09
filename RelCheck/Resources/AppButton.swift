@@ -15,14 +15,15 @@ struct AppButton: ButtonStyle {
                 .foregroundStyle(.white)
                 .padding(.vertical, 6)
                 .padding(.horizontal, 16)
+                .contentShape(Capsule())
                 .glassEffect(.regular.tint(.accent).interactive())
         } else {
             configuration.label
                 .foregroundStyle(.white)
                 .padding(.vertical, 6)
                 .padding(.horizontal, 16)
-                .background(.accent)
-                .clipShape(.capsule)
+                .background(Color.accentColor)
+                .clipShape(Capsule())
         }
     }
 }
