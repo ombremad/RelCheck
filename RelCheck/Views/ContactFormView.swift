@@ -15,17 +15,21 @@ struct ContactFormView: View {
     
     private let contactToEdit: Contact?
     
+    // Form values
     @State private var name: String
     @State private var daysBetweenNotifications: Int
     @State private var selectedIcon: AppIcon
     
+    // Computed properties
     private var isEditing: Bool {
         contactToEdit != nil
     }
-    
     private var isContactValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty
     }
+    
+    // UX values
+    @State private var showEditAlert: Bool = false
     
     init(contact: Contact? = nil) {
         self.contactToEdit = contact
@@ -67,15 +71,41 @@ struct ContactFormView: View {
                 .disabled(!isContactValid)
             }
         }
+        
+        .alert("editContact.changedDays.title", isPresented: $showEditAlert) {
+            if let existingContact = contactToEdit {
+                if let nextPlannedCheckIn = existingContact.nextUpcomingNotification?.dateFormatted {
+                    Button("button.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
+                        dismiss()
+                    }
+                    Button("button.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
+                        createNotification(for: existingContact)
+                        dismiss()
+                    }
+                }
+            }
+        } message: {
+            Text("editContact.changedDays.message")
+        }
     }
     
+    // Functions
     private func saveContact() {
         if let existingContact = contactToEdit {
             // edit an existing contact
+            var daysChanged: Bool = false
+            if existingContact.daysBetweenNotifications != daysBetweenNotifications {
+                daysChanged = true
+            }
             existingContact.name = name
             existingContact.daysBetweenNotifications = daysBetweenNotifications
             existingContact.iconName = selectedIcon.rawValue
             try? modelContext.save()
+            if daysChanged {
+                showEditAlert = true
+            } else {
+                dismiss()
+            }
         } else {
             // create a new contact
             let newContact = Contact(
@@ -87,11 +117,17 @@ struct ContactFormView: View {
             try? modelContext.save()
             // initialize the first notification
             createNotification(for: newContact)
+            dismiss()
         }
-        dismiss()
     }
     
     private func createNotification(for contact: Contact) {
+        for notification in contact.notifications ?? [] {
+            if let notificationID = notification.notificationID {
+                NotificationManager.shared.deleteNotification(identifier: notificationID)
+            }
+            modelContext.delete(notification)
+        }
         guard let nextDate = Calendar.current.date(
             byAdding: DateComponents(day: contact.daysBetweenNotifications),
             to: .now

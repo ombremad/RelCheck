@@ -177,6 +177,62 @@
         }
       }
     },
+    "button.changedDays.changeCheckIn %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be tomorrow"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be in %lld days"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact demain"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact dans %lld jours"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "button.changedDays.keepCurrentCheckIn %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep next check-in on %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder la prochaine prise de contact le %@"
+          }
+        }
+      }
+    },
     "button.checkIn" : {
       "localizations" : {
         "en" : {
@@ -541,6 +597,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Menu de debug"
+          }
+        }
+      }
+    },
+    "editContact.changedDays.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days between notifications have been changed for this contact. Do you want to apply this setting right now or wait until after your next planned check-in?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’intervalle de jours entre les notifications a été changé. Veux-tu appliquer ce changement dès maintenant ou après la prochaine prise de contact ?"
+          }
+        }
+      }
+    },
+    "editContact.changedDays.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reschedule next check-in?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replanifier la prochaine prise de contact ?"
           }
         }
       }
