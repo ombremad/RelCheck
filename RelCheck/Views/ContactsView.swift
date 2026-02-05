@@ -31,16 +31,15 @@ struct ContactsView: View {
             let date1 = contact1.nextUpcomingNotification?.date
             let date2 = contact2.nextUpcomingNotification?.date
             
-            // Contacts without notifications come first
             switch (date1, date2) {
             case (nil, nil):
-                return contact1.name < contact2.name // Sort by name if both nil
+                return contact1.name < contact2.name
             case (nil, _):
-                return true  // contact1 has no notification, comes first
+                return true
             case (_, nil):
-                return false // contact2 has no notification, comes first
+                return false
             case (let d1?, let d2?):
-                return d1 < d2 // Both have notifications, sort by date
+                return d1 < d2
             }
         }
     }
@@ -107,10 +106,6 @@ struct ContactsView: View {
                             Label("button.delete", systemImage: "trash")
                         }
                     }
-//                    Button("DEBUG NOTIFICATION") {
-//                        NotificationManager.shared.scheduleDebugContactNotification(contact: contact)
-//                    }
-//                        .font(.caption)
                 }
             }
             if permissionGranted == false {

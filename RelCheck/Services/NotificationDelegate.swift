@@ -8,7 +8,7 @@
 import UserNotifications
 
 class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
-    var navigator: AppNavigator?  // ← Store reference
+    var navigator: AppNavigator?
     
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
