@@ -35,12 +35,9 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
                 navigator?.navigate(to: .fastCheckIn)
             case "viewContact":
                 if let contactID = userInfo["contactID"] as? String {
-                    print("🔗 Navigating to contact: \(contactID)")
                     navigator?.navigate(to: .singleContact(id: contactID))
                 }
-        default:
-                print("Unknown notification action: \(action)")
-                break
+            default: break
         }
         
         completionHandler()
