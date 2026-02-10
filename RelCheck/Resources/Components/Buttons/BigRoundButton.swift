@@ -13,16 +13,18 @@ struct BigRoundButton: ButtonStyle {
     private var buttonSize: CGFloat = 48
     
     func makeBody(configuration: Configuration) -> some View {
+        let baseView = configuration.label
+            .frame(width: buttonSize, height: buttonSize)
+            .foregroundStyle(foregroundStyle)
+            .labelStyle(.iconOnly)
+        
         if #available(iOS 26.0, *) {
-            configuration.label
-                .frame(width: buttonSize, height: buttonSize)
-                .foregroundStyle(foregroundStyle)
+            return baseView
                 .contentShape(Circle())
                 .glassEffect(.regular.tint(.accent).interactive())
         } else {
-            configuration.label
-                .frame(width: buttonSize, height: buttonSize)
-                .foregroundStyle(foregroundStyle)
+            return baseView
+                .contentShape(Circle())
                 .background(Color.accentColor)
                 .clipShape(Circle())
         }

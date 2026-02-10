@@ -14,18 +14,17 @@ struct AppButton: ButtonStyle {
     private var paddingHorizontal: CGFloat = 16
     
     func makeBody(configuration: Configuration) -> some View {
+        let baseView = configuration.label
+            .foregroundStyle(foregroundStyle)
+            .padding(.vertical, paddingVertical)
+            .padding(.horizontal, paddingHorizontal)
+
         if #available(iOS 26.0, *) {
-            configuration.label
-                .foregroundStyle(foregroundStyle)
-                .padding(.vertical, paddingVertical)
-                .padding(.horizontal, paddingHorizontal)
+            return baseView
                 .contentShape(Capsule())
                 .glassEffect(.regular.tint(.accent).interactive())
         } else {
-            configuration.label
-                .foregroundStyle(foregroundStyle)
-                .padding(.vertical, paddingVertical)
-                .padding(.horizontal, paddingHorizontal)
+            return baseView
                 .background(Color.accentColor)
                 .clipShape(Capsule())
         }

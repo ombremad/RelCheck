@@ -26,32 +26,11 @@ struct FastCheckInView: View {
             
             Section {
                 ForEach(contacts) { contact in
-                    let isSelected = selectedContacts.contains(contact)
-                    
-                    HStack(spacing: 8) {
-                        Image(systemName: contact.iconName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundStyle(isSelected ? .white : .secondary)
-                            .frame(width: 28, height: 28)
-                        Text(contact.name)
-                            .font(.headline)
-                            .foregroundStyle(isSelected ? .white : .primary)
-                        Spacer()
-                    }
-                    .contentShape(Rectangle())
-                    .listRowBackground(isSelected ? Color.accentColor : nil)
-                    
-                    .onTapGesture {
-                        if selectedContacts.contains(contact) {
-                            withAnimation {
-                                selectedContacts.removeAll(where: { $0 == contact })
-                            }
-                        } else {
-                            withAnimation {
-                                selectedContacts.append(contact)
-                            }
-                        }
+                    FastCheckInContactRow(
+                        contact: contact,
+                        isSelected: selectedContacts.contains(contact)
+                    ) {
+                        toggleSelection(for: contact)
                     }
                 }
             }
@@ -66,6 +45,16 @@ struct FastCheckInView: View {
                     saveRecap()
                     navigator.back()
                 }
+            }
+        }
+    }
+    
+    private func toggleSelection(for contact: Contact) {
+        withAnimation {
+            if selectedContacts.contains(contact) {
+                selectedContacts.removeAll(where: { $0 == contact })
+            } else {
+                selectedContacts.append(contact)
             }
         }
     }
@@ -101,7 +90,6 @@ struct FastCheckInView: View {
         // Save changes
         try? modelContext.save()
     }
-    
 }
 
 #Preview {

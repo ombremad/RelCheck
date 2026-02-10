@@ -227,7 +227,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Contact actions"
           }
         }
@@ -977,23 +977,23 @@
         }
       }
     },
-    "settings.fastCheckIn.label" : {
+    "settings.dailyFastCheckIn.label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-in"
+            "value" : "Daily fast check-in"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide"
+            "value" : "Sélection rapide quotidienne"
           }
         }
       }
     },
-    "settings.fastCheckIn.subtitle" : {
+    "settings.dailyFastCheckIn.subtitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {

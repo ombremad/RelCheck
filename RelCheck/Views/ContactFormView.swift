@@ -63,6 +63,7 @@ struct ContactFormView: View {
         }
         .navigationTitle(isEditing ? "editContact.title" : "newContact.title")
         .navigationBarTitleDisplayMode(.inline)
+        
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("button.save", systemImage: "checkmark") {

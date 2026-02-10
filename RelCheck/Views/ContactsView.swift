@@ -66,42 +66,8 @@ struct ContactsView: View {
                 .frame(minHeight: 200)
             } else {
                 ForEach(sortedContacts) { contact in
-                    Button {
-                        navigator.navigate(to: .singleContact(id: contact.id.uuidString))
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: contact.iconName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundStyle(.secondary)
-                                .frame(width: 28, height: 28)
-                            VStack(alignment: .leading) {
-                                Text(contact.name)
-                                    .font(.headline)
-                                Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-                                    .font(.caption)
-                                    .foregroundStyle(.tertiary)
-                            }
-                            Spacer()
-                            if let nextNotification = contact.nextUpcomingNotification {
-                                Text(String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)").uppercased())
-                                    .font(.caption2.bold())
-                                    .padding(8)
-                                    .foregroundStyle(.white)
-                                    .background(LinearGradient.primary)
-                                    .cornerRadius(12)
-                            } else {
-                                Text("contacts.nextCheckInOverdue")
-                                    .font(.caption2.bold())
-                                    .padding(8)
-                                    .foregroundStyle(.white)
-                                    .background(LinearGradient.destructive)
-                                    .cornerRadius(12)
-                            }
-                        }
-                    }
-                    .buttonStyle(.plain)
-                    .swipeActions {
+                    ContactRow(contact: contact)
+                        .swipeActions {
                         Button(role: .destructive) {
                             deleteContact(contact)
                         } label: {
@@ -193,7 +159,6 @@ struct ContactsView: View {
         }
         modelContext.delete(contact)
     }
-
 }
 
 

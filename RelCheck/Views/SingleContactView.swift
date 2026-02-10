@@ -114,20 +114,23 @@ struct SingleContactView: View {
         } message: {
             Text("singleContact.deleteAlert.message")
         }
+        
         .toolbar {
-            ToolbarItem(placement: .secondaryAction) {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("button.delete", systemImage: "trash") {
+                    showDeleteAlert = true
+                }
+                .tint(.red)
+            }
+            ToolbarItem(placement: .primaryAction) {
                 Button {
                     navigator.navigate(to: .editContact(contact: contact))
                 } label: {
                     Label("button.edit", systemImage: "pencil")
                 }
             }
-            ToolbarItem(placement: .secondaryAction) {
-                Button("button.delete", systemImage: "trash") {
-                    showDeleteAlert = true
-                }
-            }
         }
+        
     }
     
     private func checkIn() {

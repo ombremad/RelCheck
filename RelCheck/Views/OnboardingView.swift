@@ -78,6 +78,8 @@ struct OnboardingView: View {
     }
 }
 
-//#Preview {
-//    OnboardingView()
-//}
+#Preview {
+    OnboardingView(completeOnboarding: {
+        print("Onboarding completed and dismissed")
+    })
+}

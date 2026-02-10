@@ -22,8 +22,8 @@ struct SettingsView: View {
                 Section {
                     Toggle(isOn: $settings.fastCheckIn) {
                         VStack(alignment: .leading) {
-                            Text("settings.fastCheckIn.label")
-                            Text("settings.fastCheckIn.subtitle")
+                            Text("settings.dailyFastCheckIn.label")
+                            Text("settings.dailyFastCheckIn.subtitle")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
