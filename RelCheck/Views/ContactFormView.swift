@@ -10,8 +10,8 @@ import SwiftData
 
 @MainActor
 struct ContactFormView: View {
-    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppNavigator.self) private var navigator
     
     private let contactToEdit: Contact?
     
@@ -76,11 +76,11 @@ struct ContactFormView: View {
             if let existingContact = contactToEdit {
                 if let nextPlannedCheckIn = existingContact.nextUpcomingNotification?.dateFormatted {
                     Button("button.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
-                        dismiss()
+                        navigator.navigateBack()
                     }
                     Button("button.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
                         createNotification(for: existingContact)
-                        dismiss()
+                        navigator.navigateBack()
                     }
                 }
             }
@@ -104,7 +104,7 @@ struct ContactFormView: View {
             if daysChanged {
                 showEditAlert = true
             } else {
-                dismiss()
+                navigator.navigateBack()
             }
         } else {
             // create a new contact
@@ -117,7 +117,7 @@ struct ContactFormView: View {
             try? modelContext.save()
             // initialize the first notification
             createNotification(for: newContact)
-            dismiss()
+            navigator.navigateBack()
         }
     }
     

@@ -11,7 +11,7 @@ import SwiftData
 
 @MainActor
 struct SingleContactView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(AppNavigator.self) private var navigator
     @Environment(\.modelContext) private var modelContext
     
     @Bindable var contact: Contact
@@ -108,7 +108,7 @@ struct SingleContactView: View {
         .alert("singleContact.deleteAlert.title", isPresented: $showDeleteAlert) {
             Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
                 deleteContact(contact)
-                dismiss()
+                navigator.navigateBack()
             }
             Button("singleContact.deleteAlert.dismissButton", role: .cancel) {}
         } message: {
@@ -116,8 +116,8 @@ struct SingleContactView: View {
         }
         .toolbar {
             ToolbarItem(placement: .secondaryAction) {
-                NavigationLink {
-                    ContactFormView(contact: contact)
+                Button {
+                    navigator.navigate(to: .editContact(contact: contact))
                 } label: {
                     Label("button.edit", systemImage: "pencil")
                 }
@@ -173,7 +173,7 @@ struct SingleContactView: View {
             modelContext.delete(notification)
         }
         modelContext.delete(contact)
-        dismiss()
+        navigator.navigateBack()
     }
 }
 

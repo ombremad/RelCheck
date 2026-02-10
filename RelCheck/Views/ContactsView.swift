@@ -12,6 +12,7 @@ import SwiftData
 @MainActor
 struct ContactsView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppNavigator.self) private var navigator
     
     @Query private var settingsArray: [Settings]
     @Query(sort: \Contact.name) private var contacts: [Contact]
@@ -65,8 +66,8 @@ struct ContactsView: View {
                 .frame(minHeight: 200)
             } else {
                 ForEach(sortedContacts) { contact in
-                    NavigationLink {
-                        SingleContactView(contact: contact)
+                    Button {
+                        navigator.navigate(to: .singleContact(id: contact.id.uuidString))
                     } label: {
                         HStack(spacing: 8) {
                             Image(systemName: contact.iconName)
@@ -99,6 +100,7 @@ struct ContactsView: View {
                             }
                         }
                     }
+                    .buttonStyle(.plain)
                     .swipeActions {
                         Button(role: .destructive) {
                             deleteContact(contact)
@@ -137,29 +139,29 @@ struct ContactsView: View {
         
         .toolbar {
             ToolbarItem(placement: .secondaryAction) {
-                NavigationLink {
-                    FastCheckInView()
+                Button {
+                    navigator.navigate(to: .fastCheckIn)
                 } label: {
                     Label("fastCheckIn.title", systemImage: "person.fill.checkmark.and.xmark")
                 }
             }
             ToolbarItem(placement: .secondaryAction) {
-                NavigationLink {
-                    SettingsView()
+                Button {
+                    navigator.navigate(to: .settings)
                 } label: {
                     Label("button.settings", systemImage: "gear")
                 }
             }
             ToolbarItem(placement: .secondaryAction) {
-                NavigationLink {
-                    AboutView()
+                Button {
+                    navigator.navigate(to: .about)
                 } label: {
                     Label("button.about", systemImage: "questionmark.text.page")
                 }
             }
             ToolbarItem(placement: .primaryAction) {
-                NavigationLink {
-                    ContactFormView()
+                Button {
+                    navigator.navigate(to: .newContact)
                 } label: {
                     Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
                 }

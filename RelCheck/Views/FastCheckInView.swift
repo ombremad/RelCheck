@@ -10,8 +10,8 @@ import SwiftData
 
 @MainActor
 struct FastCheckInView: View {
-    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppNavigator.self) private var navigator
     
     @Query(sort: \Contact.name) private var contacts: [Contact]
     
@@ -64,7 +64,7 @@ struct FastCheckInView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("button.save", systemImage: "checkmark") {
                     saveRecap()
-                    dismiss()
+                    navigator.navigateBack()
                 }
             }
         }

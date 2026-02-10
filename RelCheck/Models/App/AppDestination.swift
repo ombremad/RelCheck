@@ -8,6 +8,10 @@
 import Foundation
 
 enum AppDestination: Hashable {
+    case about
+    case editContact(contact: Contact)
     case fastCheckIn
-    case contact(id: String)
+    case newContact
+    case settings
+    case singleContact(id: String)
 }

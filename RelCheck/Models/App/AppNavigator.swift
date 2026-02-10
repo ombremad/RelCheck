@@ -15,12 +15,7 @@ class AppNavigator {
         path.append(destination)
     }
     
-    // UNUSED
-//    func navigateBack() {
-//        path.removeLast()
-//    }
-//    
-//    func navigateToRoot() {
-//        path = NavigationPath()
-//    }
+    func navigateBack() {
+        path.removeLast()
+    }    
 }
