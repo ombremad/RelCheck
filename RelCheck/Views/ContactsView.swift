@@ -138,34 +138,33 @@ struct ContactsView: View {
         .navigationTitle("contacts.title")
         
         .toolbar {
-            ToolbarItem(placement: .secondaryAction) {
-                Button {
-                    navigator.navigate(to: .fastCheckIn)
-                } label: {
-                    Label("fastCheckIn.title", systemImage: "person.fill.checkmark.and.xmark")
-                }
-            }
-            ToolbarItem(placement: .secondaryAction) {
+            ToolbarItem(placement: .primaryAction) {
                 Button {
                     navigator.navigate(to: .settings)
                 } label: {
                     Label("button.settings", systemImage: "gear")
                 }
             }
-            ToolbarItem(placement: .secondaryAction) {
-                Button {
-                    navigator.navigate(to: .about)
-                } label: {
-                    Label("button.about", systemImage: "questionmark.text.page")
-                }
-            }
-            ToolbarItem(placement: .primaryAction) {
+        }
+        
+        .overlay(alignment: .bottomTrailing) {
+            Menu {
                 Button {
                     navigator.navigate(to: .newContact)
                 } label: {
-                    Label("button.addContact", systemImage: "person.crop.circle.fill.badge.plus")
+                    Label("button.addContact", systemImage: "person.badge.plus")
                 }
+                Button {
+                    navigator.navigate(to: .fastCheckIn)
+                } label: {
+                    Label("fastCheckIn.title", systemImage: "hare")
+                }
+            } label: {
+                Label("button.contactActions", systemImage: "person.fill.checkmark.and.xmark")
             }
+            .padding(.trailing, 16)
+            .buttonStyle(BigRoundButton())
+            .labelStyle(.iconOnly)
         }
         
         .task {

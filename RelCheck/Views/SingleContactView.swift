@@ -108,7 +108,7 @@ struct SingleContactView: View {
         .alert("singleContact.deleteAlert.title", isPresented: $showDeleteAlert) {
             Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
                 deleteContact(contact)
-                navigator.navigateBack()
+                navigator.back()
             }
             Button("singleContact.deleteAlert.dismissButton", role: .cancel) {}
         } message: {
@@ -173,7 +173,7 @@ struct SingleContactView: View {
             modelContext.delete(notification)
         }
         modelContext.delete(contact)
-        navigator.navigateBack()
+        navigator.back()
     }
 }
 

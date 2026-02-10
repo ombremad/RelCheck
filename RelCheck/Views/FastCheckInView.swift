@@ -64,7 +64,7 @@ struct FastCheckInView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("button.save", systemImage: "checkmark") {
                     saveRecap()
-                    navigator.navigateBack()
+                    navigator.back()
                 }
             }
         }

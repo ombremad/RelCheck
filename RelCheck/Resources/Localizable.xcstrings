@@ -129,22 +129,6 @@
         }
       }
     },
-    "button.about" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "À propos"
-          }
-        }
-      }
-    },
     "button.addContact" : {
       "localizations" : {
         "en" : {
@@ -229,6 +213,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contact pris"
+          }
+        }
+      }
+    },
+    "button.contactActions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions de contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Contact actions"
           }
         }
       }
@@ -785,6 +785,22 @@
         }
       }
     },
+    "onboarding.skip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer"
+          }
+        }
+      }
+    },
     "onboardingCard.01.message" : {
       "localizations" : {
         "en" : {
@@ -945,6 +961,22 @@
         }
       }
     },
+    "settings.about.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About this app"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de cette application"
+          }
+        }
+      }
+    },
     "settings.fastCheckIn.label" : {
       "localizations" : {
         "en" : {
@@ -973,6 +1005,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
+          }
+        }
+      }
+    },
+    "settings.seeOnboardingAgain.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See onboarding again"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revoir l’introduction"
           }
         }
       }

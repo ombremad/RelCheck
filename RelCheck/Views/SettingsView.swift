@@ -11,6 +11,7 @@ import SwiftData
 @MainActor
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppNavigator.self) private var navigator
     
     @Query private var settings: [Settings]
             
@@ -18,12 +19,26 @@ struct SettingsView: View {
         if let settings = settings.first {
             @Bindable var settings = settings
             Form {
-                Toggle(isOn: $settings.fastCheckIn) {
-                    VStack(alignment: .leading) {
-                        Text("settings.fastCheckIn.label")
-                        Text("settings.fastCheckIn.subtitle")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                Section {
+                    Toggle(isOn: $settings.fastCheckIn) {
+                        VStack(alignment: .leading) {
+                            Text("settings.fastCheckIn.label")
+                            Text("settings.fastCheckIn.subtitle")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                Section {
+                    Button {
+                        navigator.resetOnboarding()
+                    } label: {
+                        Label("settings.seeOnboardingAgain.label", systemImage: "rectangle.stack")
+                    }
+                    Button {
+                        navigator.navigate(to: .about)
+                    } label: {
+                        Label("settings.about.label", systemImage: "questionmark.text.page")
                     }
                 }
             }

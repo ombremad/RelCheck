@@ -76,11 +76,11 @@ struct ContactFormView: View {
             if let existingContact = contactToEdit {
                 if let nextPlannedCheckIn = existingContact.nextUpcomingNotification?.dateFormatted {
                     Button("button.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
-                        navigator.navigateBack()
+                        navigator.back()
                     }
                     Button("button.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
                         createNotification(for: existingContact)
-                        navigator.navigateBack()
+                        navigator.back()
                     }
                 }
             }
@@ -104,7 +104,7 @@ struct ContactFormView: View {
             if daysChanged {
                 showEditAlert = true
             } else {
-                navigator.navigateBack()
+                navigator.back()
             }
         } else {
             // create a new contact
@@ -117,7 +117,7 @@ struct ContactFormView: View {
             try? modelContext.save()
             // initialize the first notification
             createNotification(for: newContact)
-            navigator.navigateBack()
+            navigator.back()
         }
     }
     

@@ -16,7 +16,7 @@ struct RootView: View {
     var body: some View {
         @Bindable var navigator = navigator
         
-        if hasCompletedOnboarding {
+        if navigator.hasSeenOnboarding {
             NavigationStack(path: $navigator.path) {
                 ContactsView()
                     .navigationDestination(for: AppDestination.self) { destination in
@@ -24,9 +24,9 @@ struct RootView: View {
                     }
             }
         } else {
-            OnboardingView(onComplete: {
-                hasCompletedOnboarding = true
+            OnboardingView(completeOnboarding: {
+                navigator.completeOnboarding()
             })
         }
-    }    
+    }
 }
