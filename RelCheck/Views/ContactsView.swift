@@ -16,7 +16,7 @@ struct ContactsView: View {
     
     @Query private var settingsArray: [Settings]
     @Query(sort: \Contact.name) private var contacts: [Contact]
-
+    
     // Computed properties
     private var settings: Settings {
         if let existing = settingsArray.first {
@@ -26,21 +26,21 @@ struct ContactsView: View {
         modelContext.insert(newSettings)
         return newSettings
     }
-
+    
     private var sortedContacts: [Contact] {
         contacts.sorted { contact1, contact2 in
             let date1 = contact1.nextUpcomingNotification?.date
             let date2 = contact2.nextUpcomingNotification?.date
             
             switch (date1, date2) {
-            case (nil, nil):
-                return contact1.name < contact2.name
-            case (nil, _):
-                return true
-            case (_, nil):
-                return false
-            case (let d1?, let d2?):
-                return d1 < d2
+                case (nil, nil):
+                    return contact1.name < contact2.name
+                case (nil, _):
+                    return true
+                case (_, nil):
+                    return false
+                case (let d1?, let d2?):
+                    return d1 < d2
             }
         }
     }
@@ -68,12 +68,12 @@ struct ContactsView: View {
                 ForEach(sortedContacts) { contact in
                     ContactRow(contact: contact)
                         .swipeActions {
-                        Button(role: .destructive) {
-                            deleteContact(contact)
-                        } label: {
-                            Label("button.delete", systemImage: "trash")
+                            Button(role: .destructive) {
+                                deleteContact(contact)
+                            } label: {
+                                Label("button.delete", systemImage: "trash")
+                            }
                         }
-                    }
                 }
             }
             if permissionGranted == false {
@@ -151,13 +151,7 @@ struct ContactsView: View {
     }
     
     private func deleteContact(_ contact: Contact) {
-        for notification in contact.notifications ?? [] {
-            if let notificationID = notification.notificationID {
-                NotificationManager.shared.deleteNotification(identifier: notificationID)
-            }
-            modelContext.delete(notification)
-        }
-        modelContext.delete(contact)
+        contact.delete(from: modelContext)
     }
 }
 

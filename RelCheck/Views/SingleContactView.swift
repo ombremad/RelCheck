@@ -107,7 +107,7 @@ struct SingleContactView: View {
         .navigationBarTitleDisplayMode(.inline)
         .alert("singleContact.deleteAlert.title", isPresented: $showDeleteAlert) {
             Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
-                deleteContact(contact)
+                contact.delete(from: modelContext)
                 navigator.back()
             }
             Button("singleContact.deleteAlert.dismissButton", role: .cancel) {}
@@ -130,53 +130,12 @@ struct SingleContactView: View {
                 }
             }
         }
-        
     }
     
     private func checkIn() {
-        replaceNotification()
-        // Create new model check-in
-        let checkIn = CheckIn(date: .now, contact: contact)
-        modelContext.insert(checkIn)
+        contact.checkIn(modelContext: modelContext)
         try? modelContext.save()
-        // Change state in view
         hasCheckedIn = true
-    }
-    private func replaceNotification() {
-        
-        // Delete iOS scheduled notification
-        if let nextNotification = contact.nextUpcomingNotification {
-            NotificationManager.shared.deleteNotification(identifier: nextNotification.notificationID!)
-            modelContext.delete(nextNotification)
-        }
-        
-        // Create new iOS schedule notification
-        guard let nextDate = Calendar.current.date(
-            byAdding: DateComponents(day: contact.daysBetweenNotifications),
-            to: .now
-        ) else {
-            return
-        }
-        
-        // Create new model notification
-        let notification = Notification(date: nextDate, contact: contact)
-        notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-            timeInterval: nextDate.timeIntervalSinceNow,
-            contact: contact
-        )
-        modelContext.insert(notification)
-        try? modelContext.save()
-    }
-    
-    private func deleteContact(_ contact: Contact) {
-        for notification in contact.notifications ?? [] {
-            if let notificationID = notification.notificationID {
-                NotificationManager.shared.deleteNotification(identifier: notificationID)
-            }
-            modelContext.delete(notification)
-        }
-        modelContext.delete(contact)
-        navigator.back()
     }
 }
 

@@ -92,55 +92,22 @@ struct ContactFormView: View {
     
     // Functions
     private func saveContact() {
-        if let existingContact = contactToEdit {
-            // edit an existing contact
-            var daysChanged: Bool = false
-            if existingContact.daysBetweenNotifications != daysBetweenNotifications {
-                daysChanged = true
-            }
-            existingContact.name = name
-            existingContact.daysBetweenNotifications = daysBetweenNotifications
-            existingContact.iconName = selectedIcon.rawValue
-            try? modelContext.save()
-            if daysChanged {
-                showEditAlert = true
-            } else {
+        switch Contact.save(
+            contact: contactToEdit,
+            name: name,
+            daysBetweenNotifications: daysBetweenNotifications,
+            icon: selectedIcon,
+            modelContext: modelContext
+        ) {
+            case .created, .updated:
                 navigator.back()
-            }
-        } else {
-            // create a new contact
-            let newContact = Contact(
-                name: name,
-                daysBetweenNotifications: daysBetweenNotifications,
-                icon: selectedIcon
-            )
-            modelContext.insert(newContact)
-            try? modelContext.save()
-            // initialize the first notification
-            createNotification(for: newContact)
-            navigator.back()
+            case .updatedWithDaysChanged:
+                showEditAlert = true
         }
     }
     
     private func createNotification(for contact: Contact) {
-        for notification in contact.notifications ?? [] {
-            if let notificationID = notification.notificationID {
-                NotificationManager.shared.deleteNotification(identifier: notificationID)
-            }
-            modelContext.delete(notification)
-        }
-        guard let nextDate = Calendar.current.date(
-            byAdding: DateComponents(day: contact.daysBetweenNotifications),
-            to: .now
-        ) else {
-            return
-        }
-        let notification = Notification(date: nextDate, contact: contact)
-        notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-            timeInterval: nextDate.timeIntervalSinceNow,
-            contact: contact
-        )
-        modelContext.insert(notification)
+        contact.scheduleNextNotification(modelContext: modelContext)
         try? modelContext.save()
     }
 }

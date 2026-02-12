@@ -61,33 +61,8 @@ struct FastCheckInView: View {
     
     private func saveRecap() {
         for contact in selectedContacts {
-            
-            // Replace notification
-            if let nextNotification = contact.nextUpcomingNotification {
-                NotificationManager.shared.deleteNotification(identifier: nextNotification.notificationID!)
-                modelContext.delete(nextNotification)
-            }
-
-            guard let nextDate = Calendar.current.date(
-                byAdding: DateComponents(day: contact.daysBetweenNotifications),
-                to: .now
-            ) else {
-                return
-            }
-
-            let notification = Notification(date: nextDate, contact: contact)
-            notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-                timeInterval: nextDate.timeIntervalSinceNow,
-                contact: contact
-            )
-            modelContext.insert(notification)
-
-            // Add check-in
-            let checkIn = CheckIn(date: .now, contact: contact)
-            modelContext.insert(checkIn)
+            contact.checkIn(modelContext: modelContext)
         }
-        
-        // Save changes
         try? modelContext.save()
     }
 }
