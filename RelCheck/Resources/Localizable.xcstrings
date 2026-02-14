@@ -33,22 +33,6 @@
         }
       }
     },
-    "about.debugMenu" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Debug menu"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Menu de debug"
-          }
-        }
-      }
-    },
     "about.links.anneFerretWebsite" : {
       "localizations" : {
         "en" : {
@@ -145,22 +129,6 @@
         }
       }
     },
-    "button.about" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "À propos"
-          }
-        }
-      }
-    },
     "button.addContact" : {
       "localizations" : {
         "en" : {
@@ -177,6 +145,62 @@
         }
       }
     },
+    "button.changedDays.changeCheckIn %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be tomorrow"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be in %lld days"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact demain"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact dans %lld jours"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "button.changedDays.keepCurrentCheckIn %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep next check-in on %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder la prochaine prise de contact le %@"
+          }
+        }
+      }
+    },
     "button.checkIn" : {
       "localizations" : {
         "en" : {
@@ -189,6 +213,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contact pris"
+          }
+        }
+      }
+    },
+    "button.contactActions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions de contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact actions"
           }
         }
       }
@@ -433,114 +473,34 @@
         }
       }
     },
-    "debug.deleteAllUserData" : {
+    "editContact.changedDays.message" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Delete all user data"
+            "value" : "Days between notifications have been changed for this contact. Do you want to apply this setting right now or wait until after your next planned check-in?"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Supprimer toutes les données utilisateur"
+            "value" : "L’intervalle de jours entre les notifications a été changé. Veux-tu appliquer ce changement dès maintenant ou après la prochaine prise de contact ?"
           }
         }
       }
     },
-    "debug.header.actions" : {
+    "editContact.changedDays.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actions"
+            "value" : "Reschedule next check-in?"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actions"
-          }
-        }
-      }
-    },
-    "debug.header.scheduledNotifications" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scheduled notifications"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notifications planifiées"
-          }
-        }
-      }
-    },
-    "debug.id %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ID: %@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ID: %@"
-          }
-        }
-      }
-    },
-    "debug.noScheduledNotification" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No scheduled notification"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pas de notification planifiée"
-          }
-        }
-      }
-    },
-    "debug.seeOnboardingAgain" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See onboarding again"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Revoir l’introduction"
-          }
-        }
-      }
-    },
-    "debug.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Debug menu"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Menu de debug"
+            "value" : "Replanifier la prochaine prise de contact ?"
           }
         }
       }
@@ -825,6 +785,22 @@
         }
       }
     },
+    "onboarding.skip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer"
+          }
+        }
+      }
+    },
     "onboardingCard.01.message" : {
       "localizations" : {
         "en" : {
@@ -985,23 +961,39 @@
         }
       }
     },
-    "settings.fastCheckIn.label" : {
+    "settings.about.label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-in"
+            "value" : "About this app"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide"
+            "value" : "À propos de cette application"
           }
         }
       }
     },
-    "settings.fastCheckIn.subtitle" : {
+    "settings.dailyFastCheckIn.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide quotidienne"
+          }
+        }
+      }
+    },
+    "settings.dailyFastCheckIn.subtitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1013,6 +1005,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
+          }
+        }
+      }
+    },
+    "settings.seeOnboardingAgain.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See onboarding again"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revoir l’introduction"
           }
         }
       }

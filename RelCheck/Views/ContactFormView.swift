@@ -10,22 +10,26 @@ import SwiftData
 
 @MainActor
 struct ContactFormView: View {
-    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppNavigator.self) private var navigator
     
     private let contactToEdit: Contact?
     
+    // Form values
     @State private var name: String
     @State private var daysBetweenNotifications: Int
     @State private var selectedIcon: AppIcon
     
+    // Computed properties
     private var isEditing: Bool {
         contactToEdit != nil
     }
-    
     private var isContactValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty
     }
+    
+    // UX values
+    @State private var showEditAlert: Bool = false
     
     init(contact: Contact? = nil) {
         self.contactToEdit = contact
@@ -59,6 +63,7 @@ struct ContactFormView: View {
         }
         .navigationTitle(isEditing ? "editContact.title" : "newContact.title")
         .navigationBarTitleDisplayMode(.inline)
+        
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("button.save", systemImage: "checkmark") {
@@ -67,43 +72,42 @@ struct ContactFormView: View {
                 .disabled(!isContactValid)
             }
         }
+        
+        .alert("editContact.changedDays.title", isPresented: $showEditAlert) {
+            if let existingContact = contactToEdit {
+                if let nextPlannedCheckIn = existingContact.nextUpcomingNotification?.dateFormatted {
+                    Button("button.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
+                        navigator.back()
+                    }
+                    Button("button.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
+                        createNotification(for: existingContact)
+                        navigator.back()
+                    }
+                }
+            }
+        } message: {
+            Text("editContact.changedDays.message")
+        }
     }
     
+    // Functions
     private func saveContact() {
-        if let existingContact = contactToEdit {
-            // edit an existing contact
-            existingContact.name = name
-            existingContact.daysBetweenNotifications = daysBetweenNotifications
-            existingContact.iconName = selectedIcon.rawValue
-            try? modelContext.save()
-        } else {
-            // create a new contact
-            let newContact = Contact(
-                name: name,
-                daysBetweenNotifications: daysBetweenNotifications,
-                icon: selectedIcon
-            )
-            modelContext.insert(newContact)
-            try? modelContext.save()
-            // initialize the first notification
-            createNotification(for: newContact)
+        switch Contact.save(
+            contact: contactToEdit,
+            name: name,
+            daysBetweenNotifications: daysBetweenNotifications,
+            icon: selectedIcon,
+            modelContext: modelContext
+        ) {
+            case .created, .updated:
+                navigator.back()
+            case .updatedWithDaysChanged:
+                showEditAlert = true
         }
-        dismiss()
     }
     
     private func createNotification(for contact: Contact) {
-        guard let nextDate = Calendar.current.date(
-            byAdding: DateComponents(day: contact.daysBetweenNotifications),
-            to: .now
-        ) else {
-            return
-        }
-        let notification = Notification(date: nextDate, contact: contact)
-        notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-            timeInterval: nextDate.timeIntervalSinceNow,
-            contact: contact
-        )
-        modelContext.insert(notification)
+        contact.scheduleNextNotification(modelContext: modelContext)
         try? modelContext.save()
     }
 }

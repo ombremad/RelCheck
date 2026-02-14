@@ -165,17 +165,4 @@ class NotificationManager {
         
         return identifier
     }
-    
-    
-    // DEBUG
-//    func scheduleDebugContactNotification(contact: Contact) {
-//        let _ = scheduleNotificationAtDate(
-//            title: String(localized: "notification.reminder.title \(contact.name)"),
-//            body: String(localized: "notification.reminder.body"),
-//            date: Date.now.addingTimeInterval(10),
-//            userInfo: ["action": "viewContact", "contactID": contact.id.uuidString],
-//            identifier: "debug-notification"
-//        )
-//    }
-
 }

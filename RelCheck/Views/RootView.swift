@@ -16,36 +16,17 @@ struct RootView: View {
     var body: some View {
         @Bindable var navigator = navigator
         
-        if hasCompletedOnboarding {
+        if navigator.hasSeenOnboarding {
             NavigationStack(path: $navigator.path) {
                 ContactsView()
                     .navigationDestination(for: AppDestination.self) { destination in
-                        switch destination {
-                            case .fastCheckIn:
-                                FastCheckInView()
-                            case .contact(let idString):
-                                if let contact = fetchContactByID(idString) {
-                                    SingleContactView(contact: contact)
-                                } else {
-                                    Text("error.contactNotFound")
-                                }
-                        }
+                        NavigationDestinationView(destination: destination)
                     }
             }
         } else {
-            OnboardingView(onComplete: {
-                hasCompletedOnboarding = true
+            OnboardingView(completeOnboarding: {
+                navigator.completeOnboarding()
             })
         }
-    }
-    
-    @MainActor
-    private func fetchContactByID(_ idString: String) -> Contact? {
-        guard let uuid = UUID(uuidString: idString) else { return nil }
-        
-        let descriptor = FetchDescriptor<Contact>(
-            predicate: #Predicate { $0.id == uuid }
-        )
-        return try? modelContext.fetch(descriptor).first
     }
 }
