@@ -18,7 +18,7 @@ struct ContactFormView: View {
   // Form values
   @State private var name: String
   @State private var daysBetweenNotifications: Int
-  @State private var selectedIcon: AppIcon
+  @State private var selectedIcon: ContactIcon
 
   // Computed properties
   private var isEditing: Bool {
@@ -45,7 +45,7 @@ struct ContactFormView: View {
       }
       Section("newContact.header.contactIcon") {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
-          ForEach(AppIcon.allCases, id: \.self) { icon in
+          ForEach(ContactIcon.allCases, id: \.self) { icon in
             icon.image
               .resizable()
               .aspectRatio(contentMode: .fit)

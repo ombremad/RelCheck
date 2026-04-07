@@ -16,7 +16,7 @@ extension Contact {
   }
 
   @MainActor
-  func update(name: String, daysBetweenNotifications: Int, icon: AppIcon) -> Bool {
+  func update(name: String, daysBetweenNotifications: Int, icon: ContactIcon) -> Bool {
     let daysChanged = self.daysBetweenNotifications != daysBetweenNotifications
     self.name = name
     self.daysBetweenNotifications = daysBetweenNotifications
@@ -29,7 +29,7 @@ extension Contact {
     contact: Contact?,
     name: String,
     daysBetweenNotifications: Int,
-    icon: AppIcon,
+    icon: ContactIcon,
     modelContext: ModelContext
   ) -> SaveResult {
     if let existing = contact {
