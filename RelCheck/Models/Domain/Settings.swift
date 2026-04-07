@@ -10,9 +10,9 @@ import SwiftData
 
 @Model
 class Settings {
-    var fastCheckIn: Bool = false
-    
-    init(fastCheckIn: Bool = false) {
-        self.fastCheckIn = fastCheckIn
-    }
+  var fastCheckIn: Bool = false
+
+  init(fastCheckIn: Bool = false) {
+    self.fastCheckIn = fastCheckIn
+  }
 }
