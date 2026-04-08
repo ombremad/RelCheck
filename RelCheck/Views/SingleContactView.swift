@@ -143,9 +143,10 @@ struct SingleContactView: View {
 }
 
 #Preview {
-  SingleContactView(
-    contact: Contact(
-      name: "Anne",
-      daysBetweenNotifications: 7
-    ))
+  @Previewable @State var contact = Contact(
+    name: "Anne",
+    daysBetweenNotifications: 7
+  )
+  SingleContactView(contact: contact)
+    .environment(AppNavigator())
 }

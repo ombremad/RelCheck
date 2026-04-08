@@ -115,13 +115,15 @@ struct ContactFormView: View {
 
 #Preview("New Contact") {
   ContactFormView()
+    .environment(AppNavigator())
 }
 
 #Preview("Edit Contact") {
-  ContactFormView(
-    contact: Contact(
-      name: "Anne",
-      daysBetweenNotifications: 3,
-      icon: .bicycle
-    ))
+  @Previewable @State var contact = Contact(
+    name: "Anne",
+    daysBetweenNotifications: 3,
+    icon: .bicycle
+  )
+  ContactFormView(contact: contact)
+    .environment(AppNavigator())
 }

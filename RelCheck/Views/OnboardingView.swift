@@ -79,7 +79,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-  OnboardingView(completeOnboarding: {
-    print("Onboarding completed and dismissed")
-  })
+  OnboardingView(completeOnboarding: {})
 }

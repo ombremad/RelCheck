@@ -57,4 +57,5 @@ struct SettingsView: View {
 
 #Preview {
   SettingsView()
+    .environment(AppNavigator())
 }

@@ -154,5 +154,25 @@ struct ContactsView: View {
 }
 
 #Preview {
-  ContactsView()
+  let container = try! ModelContainer(for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
+  
+  container.mainContext.insert(Contact(
+    name: "Anne",
+    daysBetweenNotifications: 3,
+    icon: .bicycle
+  ))
+  container.mainContext.insert(Contact(
+    name: "Roger",
+    daysBetweenNotifications: 7,
+    icon: .heartFill
+  ))
+  container.mainContext.insert(Contact(
+    name: "Marcel",
+    daysBetweenNotifications: 14,
+    icon: .starFill
+  ))
+  
+  return ContactsView()
+    .modelContainer(container)
+    .environment(AppNavigator())
 }
