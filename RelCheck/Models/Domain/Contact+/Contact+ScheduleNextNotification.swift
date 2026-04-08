@@ -10,7 +10,6 @@ import SwiftData
 
 // Contact+ScheduleNextNotification.swift
 extension Contact {
-  @MainActor
   func scheduleNextNotification(modelContext: ModelContext) {
     // Delete all existing notifications
     for notification in notifications ?? [] {

@@ -8,7 +8,6 @@
 import SwiftData
 import SwiftUI
 
-@MainActor
 struct SingleContactView: View {
   @Environment(AppNavigator.self) private var navigator
   @Environment(\.modelContext) private var modelContext
@@ -21,11 +20,16 @@ struct SingleContactView: View {
     Form {
       Section {
         HStack {
-          Image(systemName: contact.iconName)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 34, height: 34)
-            .foregroundStyle(.secondary)
+          Circle()
+            .foregroundStyle(contact.color)
+            .frame(width: 40, height: 40)
+            .overlay(
+              contact.icon.image
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.white)
+                .padding(8)
+            )
           VStack(alignment: .leading) {
             Text(contact.name)
               .font(.headline)

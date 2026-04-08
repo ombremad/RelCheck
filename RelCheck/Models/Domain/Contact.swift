@@ -14,6 +14,7 @@ class Contact {
   var name: String = ""
   var daysBetweenNotifications: Int = 7
   var iconName: String = ContactIcon.personFill.rawValue
+  var colorName: String = ContactColor.silver.rawValue
 
   @Relationship(deleteRule: .cascade, inverse: \Notification.contact)
   var notifications: [Notification]? = []
@@ -33,7 +34,12 @@ class Contact {
   var icon: ContactIcon {
     ContactIcon(rawValue: iconName) ?? .personFill
   }
-
+  
+  @Transient
+  var color: ContactColor {
+    ContactColor(rawValue: colorName) ?? .gray
+  }
+  
   init(name: String, daysBetweenNotifications: Int, icon: ContactIcon = .personFill) {
     self.id = UUID()
     self.name = name

@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 extension Contact {
-  @MainActor
   func delete(from modelContext: ModelContext) {
     for notification in notifications ?? [] {
       if let notificationID = notification.notificationID {

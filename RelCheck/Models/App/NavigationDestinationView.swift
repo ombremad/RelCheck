@@ -28,7 +28,6 @@ struct NavigationDestinationView: View {
     }
   }
 
-  @MainActor
   private func fetchContactByID(_ idString: String) -> Contact? {
     guard let uuid = UUID(uuidString: idString) else { return nil }
 

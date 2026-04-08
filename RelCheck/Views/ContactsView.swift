@@ -8,7 +8,6 @@
 import SwiftData
 import SwiftUI
 
-@MainActor
 struct ContactsView: View {
   @Environment(\.modelContext) private var modelContext
   @Environment(AppNavigator.self) private var navigator

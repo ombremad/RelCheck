@@ -15,7 +15,6 @@ extension Contact {
     case updatedWithDaysChanged
   }
 
-  @MainActor
   func update(name: String, daysBetweenNotifications: Int, icon: ContactIcon) -> Bool {
     let daysChanged = self.daysBetweenNotifications != daysBetweenNotifications
     self.name = name
@@ -24,7 +23,6 @@ extension Contact {
     return daysChanged
   }
 
-  @MainActor
   static func save(
     contact: Contact?,
     name: String,

@@ -16,11 +16,16 @@ struct ContactRow: View {
       navigator.navigate(to: .singleContact(id: contact.id.uuidString))
     } label: {
       HStack(spacing: 8) {
-        Image(systemName: contact.iconName)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .foregroundStyle(.secondary)
-          .frame(width: 28, height: 28)
+        Circle()
+          .foregroundStyle(contact.color)
+          .frame(width: 40, height: 40)
+          .overlay(
+            contact.icon.image
+              .resizable()
+              .scaledToFit()
+              .foregroundStyle(.white)
+              .padding(8)
+          )
 
         VStack(alignment: .leading) {
           Text(contact.name)
