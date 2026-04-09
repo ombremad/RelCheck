@@ -11,19 +11,23 @@ struct AboutView: View {
   var body: some View {
     Form {
       Section("about.author.header") {
-        let paragraph = String(localized: "about.author.message").split(separator: "\\n")
+        let paragraph = String(localized: "about.author.message")
+          .split(separator: "\\n")
         ForEach(paragraph, id: \.self) { p in
           Text(p)
         }
       }
       .listRowSeparator(.hidden)
+
       Section("about.thisApp.header") {
-        let paragraph = String(localized: "about.thisApp.message").split(separator: "\\n")
+        let paragraph = String(localized: "about.thisApp.message")
+          .split(separator: "\\n")
         ForEach(paragraph, id: \.self) { p in
           Text(p)
         }
       }
       .listRowSeparator(.hidden)
+
       Section("about.links.header") {
         Link(destination: URL(string: "https://github.com/ombremad/RelCheck")!) {
           Label("about.links.relCheckOnGitHub", systemImage: "link")
@@ -37,6 +41,4 @@ struct AboutView: View {
   }
 }
 
-#Preview {
-  AboutView()
-}
+#Preview { AboutView() }

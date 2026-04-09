@@ -11,16 +11,12 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
   var navigator: AppNavigator?
 
   func userNotificationCenter(
-    _ center: UNUserNotificationCenter,
-    willPresent notification: UNNotification,
+    _ center: UNUserNotificationCenter, willPresent notification: UNNotification,
     withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-  ) {
-    completionHandler([.banner, .sound, .badge])
-  }
+  ) { completionHandler([.banner, .sound, .badge]) }
 
   func userNotificationCenter(
-    _ center: UNUserNotificationCenter,
-    didReceive response: UNNotificationResponse,
+    _ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
     withCompletionHandler completionHandler: @escaping () -> Void
   ) {
     let userInfo = response.notification.request.content.userInfo
@@ -31,8 +27,7 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     }
 
     switch action {
-    case "viewFastCheckIn":
-      navigator?.navigate(to: .fastCheckIn)
+    case "viewFastCheckIn": navigator?.navigate(to: .fastCheckIn)
     case "viewContact":
       if let contactID = userInfo["contactID"] as? String {
         navigator?.navigate(to: .singleContact(id: contactID))

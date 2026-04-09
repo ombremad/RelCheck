@@ -17,9 +17,7 @@ struct ContactsView: View {
 
   // Computed properties
   private var settings: Settings {
-    if let existing = settingsArray.first {
-      return existing
-    }
+    if let existing = settingsArray.first { return existing }
     let newSettings = Settings()
     modelContext.insert(newSettings)
     return newSettings
@@ -31,14 +29,10 @@ struct ContactsView: View {
       let date2 = contact2.nextUpcomingNotification?.date
 
       switch (date1, date2) {
-      case (nil, nil):
-        return contact1.name < contact2.name
-      case (nil, _):
-        return true
-      case (_, nil):
-        return false
-      case (let d1?, let d2?):
-        return d1 < d2
+      case (nil, nil): return contact1.name < contact2.name
+      case (nil, _): return true
+      case (_, nil): return false
+      case (let d1?, let d2?): return d1 < d2
       }
     }
   }
@@ -48,55 +42,30 @@ struct ContactsView: View {
 
   var body: some View {
     List {
+
       if contacts.isEmpty {
-        VStack(alignment: .center, spacing: 16) {
-          Image(systemName: "questionmark.app.fill")
-            .resizable()
-            .scaledToFit()
-            .foregroundStyle(LinearGradient.primary)
-            .frame(maxWidth: 55)
-          HStack {
-            Spacer()
-            Text("contacts.contactListIsEmpty")
-            Spacer()
-          }
-        }
-        .frame(minHeight: 200)
-      } else {
-        ForEach(sortedContacts) { contact in
-          ContactRow(contact: contact)
-            .swipeActions {
-              Button(role: .destructive) {
-                deleteContact(contact)
-              } label: {
-                Label("button.delete", systemImage: "trash")
-              }
-            }
+        ContentUnavailableView {
+          Label("contacts.contentUnavailableTitle", systemImage: "questionmark.app.fill")
+        } description: {
+          Text("contacts.contentUnavailableCTA")
+        } actions: {
+          Button("Add Contact") {
+            navigator.navigate(to: .newContact)
+          }.buttonStyle(.borderedProminent)
         }
       }
-      if permissionGranted == false {
-        Section {
-          HStack(alignment: .top, spacing: 12) {
-            Image(systemName: "exclamationmark.circle")
-              .resizable()
-              .scaledToFit()
-              .frame(maxWidth: 38)
-              .foregroundStyle(.black)
-            VStack(alignment: .leading) {
-              Text("contacts.authorizationWarning.title")
-                .font(.headline)
-              Text("contacts.authorizationWarning.content")
-                .font(.subheadline)
-                .foregroundStyle(.black)
-              Button("contacts.authorizationWarning.openSettings") {
-                NotificationManager.shared.openSettings()
-              }
-              .buttonStyle(AppButton())
-            }
+
+      ForEach(sortedContacts) { contact in
+        ContactRow(contact: contact).swipeActions {
+          Button(role: .destructive) {
+            deleteContact(contact)
+          } label: {
+            Label("button.delete", systemImage: "trash")
           }
         }
-        .listRowBackground(Color.yellow)
       }
+
+      if permissionGranted == false { AuthorizationWarningCard() }
     }
 
     .navigationTitle("contacts.title")
@@ -133,9 +102,7 @@ struct ContactsView: View {
 
     .task {
       // Check notifications permissions
-      NotificationManager.shared.requestPermission { granted in
-        permissionGranted = granted
-      }
+      NotificationManager.shared.requestPermission { granted in permissionGranted = granted }
 
       // Reconcile notifications
       if !hasReconciledNotifications {
@@ -153,26 +120,38 @@ struct ContactsView: View {
   }
 }
 
-#Preview {
-  let container = try! ModelContainer(for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
-  
-  container.mainContext.insert(Contact(
-    name: "Anne",
-    daysBetweenNotifications: 3,
-    icon: .bicycle
-  ))
-  container.mainContext.insert(Contact(
-    name: "Roger",
-    daysBetweenNotifications: 7,
-    icon: .heartFill
-  ))
-  container.mainContext.insert(Contact(
-    name: "Marcel",
-    daysBetweenNotifications: 14,
-    icon: .starFill
-  ))
-  
-  return ContactsView()
-    .modelContainer(container)
-    .environment(AppNavigator())
+#Preview("With contacts") {
+  let container = try! ModelContainer(
+    for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
+
+  container.mainContext.insert(
+    Contact(
+      name: "Anne",
+      daysBetweenNotifications: 3,
+      icon: .bicycle,
+      color: .coral,
+    ))
+  container.mainContext.insert(
+    Contact(
+      name: "Roger",
+      daysBetweenNotifications: 7,
+      icon: .heartFill,
+      color: .honey,
+    ))
+  container.mainContext.insert(
+    Contact(
+      name: "Marcel",
+      daysBetweenNotifications: 14,
+      icon: .starFill,
+      color: .teal,
+    ))
+
+  return ContactsView().modelContainer(container).environment(AppNavigator())
+}
+
+#Preview("Without contacts") {
+  let container = try! ModelContainer(
+    for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
+
+  ContactsView().modelContainer(container).environment(AppNavigator())
 }

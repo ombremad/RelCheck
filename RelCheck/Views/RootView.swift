@@ -18,15 +18,12 @@ struct RootView: View {
 
     if navigator.hasSeenOnboarding {
       NavigationStack(path: $navigator.path) {
-        ContactsView()
-          .navigationDestination(for: AppDestination.self) { destination in
-            NavigationDestinationView(destination: destination)
-          }
+        ContactsView().navigationDestination(for: AppDestination.self) { destination in
+          NavigationDestinationView(destination: destination)
+        }
       }
     } else {
-      OnboardingView(completeOnboarding: {
-        navigator.completeOnboarding()
-      })
+      OnboardingView(completeOnboarding: { navigator.completeOnboarding() })
     }
   }
 }

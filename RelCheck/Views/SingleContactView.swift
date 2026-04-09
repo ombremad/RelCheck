@@ -18,27 +18,7 @@ struct SingleContactView: View {
 
   var body: some View {
     Form {
-      Section {
-        HStack {
-          Circle()
-            .foregroundStyle(contact.color)
-            .frame(width: 40, height: 40)
-            .overlay(
-              contact.icon.image
-                .resizable()
-                .scaledToFit()
-                .foregroundStyle(.white)
-                .padding(8)
-            )
-          VStack(alignment: .leading) {
-            Text(contact.name)
-              .font(.headline)
-            Text("singleContact.everyXDays \(contact.name) \(contact.daysBetweenNotifications)")
-              .font(.caption)
-              .foregroundStyle(.secondary)
-          }
-        }
-      }
+      SingleContactCard(contact: contact)
       if hasCheckedIn {
         VStack(alignment: .center, spacing: 16) {
           Image(systemName: "checkmark.message.fill")
@@ -48,8 +28,7 @@ struct SingleContactView: View {
             .frame(maxWidth: 55)
           HStack {
             Spacer()
-            Text("singleContact.checkInCompleted")
-              .font(.headline)
+            Text("singleContact.checkInCompleted").font(.headline)
             Spacer()
           }
         }
@@ -65,50 +44,31 @@ struct SingleContactView: View {
             .frame(maxWidth: 55)
           HStack {
             Spacer()
-            Text("singleContact.didYouJustCheckInWith \(contact.name)")
-              .font(.headline)
+            Text("singleContact.didYouJustCheckInWith \(contact.name)").font(.headline)
             Spacer()
           }
-          Button("button.checkIn") {
-            checkIn()
-          }
-          .buttonStyle(AppButton())
+          Button("button.checkIn") { checkIn() }
+            .buttonStyle(AppButton())
         }
         .frame(minHeight: 200)
       }
       Section {
-        VStack(alignment: .leading) {
-          if let nextNotification = contact.nextUpcomingNotification {
-            Text(nextNotification.dateFormatted)
-              .font(.subheadline)
-          } else {
-            Text("singleContact.overdue")
-              .font(.subheadline)
-              .foregroundStyle(.white)
-              .listRowBackground(LinearGradient.destructive)
-          }
-        }
-      } header: {
-        Label("singleContact.nextCheckIn", systemImage: "calendar")
-      }
-      Section {
         if contact.checkIns?.isEmpty == true {
-          Text("singleContact.noCheckInsYet \(contact.name)")
-            .font(.subheadline)
+          Text("singleContact.noCheckInsYet \(contact.name)").font(.subheadline)
         } else {
-
           ForEach(contact.checkIns?.reversed() ?? []) { checkIn in
-            Text(checkIn.dateFormatted)
-              .font(.subheadline)
+            Text(checkIn.dateFormatted).font(.subheadline)
           }
         }
       } header: {
-        Label("singleContact.header.lastCheckIns", systemImage: "ellipsis.message")
+        Label("singleContact.header.checkInHistory", systemImage: "ellipsis.message")
       }
     }
     .navigationTitle($contact.name)
     .navigationBarTitleDisplayMode(.inline)
-    .alert("singleContact.deleteAlert.title", isPresented: $showDeleteAlert) {
+    .alert(
+      "singleContact.deleteAlert.title", isPresented: $showDeleteAlert
+    ) {
       Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
         contact.delete(from: modelContext)
         navigator.back()
@@ -120,10 +80,8 @@ struct SingleContactView: View {
 
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
-        Button("button.delete", systemImage: "trash") {
-          showDeleteAlert = true
-        }
-        .tint(.red)
+        Button("button.delete", systemImage: "trash") { showDeleteAlert = true }
+          .tint(.red)
       }
       ToolbarItem(placement: .primaryAction) {
         Button {
@@ -145,8 +103,9 @@ struct SingleContactView: View {
 #Preview {
   @Previewable @State var contact = Contact(
     name: "Anne",
-    daysBetweenNotifications: 7
+    daysBetweenNotifications: 7,
+    icon: .bicycle,
+    color: .coral,
   )
-  SingleContactView(contact: contact)
-    .environment(AppNavigator())
+  SingleContactView(contact: contact).environment(AppNavigator())
 }

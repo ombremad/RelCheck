@@ -21,14 +21,12 @@ enum ContactColor: String, CaseIterable {
   case teal = "teal"
   case copper = "copper"
   case gray = "gray"
-  
+
   var color: Color {
     Color("contact/\(rawValue)")
   }
 }
 
 extension ContactColor: ShapeStyle {
-  func resolve(in environment: EnvironmentValues) -> some ShapeStyle {
-    color
-  }
+  func resolve(in environment: EnvironmentValues) -> some ShapeStyle { color }
 }

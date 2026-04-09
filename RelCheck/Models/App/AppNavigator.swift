@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-@Observable
-class AppNavigator {
+@Observable class AppNavigator {
   var path = NavigationPath()
 
   private(set) var hasSeenOnboarding: Bool {

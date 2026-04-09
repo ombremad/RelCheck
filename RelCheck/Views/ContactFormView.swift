@@ -18,23 +18,23 @@ struct ContactFormView: View {
   @State private var name: String
   @State private var daysBetweenNotifications: Int
   @State private var selectedIcon: ContactIcon
+  @State private var selectedColor: ContactColor
 
   // Computed properties
-  private var isEditing: Bool {
-    contactToEdit != nil
-  }
-  private var isContactValid: Bool {
-    !name.trimmingCharacters(in: .whitespaces).isEmpty
-  }
+  private var isEditing: Bool { contactToEdit != nil }
+  private var isContactValid: Bool { !name.trimmingCharacters(in: .whitespaces).isEmpty }
 
   // UX values
   @State private var showEditAlert: Bool = false
+  @State private var showIconPicker: Bool = false
+  @State private var showColorPicker: Bool = false
 
   init(contact: Contact? = nil) {
     self.contactToEdit = contact
     _name = State(initialValue: contact?.name ?? "")
     _daysBetweenNotifications = State(initialValue: contact?.daysBetweenNotifications ?? 7)
     _selectedIcon = State(initialValue: contact?.icon ?? .personFill)
+    _selectedColor = State(initialValue: contact?.color ?? .gray)
   }
 
   var body: some View {
@@ -42,24 +42,46 @@ struct ContactFormView: View {
       Section("newContact.header.contactInformation") {
         TextField("newContact.inputField.name", text: $name)
       }
-      Section("newContact.header.contactIcon") {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
-          ForEach(ContactIcon.allCases, id: \.self) { icon in
-            icon.image
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .foregroundStyle(selectedIcon == icon ? .accent : .primary)
-              .frame(width: 36, height: 36)
-              .onTapGesture {
-                selectedIcon = icon
-              }
+
+      Section("newContact.header.contactAppearance") {
+        HStack {
+          Button {
+            showIconPicker = true
+          } label: {
+            HStack {
+              selectedIcon.image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 28, height: 28)
+              Text("newContact.header.icon")
+                .foregroundStyle(.primary)
+              Spacer()
+            }
           }
+          .buttonStyle(.borderless)
+
+          Button {
+            showColorPicker = true
+          } label: {
+            HStack {
+              Circle()
+                .frame(width: 28, height: 28)
+                .foregroundStyle(selectedColor)
+              Text("newContact.header.color")
+                .foregroundStyle(.primary)
+              Spacer()
+            }
+          }
+          .buttonStyle(.borderless)
         }
       }
-      Section("newContact.header.notificationSetting") {
-        Stepper(
-          "newContact.stepper.everyXDays \(daysBetweenNotifications)",
-          value: $daysBetweenNotifications, in: 1...60)
+
+      Section("newContact.header.checkInFrequency") {
+        Picker("Frequency", selection: $daysBetweenNotifications) {
+          ForEach(1...60, id: \.self) { day in
+            Text("newContact.checkInFrequency.picker \(day)").tag(day)
+          }
+        }.pickerStyle(.wheel)
       }
     }
     .navigationTitle(isEditing ? "editContact.title" : "newContact.title")
@@ -67,11 +89,19 @@ struct ContactFormView: View {
 
     .toolbar {
       ToolbarItem(placement: .confirmationAction) {
-        Button("button.save", systemImage: "checkmark") {
-          saveContact()
-        }
-        .disabled(!isContactValid)
+        Button("button.save", systemImage: "checkmark") { saveContact() }
+          .disabled(!isContactValid)
       }
+    }
+
+    .sheet(isPresented: $showIconPicker) {
+      IconPickerSheet(selectedIcon: $selectedIcon)
+        .presentationDetents([.medium, .large])
+    }
+
+    .sheet(isPresented: $showColorPicker) {
+      ColorPickerSheet(selectedColor: $selectedColor)
+        .presentationDetents([.fraction(0.3)])
     }
 
     .alert("editContact.changedDays.title", isPresented: $showEditAlert) {
@@ -98,12 +128,11 @@ struct ContactFormView: View {
       name: name,
       daysBetweenNotifications: daysBetweenNotifications,
       icon: selectedIcon,
+      color: selectedColor,
       modelContext: modelContext
     ) {
-    case .created, .updated:
-      navigator.back()
-    case .updatedWithDaysChanged:
-      showEditAlert = true
+    case .created, .updated: navigator.back()
+    case .updatedWithDaysChanged: showEditAlert = true
     }
   }
 
@@ -113,17 +142,14 @@ struct ContactFormView: View {
   }
 }
 
-#Preview("New Contact") {
-  ContactFormView()
-    .environment(AppNavigator())
-}
+#Preview("New Contact") { ContactFormView().environment(AppNavigator()) }
 
 #Preview("Edit Contact") {
   @Previewable @State var contact = Contact(
     name: "Anne",
     daysBetweenNotifications: 3,
-    icon: .bicycle
+    icon: .bicycle,
+    color: .coral,
   )
-  ContactFormView(contact: contact)
-    .environment(AppNavigator())
+  ContactFormView(contact: contact).environment(AppNavigator())
 }

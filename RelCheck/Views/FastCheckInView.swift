@@ -18,17 +18,11 @@ struct FastCheckInView: View {
 
   var body: some View {
     List {
-      Section {
-        Text("fastCheckIn.intro")
-          .font(.callout)
-      }
+      Section { Text("fastCheckIn.intro").font(.callout) }
 
       Section {
         ForEach(contacts) { contact in
-          FastCheckInContactRow(
-            contact: contact,
-            isSelected: selectedContacts.contains(contact)
-          ) {
+          FastCheckInContactRow(contact: contact, isSelected: selectedContacts.contains(contact)) {
             toggleSelection(for: contact)
           }
         }
@@ -59,33 +53,36 @@ struct FastCheckInView: View {
   }
 
   private func saveRecap() {
-    for contact in selectedContacts {
-      contact.checkIn(modelContext: modelContext)
-    }
+    for contact in selectedContacts { contact.checkIn(modelContext: modelContext) }
     try? modelContext.save()
   }
 }
 
 #Preview {
-  let container = try! ModelContainer(for: Contact.self, configurations: .init(isStoredInMemoryOnly: true))
-  
-  container.mainContext.insert(Contact(
-    name: "Anne",
-    daysBetweenNotifications: 3,
-    icon: .bicycle
-  ))
-  container.mainContext.insert(Contact(
-    name: "Roger",
-    daysBetweenNotifications: 7,
-    icon: .heartFill
-  ))
-  container.mainContext.insert(Contact(
-    name: "Marcel",
-    daysBetweenNotifications: 14,
-    icon: .starFill
-  ))
-  
-  return FastCheckInView()
-    .modelContainer(container)
-    .environment(AppNavigator())
+  let container = try! ModelContainer(
+    for: Contact.self, configurations: .init(isStoredInMemoryOnly: true))
+
+  container.mainContext.insert(
+    Contact(
+      name: "Anne",
+      daysBetweenNotifications: 3,
+      icon: .bicycle,
+      color: .coral,
+    ))
+  container.mainContext.insert(
+    Contact(
+      name: "Roger",
+      daysBetweenNotifications: 7,
+      icon: .heartFill,
+      color: .honey,
+    ))
+  container.mainContext.insert(
+    Contact(
+      name: "Marcel",
+      daysBetweenNotifications: 14,
+      icon: .starFill,
+      color: .teal,
+    ))
+
+  return FastCheckInView().modelContainer(container).environment(AppNavigator())
 }

@@ -41,8 +41,7 @@ struct SettingsView: View {
           }
         }
       }
-      .navigationTitle("settings.title")
-      .navigationBarTitleDisplayMode(.inline)
+      .navigationTitle("settings.title").navigationBarTitleDisplayMode(.inline)
 
       .onChange(of: settings.fastCheckIn) {
         if settings.fastCheckIn {
@@ -55,7 +54,4 @@ struct SettingsView: View {
   }
 }
 
-#Preview {
-  SettingsView()
-    .environment(AppNavigator())
-}
+#Preview { SettingsView().environment(AppNavigator()) }

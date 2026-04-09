@@ -28,10 +28,8 @@ struct ContactRow: View {
           )
 
         VStack(alignment: .leading) {
-          Text(contact.name)
-            .font(.headline)
-          Text("contacts.everyXDays \(contact.daysBetweenNotifications)")
-            .font(.caption)
+          Text(contact.name).font(.headline)
+          Text("contacts.everyXDays \(contact.daysBetweenNotifications)").font(.caption)
             .foregroundStyle(.tertiary)
         }
 

@@ -1,5 +1,22 @@
 {
-  "indentation": {
-    "spaces": 2
+  "indentation": { "spaces": 2 },
+  "lineLength": 120,
+  "maximumBlankLines": 1,
+  "respectsExistingLineBreaks": true,
+  "indentBlankLines": false,
+  "indentSwitchCaseLabels": false,
+  "trailingCommaConfiguration": "alwaysUsed",
+  "multiElementCollectionTrailingCommas": true,
+  "rules": {
+    "AlwaysUseLowerCamelCase": true,
+    "DoNotUseSemicolons": true,
+    "FileScopedDeclarationPrivacy": true,
+    "FullyIndirectEnum": true,
+    "GroupNumericLiterals": true,
+    "NoAccessLevelOnExtensionDeclaration": true,
+    "ReturnVoidInsteadOfEmptyTuple": true,
+    "UseExplicitNilCheckInConditions": true,
+    "UseShorthandTypeNames": true,
+    "UseSingleLinePropertyGetter": true
   }
 }

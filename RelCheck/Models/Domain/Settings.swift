@@ -8,8 +8,7 @@
 import Foundation
 import SwiftData
 
-@Model
-class Settings {
+@Model class Settings {
   var fastCheckIn: Bool = false
 
   init(fastCheckIn: Bool = false) {

@@ -31,9 +31,7 @@ struct NavigationDestinationView: View {
   private func fetchContactByID(_ idString: String) -> Contact? {
     guard let uuid = UUID(uuidString: idString) else { return nil }
 
-    let descriptor = FetchDescriptor<Contact>(
-      predicate: #Predicate { $0.id == uuid }
-    )
+    let descriptor = FetchDescriptor<Contact>(predicate: #Predicate { $0.id == uuid })
     return try? modelContext.fetch(descriptor).first
   }
 }

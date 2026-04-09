@@ -17,37 +17,26 @@ class NotificationManager {
   func requestPermission(completion: @escaping (Bool) -> Void) {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
       granted, error in
-      if let error = error {
-        print("Error requesting permission: \(error)")
-      }
-      DispatchQueue.main.async {
-        completion(granted)
-      }
+      if let error = error { print("Error requesting permission: \(error)") }
+      DispatchQueue.main.async { completion(granted) }
     }
   }
 
   // Request permission again through settings if first time was dismissed
   func openSettings() {
-    if let url = URL(string: UIApplication.openSettingsURLString) {
-      UIApplication.shared.open(url)
-    }
+    if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
   }
 
   // Schedule contact notification at a time interval
   func scheduleContactNotification(
-    timeInterval: TimeInterval,
-    contact: Contact,
-    identifier: String = UUID().uuidString
+    timeInterval: TimeInterval, contact: Contact, identifier: String = UUID().uuidString
   ) -> String {
     let content = UNMutableNotificationContent()
     content.title = String(localized: "notification.reminder.title \(contact.name)")
     content.body = String(localized: "notification.reminder.body")
     content.sound = .default
 
-    content.userInfo = [
-      "contactID": contact.id.uuidString,
-      "action": "viewContact",
-    ]
+    content.userInfo = ["contactID": contact.id.uuidString, "action": "viewContact"]
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
     let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -59,17 +48,13 @@ class NotificationManager {
 
   // Schedule contact notification at a specific date
   func scheduleContactNotificationAtDate(
-    date: Date,
-    contact: Contact,
-    identifier: String = UUID().uuidString
+    date: Date, contact: Contact, identifier: String = UUID().uuidString
   ) -> String {
     scheduleNotificationAtDate(
       title: String(localized: "notification.reminder.title \(contact.name)"),
-      body: String(localized: "notification.reminder.body"),
-      date: date,
+      body: String(localized: "notification.reminder.body"), date: date,
       userInfo: ["action": "viewContact", "contactID": contact.id.uuidString],
-      identifier: identifier
-    )
+      identifier: identifier)
   }
 
   // Schedule daily recap at 8pm
@@ -84,25 +69,17 @@ class NotificationManager {
     var targetDate = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
 
     // If 8pm today has already passed, schedule for 8pm tomorrow
-    if targetDate <= now {
-      targetDate = calendar.date(byAdding: .day, value: 1, to: targetDate)!
-    }
+    if targetDate <= now { targetDate = calendar.date(byAdding: .day, value: 1, to: targetDate)! }
 
     let _ = scheduleNotificationAtDate(
-      title: title,
-      body: body,
-      date: targetDate,
-      userInfo: ["action": "viewFastCheckIn"],
-      identifier: identifier
-    )
+      title: title, body: body, date: targetDate, userInfo: ["action": "viewFastCheckIn"],
+      identifier: identifier)
   }
 
   // Get all pending notifications
   func getPendingNotifications(completion: @escaping ([UNNotificationRequest]) -> Void) {
     UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-      DispatchQueue.main.async {
-        completion(requests)
-      }
+      DispatchQueue.main.async { completion(requests) }
     }
   }
 
@@ -124,35 +101,23 @@ class NotificationManager {
 
     // Reschedule notifications for each contact with an upcoming notification
     for contact in contacts {
-      guard let nextNotification = contact.nextUpcomingNotification else {
-        continue
-      }
+      guard let nextNotification = contact.nextUpcomingNotification else { continue }
 
       // Only schedule if the notification is in the future
-      guard nextNotification.date > Date() else {
-        continue
-      }
+      guard nextNotification.date > Date() else { continue }
 
       // Schedule the contact notification using the exact date from the notification object
       let identifier = scheduleContactNotificationAtDate(
-        date: nextNotification.date,
-        contact: contact,
-        identifier: nextNotification.notificationID ?? UUID().uuidString
-      )
+        date: nextNotification.date, contact: contact,
+        identifier: nextNotification.notificationID ?? UUID().uuidString)
 
       // Update the notification's ID if it was newly generated
-      if nextNotification.notificationID == nil {
-        nextNotification.notificationID = identifier
-      }
+      if nextNotification.notificationID == nil { nextNotification.notificationID = identifier }
     }
   }
 
   private func scheduleNotificationAtDate(
-    title: String,
-    body: String,
-    date: Date,
-    userInfo: [String: Any],
-    identifier: String
+    title: String, body: String, date: Date, userInfo: [String: Any], identifier: String
   ) -> String {
     let content = UNMutableNotificationContent()
     content.title = title
