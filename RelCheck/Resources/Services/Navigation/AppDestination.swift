@@ -7,11 +7,12 @@
 
 import Foundation
 
-enum AppDestination: Hashable {
+enum AppDestination: Hashable, Codable {
   case about
-  case editContact(contact: Contact)
+  case contacts
   case fastCheckIn
   case newContact
   case settings
-  case singleContact(id: String)
+  case singleContact(id: UUID)
+  case editContact(id: UUID)
 }

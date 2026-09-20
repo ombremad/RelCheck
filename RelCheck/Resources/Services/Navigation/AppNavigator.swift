@@ -25,6 +25,7 @@ import SwiftUI
   }
 
   func back() {
+    guard !path.isEmpty else { return }
     path.removeLast()
   }
 

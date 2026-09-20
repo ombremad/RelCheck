@@ -21,14 +21,18 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
   ) {
     let userInfo = response.notification.request.content.userInfo
     let action = userInfo["action"] as? String
-    let contactID = userInfo["contactID"] as? String
     
     DispatchQueue.main.async { [weak self] in
       switch action {
         case "viewFastCheckIn":
           self?.navigator?.navigate(to: .fastCheckIn)
+          
         case "viewContact":
-          if let contactID { self?.navigator?.navigate(to: .singleContact(id: contactID)) }
+          if let idString = userInfo["contactID"] as? String,
+             let contactID = UUID(uuidString: idString) {
+            self?.navigator?.navigate(to: .singleContact(id: contactID))
+          }
+          
         default:
           break
       }

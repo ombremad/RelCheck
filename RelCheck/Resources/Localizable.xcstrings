@@ -129,6 +129,9 @@
         }
       }
     },
+    "app.title" : {
+
+    },
     "button.addContact" : {
       "localizations" : {
         "en" : {
@@ -218,6 +221,7 @@
       }
     },
     "button.contactActions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -488,6 +492,9 @@
           }
         }
       }
+    },
+    "home.allContacts" : {
+
     },
     "newContact.checkInFrequency.picker" : {
       "localizations" : {

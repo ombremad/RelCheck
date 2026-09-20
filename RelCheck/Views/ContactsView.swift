@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 12/11/2025.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
 struct ContactsView: View {
   @Environment(\.modelContext) private var modelContext
@@ -37,9 +37,6 @@ struct ContactsView: View {
     }
   }
 
-  @State private var permissionGranted = false
-  @State private var hasReconciledNotifications = false
-
   var body: some View {
     List {
 
@@ -64,50 +61,18 @@ struct ContactsView: View {
           }
         }
       }
-
-      if permissionGranted == false { AuthorizationWarningCard() }
     }
 
     .navigationTitle("contacts.title")
-
+    .navigationBarTitleDisplayMode(.inline)
+    
     .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        Button {
-          navigator.navigate(to: .settings)
-        } label: {
-          Label("button.settings", systemImage: "gear")
-        }
-      }
-    }
-
-    .overlay(alignment: .bottomTrailing) {
-      Menu {
+      ToolbarItem(placement: .confirmationAction) {
         Button {
           navigator.navigate(to: .newContact)
         } label: {
           Label("button.addContact", systemImage: "person.badge.plus")
         }
-        Button {
-          navigator.navigate(to: .fastCheckIn)
-        } label: {
-          Label("fastCheckIn.title", systemImage: "hare")
-        }
-      } label: {
-        Label("button.contactActions", systemImage: "person.fill.checkmark.and.xmark")
-      }
-      .padding(.trailing, 16)
-      .buttonStyle(BigRoundButton())
-      .labelStyle(.iconOnly)
-    }
-
-    .task {
-      // Check notifications permissions
-      NotificationManager.shared.requestPermission { granted in permissionGranted = granted }
-
-      // Reconcile notifications
-      if !hasReconciledNotifications {
-        NotificationManager.shared.reconcileNotifications(contacts: contacts)
-        hasReconciledNotifications = true
       }
     }
   }

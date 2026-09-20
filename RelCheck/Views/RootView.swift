@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 08/12/2025.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
 struct RootView: View {
   @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
@@ -18,7 +18,7 @@ struct RootView: View {
 
     if navigator.hasSeenOnboarding {
       NavigationStack(path: $navigator.path) {
-        ContactsView().navigationDestination(for: AppDestination.self) { destination in
+        HomeView().navigationDestination(for: AppDestination.self) { destination in
           NavigationDestinationView(destination: destination)
         }
       }

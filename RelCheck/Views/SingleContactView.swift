@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 13/11/2025.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
 struct SingleContactView: View {
   @Environment(AppNavigator.self) private var navigator
@@ -85,7 +85,7 @@ struct SingleContactView: View {
       }
       ToolbarItem(placement: .primaryAction) {
         Button {
-          navigator.navigate(to: .editContact(contact: contact))
+          navigator.navigate(to: .editContact(id: contact.id))
         } label: {
           Label("button.edit", systemImage: "pencil")
         }

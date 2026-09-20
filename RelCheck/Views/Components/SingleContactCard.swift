@@ -29,7 +29,7 @@ struct SingleContactCard: View {
             .fontWeight(.heavy)
             .lineLimit(1)
         }
-        .foregroundStyle(.background)
+        .foregroundStyle(.white.opacity(0.85))
         .padding(24)
         Spacer()
       }

@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 08/12/2025.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
 struct FastCheckInView: View {
   @Environment(\.modelContext) private var modelContext

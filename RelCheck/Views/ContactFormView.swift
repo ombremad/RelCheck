@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 12/11/2025.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
 struct ContactFormView: View {
   @Environment(\.modelContext) private var modelContext

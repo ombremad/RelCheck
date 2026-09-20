@@ -13,7 +13,9 @@ struct ContactRow: View {
 
   var body: some View {
     Button {
-      navigator.navigate(to: .singleContact(id: contact.id.uuidString))
+      navigator.navigate(
+        to: .singleContact(id: contact.id)
+      )
     } label: {
       HStack(spacing: 8) {
         Circle()

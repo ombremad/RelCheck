@@ -4,6 +4,7 @@
 //
 //  Created by Dembo on 13/11/2025.
 //
+
 import SwiftUI
 
 struct OnboardingView: View {
