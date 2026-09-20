@@ -5,8 +5,8 @@
 //  Created by Anne Ferret on 12/11/2025.
 //
 
+import Foundation
 import SwiftData
-import SwiftUI
 
 @Model class Contact {
   var id: UUID = UUID()

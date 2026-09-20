@@ -297,22 +297,6 @@
         }
       }
     },
-    "contacts.addContact" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajouter un contact"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajouter un contact"
-          }
-        }
-      }
-    },
     "contacts.authorizationWarning.content" : {
       "localizations" : {
         "en" : {
@@ -366,13 +350,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your contacts list is empty. Do you want to add the first one now?"
+            "value" : "Your contacts list is empty. Add one now!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous n’avez pas encore de contact. Voulez-vous ajouter le premier maintenant ?"
+            "value" : "Tu n’as pas encore de contact. Crées-en un maintenant !"
           }
         }
       }
@@ -705,6 +689,70 @@
         }
       }
     },
+    "notification.inactivity.app.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be sure to launch RelCheck once in a while to keep notifications up-to-date!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pensez à relancer RelCheck de temps en temps pour que les notifications continuent à fonctionner !"
+          }
+        }
+      }
+    },
+    "notification.inactivity.app.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It’s been a month"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ça fait un mois..."
+          }
+        }
+      }
+    },
+    "notification.inactivity.fastCheckIn.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-ins notifications will be silenced until you launch the app again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les rappels quotidiens sont désactivés jusqu’au prochain lancement de l’app."
+          }
+        }
+      }
+    },
+    "notification.inactivity.fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily reminders disabled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résumé quotidien désactivé"
+          }
+        }
+      }
+    },
     "notification.reminder.body" : {
       "localizations" : {
         "en" : {
@@ -989,6 +1037,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
+          }
+        }
+      }
+    },
+    "settings.fastCheckInHour.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminder hour"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heure de rappel"
           }
         }
       }

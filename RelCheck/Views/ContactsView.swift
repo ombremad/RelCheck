@@ -49,7 +49,7 @@ struct ContactsView: View {
         } description: {
           Text("contacts.contentUnavailableCTA")
         } actions: {
-          Button("contacts.addContact") {
+          Button("button.addContact") {
             navigator.navigate(to: .newContact)
           }.buttonStyle(.borderedProminent)
         }
@@ -107,9 +107,6 @@ struct ContactsView: View {
       // Reconcile notifications
       if !hasReconciledNotifications {
         NotificationManager.shared.reconcileNotifications(contacts: contacts)
-        if settings.fastCheckIn == true {
-          let _ = NotificationManager.shared.scheduleFastCheckInNotification()
-        }
         hasReconciledNotifications = true
       }
     }

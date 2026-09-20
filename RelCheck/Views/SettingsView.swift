@@ -27,6 +27,14 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
             }
           }
+          
+          if settings.fastCheckIn {
+            Picker("settings.fastCheckInHour.label", selection: $settings.fastCheckInHour) {
+              ForEach(0..<24, id: \.self) { hour in
+                Text(String(format: "%02d:00", hour)).tag(hour)
+              }
+            }
+          }
         }
         Section {
           Button {
@@ -44,11 +52,10 @@ struct SettingsView: View {
       .navigationTitle("settings.title").navigationBarTitleDisplayMode(.inline)
 
       .onChange(of: settings.fastCheckIn) {
-        if settings.fastCheckIn {
-          let _ = NotificationManager.shared.scheduleFastCheckInNotification()
-        } else {
-          NotificationManager.shared.deleteNotification(identifier: "fast-check-in")
-        }
+        NotificationManager.shared.scheduleFastCheckInNotifications()
+      }
+      .onChange(of: settings.fastCheckInHour) {
+        NotificationManager.shared.scheduleFastCheckInNotifications()
       }
     }
   }

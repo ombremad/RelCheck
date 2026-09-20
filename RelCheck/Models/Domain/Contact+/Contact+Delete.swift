@@ -5,7 +5,6 @@
 //  Created by Anne Ferret on 12/02/2026.
 //
 
-import Foundation
 import SwiftData
 
 extension Contact {
