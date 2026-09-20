@@ -49,7 +49,7 @@ struct ContactsView: View {
         } description: {
           Text("contacts.contentUnavailableCTA")
         } actions: {
-          Button("Add Contact") {
+          Button("contacts.addContact") {
             navigator.navigate(to: .newContact)
           }.buttonStyle(.borderedProminent)
         }

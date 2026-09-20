@@ -15,20 +15,26 @@ struct AuthorizationWarningCard: View {
           .resizable()
           .scaledToFit()
           .frame(maxWidth: 38)
-          .foregroundStyle(.black)
         VStack(alignment: .leading) {
           Text("contacts.authorizationWarning.title")
             .font(.headline)
+            .foregroundStyle(.black.opacity(0.4))
           Text("contacts.authorizationWarning.content")
             .font(.subheadline)
-            .foregroundStyle(.black)
           Button("contacts.authorizationWarning.openSettings") {
             NotificationManager.shared.openSettings()
           }
           .buttonStyle(AppButton())
         }
       }
+      .foregroundStyle(.black)
     }
     .listRowBackground(Color.yellow)
+  }
+}
+
+#Preview {
+  Form {
+    AuthorizationWarningCard()
   }
 }

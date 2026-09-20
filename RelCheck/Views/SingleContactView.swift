@@ -101,11 +101,6 @@ struct SingleContactView: View {
 }
 
 #Preview {
-  @Previewable @State var contact = Contact(
-    name: "Anne",
-    daysBetweenNotifications: 7,
-    icon: .bicycle,
-    color: .coral,
-  )
+  @Previewable @State var contact = PreviewData().contact
   SingleContactView(contact: contact).environment(AppNavigator())
 }

@@ -57,7 +57,7 @@ struct SingleContactCard: View {
           Label("singleContact.checkInFrequency", systemImage: "bolt.fill")
         }
       }
-      .labeledContentStyle(LabelStyle())
+      .labeledContentStyle(SingleContactLabels())
     }
   }
 }

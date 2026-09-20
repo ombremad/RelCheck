@@ -1,5 +1,5 @@
 //
-//  CaptionLabelStyle.swift
+//  SingleContactLabels.swift
 //  RelCheck
 //
 //  Created by Anne Ferret on 09/04/2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LabelStyle: LabeledContentStyle {
+struct SingleContactLabels: LabeledContentStyle {
   func makeBody(configuration: Configuration) -> some View {
     HStack {
       configuration.label

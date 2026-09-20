@@ -77,8 +77,8 @@ struct ContactFormView: View {
       }
 
       Section("newContact.header.checkInFrequency") {
-        Picker("Frequency", selection: $daysBetweenNotifications) {
-          ForEach(1...60, id: \.self) { day in
+        Picker("newContact.checkInFrequency.picker", selection: $daysBetweenNotifications) {
+          ForEach(1...90, id: \.self) { day in
             Text("newContact.checkInFrequency.picker \(day)").tag(day)
           }
         }.pickerStyle(.wheel)
@@ -145,11 +145,6 @@ struct ContactFormView: View {
 #Preview("New Contact") { ContactFormView().environment(AppNavigator()) }
 
 #Preview("Edit Contact") {
-  @Previewable @State var contact = Contact(
-    name: "Anne",
-    daysBetweenNotifications: 3,
-    icon: .bicycle,
-    color: .coral,
-  )
+  @Previewable @State var contact = PreviewData().contact
   ContactFormView(contact: contact).environment(AppNavigator())
 }

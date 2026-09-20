@@ -29,30 +29,14 @@ struct ContactRow: View {
 
         VStack(alignment: .leading) {
           Text(contact.name).font(.headline)
-          Text("contacts.everyXDays \(contact.daysBetweenNotifications)").font(.caption)
-            .foregroundStyle(.tertiary)
-        }
 
+          HStack(spacing: 16) {
+            ContactContext(contact: contact)
+          }
+          .labeledContentStyle(ContactRowLabels())
+        }
+        
         Spacer()
-
-        if let nextNotification = contact.nextUpcomingNotification {
-          Text(
-            String(localized: "contacts.nextCheckInDays \(nextNotification.daysLeftUntilDate)")
-              .uppercased()
-          )
-          .font(.caption2.bold())
-          .padding(8)
-          .foregroundStyle(.white)
-          .background(LinearGradient.primary)
-          .cornerRadius(12)
-        } else {
-          Text("contacts.nextCheckInOverdue")
-            .font(.caption2.bold())
-            .padding(8)
-            .foregroundStyle(.white)
-            .background(LinearGradient.destructive)
-            .cornerRadius(12)
-        }
 
         Image(systemName: "chevron.forward")
           .foregroundStyle(.quaternary)
@@ -60,5 +44,17 @@ struct ContactRow: View {
       .contentShape(Rectangle())
     }
     .buttonStyle(.plain)
+  }
+}
+
+#Preview {
+@Previewable @State var contact = Contact(
+  name: "Anne",
+  daysBetweenNotifications: 7,
+  icon: .bicycle,
+  color: .coral,
+)
+  Form {
+    ContactRow(contact: contact).environment(AppNavigator())
   }
 }

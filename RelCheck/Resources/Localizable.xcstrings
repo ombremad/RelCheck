@@ -297,6 +297,22 @@
         }
       }
     },
+    "contacts.addContact" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter un contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter un contact"
+          }
+        }
+      }
+    },
     "contacts.authorizationWarning.content" : {
       "localizations" : {
         "en" : {
@@ -345,114 +361,34 @@
         }
       }
     },
-    "contacts.contactListIsEmpty" : {
+    "contacts.contentUnavailableCTA" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Contacts list is empty for now."
+            "value" : "Your contacts list is empty. Do you want to add the first one now?"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La liste de contacts est vide pour l’instant."
+            "value" : "Vous n’avez pas encore de contact. Voulez-vous ajouter le premier maintenant ?"
           }
         }
       }
     },
-    "contacts.everyXDays %lld" : {
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every day"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every %lld days"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tous les jours"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tous les %lld jours"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "contacts.nextCheckInDays %lld" : {
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Next check tomorrow"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Next check in %lld days"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Prochain contact demain"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Prochain contact dans %lld jours"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "contacts.nextCheckInOverdue" : {
+    "contacts.contentUnavailableTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Overdue"
+            "value" : "Contacts list empty"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "En retard"
+            "value" : "Liste de contacts vide"
           }
         }
       }
@@ -569,11 +505,61 @@
         }
       }
     },
-    "Frequency" : {
-
+    "newContact.checkInFrequency.picker" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-in frequency"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fréquence de contact"
+          }
+        }
+      }
     },
     "newContact.checkInFrequency.picker %lld" : {
-
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld days"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld jours"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "newContact.header.checkInFrequency" : {
       "localizations" : {
@@ -581,6 +567,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check-in frequency"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fréquence de contact"
           }
         }
       }
@@ -592,6 +584,12 @@
             "state" : "translated",
             "value" : "Color"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couleur"
+          }
         }
       }
     },
@@ -602,22 +600,11 @@
             "state" : "translated",
             "value" : "Contact appearance"
           }
-        }
-      }
-    },
-    "newContact.header.contactIcon" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact icon"
-          }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icône du contact"
+            "value" : "Apparence du contact"
           }
         }
       }
@@ -645,22 +632,11 @@
             "state" : "translated",
             "value" : "Icon"
           }
-        }
-      }
-    },
-    "newContact.header.notificationSetting" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notification setting"
-          }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paramètres de notification"
+            "value" : "Icône"
           }
         }
       }
@@ -677,47 +653,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nom"
-          }
-        }
-      }
-    },
-    "newContact.stepper.everyXDays %lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every day"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every %lld days"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tous les jours"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tous les %lld jours"
-                }
-              }
-            }
           }
         }
       }
@@ -1113,6 +1048,12 @@
             "state" : "translated",
             "value" : "Check-in frequency"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fréquence de contact"
+          }
         }
       }
     },
@@ -1215,6 +1156,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "chaque jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "tous les %lld jours"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -1225,22 +1184,11 @@
             "state" : "translated",
             "value" : "Check-in history"
           }
-        }
-      }
-    },
-    "singleContact.header.lastCheckIns" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last check-ins"
-          }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Derniers contacts"
+            "value" : "Historique de prise de contact"
           }
         }
       }
@@ -1264,6 +1212,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "demain"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "dans %lld jours"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -1277,7 +1243,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Prochain contact prévu"
           }
         }
@@ -1309,8 +1275,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "En retard"
+            "state" : "translated",
+            "value" : "en retard"
           }
         }
       }
