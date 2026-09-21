@@ -1,0 +1,16 @@
+# .github/workflows/swift-format.yml
+name: swift-format
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: swift:6.4
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint formatting
+        run: swift format lint --strict --recursive RelCheck
