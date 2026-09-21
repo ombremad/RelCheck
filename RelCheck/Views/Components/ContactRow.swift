@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContactRow: View {
-  let contact: Contact
   @Environment(AppNavigator.self) private var navigator
+
+  let contact: Contact
 
   var body: some View {
     Button {
@@ -18,16 +19,7 @@ struct ContactRow: View {
       )
     } label: {
       HStack(spacing: 8) {
-        Circle()
-          .foregroundStyle(contact.color)
-          .frame(width: 40, height: 40)
-          .overlay(
-            contact.icon.image
-              .resizable()
-              .scaledToFit()
-              .foregroundStyle(.white)
-              .padding(8)
-          )
+        Avatar(contact)
 
         VStack(alignment: .leading) {
           Text(contact.name).font(.headline)
@@ -50,12 +42,7 @@ struct ContactRow: View {
 }
 
 #Preview {
-  @Previewable @State var contact = Contact(
-    name: "Anne",
-    daysBetweenNotifications: 7,
-    icon: .bicycle,
-    color: .coral,
-  )
+  @Previewable @State var contact = Preview.contact
   Form {
     ContactRow(contact: contact).environment(AppNavigator())
   }

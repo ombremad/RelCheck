@@ -10,6 +10,10 @@ import SwiftUI
 struct SingleContactCard: View {
   let contact: Contact
 
+  init(_ contact: Contact) {
+    self.contact = contact
+  }
+
   var body: some View {
     Section {
       HStack {
@@ -33,7 +37,13 @@ struct SingleContactCard: View {
         .padding(24)
         Spacer()
       }
-      .background(contact.color)
+      .background(
+        LinearGradient(
+          gradient: Gradient(colors: [contact.color.color, contact.color.color.opacity(0.75)]),
+          startPoint: .center,
+          endPoint: .topTrailing,
+        )
+      )
       .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
 
       VStack(spacing: 16) {
@@ -43,7 +53,8 @@ struct SingleContactCard: View {
           } else {
             Text("singleContact.overdue")
               .fontWeight(.bold)
-              .padding(.horizontal, 8)
+              .padding(.horizontal, 12)
+              .padding(.vertical, 2)
               .background(LinearGradient.destructive)
               .clipShape(Capsule())
           }
@@ -64,13 +75,6 @@ struct SingleContactCard: View {
 
 #Preview() {
   Form {
-    SingleContactCard(
-      contact: Contact(
-        name: "Anne",
-        daysBetweenNotifications: 7,
-        icon: .bicycle,
-        color: .coral,
-      )
-    )
+    SingleContactCard(Preview.contact)
   }
 }

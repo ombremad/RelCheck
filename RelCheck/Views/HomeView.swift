@@ -10,6 +10,7 @@ import SwiftData
 
 struct HomeView: View {
   @Environment(\.modelContext) private var modelContext
+  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
   @Environment(AppNavigator.self) private var navigator
 
   @Query private var settingsArray: [Settings]
@@ -19,17 +20,28 @@ struct HomeView: View {
   @State private var hasReconciledNotifications = false
 
   var body: some View {
-    VStack {
-      Button("home.allContacts") {
-        navigator.navigate(to: .contacts)
+    Form {
+      if !permissionGranted {
+        AuthorizationWarningCard()
       }
 
-      AuthorizationWarningCard(isVisible: !permissionGranted)
-    }
+      HomeFocusCard(card: .overdue, contacts: contacts)
+      HomeFocusCard(card: .next, contacts: contacts)
 
-    .padding()
+      Section {
+        HomeActionCard(.fastCheckIn)
+        if horizontalSizeClass != .regular {
+          HomeActionCard(.addContact)
+          HomeActionCard(.allContacts)
+        }
+      }
+    }
+    .listSectionSpacing(.custom(16))
+    .scrollBounceBehavior(.basedOnSize)
+    .animation(.easeInOut, value: permissionGranted)
 
     .navigationTitle("app.title")
+    .navigationBarTitleDisplayMode(.inline)
 
     .toolbar {
       ToolbarItem(placement: .primaryAction) {
@@ -43,7 +55,9 @@ struct HomeView: View {
 
     .task {
       // Check notifications permissions
-      NotificationManager.shared.requestPermission { granted in permissionGranted = granted }
+      NotificationManager.shared.requestPermission { granted in
+        permissionGranted = granted
+      }
 
       // Reconcile notifications
       if !hasReconciledNotifications {
@@ -55,36 +69,9 @@ struct HomeView: View {
 }
 
 #Preview {
-  let container = try! ModelContainer(
-    for: Contact.self,
-    Settings.self,
-    configurations: .init(isStoredInMemoryOnly: true),
-  )
-
-  container.mainContext.insert(
-    Contact(
-      name: "Anne",
-      daysBetweenNotifications: 3,
-      icon: .bicycle,
-      color: .coral,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Roger",
-      daysBetweenNotifications: 7,
-      icon: .heartFill,
-      color: .honey,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Marcel",
-      daysBetweenNotifications: 14,
-      icon: .starFill,
-      color: .teal,
-    )
-  )
-
-  return HomeView().modelContainer(container).environment(AppNavigator())
+  NavigationStack {
+    HomeView()
+      .modelContainer(Preview.Container.contacts)
+      .environment(AppNavigator())
+  }
 }

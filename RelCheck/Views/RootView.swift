@@ -9,21 +9,43 @@ import SwiftUI
 import SwiftData
 
 struct RootView: View {
-  @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
-  @Environment(\.modelContext) private var modelContext
   @Environment(AppNavigator.self) private var navigator
+  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+  @Query private var settingsArray: [Settings]
 
-  var body: some View {
+  private var theme: UserTheme {
+    settingsArray.first?.theme ?? .auto
+  }
+
+  private var mainStack: some View {
     @Bindable var navigator = navigator
 
-    if navigator.hasSeenOnboarding {
-      NavigationStack(path: $navigator.path) {
-        HomeView().navigationDestination(for: AppDestination.self) { destination in
-          NavigationDestinationView(destination: destination)
-        }
+    return NavigationStack(path: $navigator.path) {
+      HomeView().navigationDestination(for: AppDestination.self) { destination in
+        NavigationDestinationView(destination: destination)
       }
-    } else {
-      OnboardingView(completeOnboarding: { navigator.completeOnboarding() })
     }
+  }
+
+  var body: some View {
+    Group {
+      if navigator.hasSeenOnboarding {
+        if horizontalSizeClass == .regular {
+          NavigationSplitView {
+            ContactsView(onSelect: { contact in
+              navigator.navigate(to: .singleContact(id: contact.id))
+            })
+            .navigationSplitViewColumnWidth(min: 280, ideal: 320, max: 400)
+          } detail: {
+            mainStack
+          }
+        } else {
+          mainStack
+        }
+      } else {
+        OnboardingView(completeOnboarding: { navigator.completeOnboarding() })
+      }
+    }
+    .preferredColorScheme(theme.colorScheme)
   }
 }

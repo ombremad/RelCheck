@@ -33,3 +33,7 @@ struct ColorPickerSheet: View {
     }
   }
 }
+
+#Preview {
+  ColorPickerSheet(selectedColor: .constant(.coral))
+}

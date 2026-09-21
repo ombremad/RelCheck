@@ -27,7 +27,8 @@ struct IconPickerSheet: View {
               }
           }
         }
-        .padding(.horizontal).padding(.vertical, 32)
+        .padding(.horizontal)
+        .padding(.vertical, 32)
       }
     }
   }

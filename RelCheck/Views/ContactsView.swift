@@ -15,6 +15,8 @@ struct ContactsView: View {
   @Query private var settingsArray: [Settings]
   @Query(sort: \Contact.name) private var contacts: [Contact]
 
+  var onSelect: ((Contact) -> Void)? = nil
+
   // Computed properties
   private var settings: Settings {
     if let existing = settingsArray.first { return existing }
@@ -37,9 +39,22 @@ struct ContactsView: View {
     }
   }
 
+  @ViewBuilder
+  private func row(for contact: Contact) -> some View {
+    if let onSelect {
+      Button {
+        onSelect(contact)
+      } label: {
+        ContactRow(contact: contact)
+      }
+      .buttonStyle(.plain)
+    } else {
+      ContactRow(contact: contact)
+    }
+  }
+
   var body: some View {
     List {
-
       if contacts.isEmpty {
         ContentUnavailableView {
           Label("contacts.contentUnavailableTitle", systemImage: "questionmark.app.fill")
@@ -53,7 +68,7 @@ struct ContactsView: View {
       }
 
       ForEach(sortedContacts) { contact in
-        ContactRow(contact: contact).swipeActions {
+        row(for: contact).swipeActions {
           Button(role: .destructive) {
             deleteContact(contact)
           } label: {
@@ -83,46 +98,10 @@ struct ContactsView: View {
 }
 
 #Preview("With contacts") {
-  let container = try! ModelContainer(
-    for: Contact.self,
-    Settings.self,
-    configurations: .init(isStoredInMemoryOnly: true),
-  )
-
-  container.mainContext.insert(
-    Contact(
-      name: "Anne",
-      daysBetweenNotifications: 3,
-      icon: .bicycle,
-      color: .coral,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Roger",
-      daysBetweenNotifications: 7,
-      icon: .heartFill,
-      color: .honey,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Marcel",
-      daysBetweenNotifications: 14,
-      icon: .starFill,
-      color: .teal,
-    )
-  )
-
-  return ContactsView().modelContainer(container).environment(AppNavigator())
+  ContactsView().modelContainer(Preview.Container.contacts).environment(AppNavigator())
 }
 
 #Preview("Without contacts") {
-  let container = try! ModelContainer(
-    for: Contact.self,
-    Settings.self,
-    configurations: .init(isStoredInMemoryOnly: true),
-  )
-
-  ContactsView().modelContainer(container).environment(AppNavigator())
+  ContactsView().modelContainer(Preview.Container.empty)
+    .environment(AppNavigator())
 }

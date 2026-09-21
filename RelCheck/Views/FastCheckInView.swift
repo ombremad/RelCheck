@@ -59,35 +59,5 @@ struct FastCheckInView: View {
 }
 
 #Preview {
-  let container = try! ModelContainer(
-    for: Contact.self,
-    configurations: .init(isStoredInMemoryOnly: true),
-  )
-
-  container.mainContext.insert(
-    Contact(
-      name: "Anne",
-      daysBetweenNotifications: 3,
-      icon: .bicycle,
-      color: .coral,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Roger",
-      daysBetweenNotifications: 7,
-      icon: .heartFill,
-      color: .honey,
-    )
-  )
-  container.mainContext.insert(
-    Contact(
-      name: "Marcel",
-      daysBetweenNotifications: 14,
-      icon: .starFill,
-      color: .teal,
-    )
-  )
-
-  return FastCheckInView().modelContainer(container).environment(AppNavigator())
+  FastCheckInView().modelContainer(Preview.Container.contacts).environment(AppNavigator())
 }

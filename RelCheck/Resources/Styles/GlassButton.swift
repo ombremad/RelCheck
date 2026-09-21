@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppButton: ButtonStyle {
+struct GlassButton: ButtonStyle {
   private var foregroundStyle: Color = .white
   private var vPadding: CGFloat = 6
   private var hPadding: CGFloat = 16

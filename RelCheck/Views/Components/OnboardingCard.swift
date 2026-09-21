@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct OnboardingCard: View {
-  var title: String
-  var message: String
+  var title: LocalizedStringKey
+  var message: LocalizedStringKey
   var imageName: String
 
   var body: some View {
@@ -29,7 +29,7 @@ struct OnboardingCard: View {
         .font(.body)
         .multilineTextAlignment(.center)
         .padding(.horizontal)
-        .foregroundColor(.secondary)
+        .foregroundStyle(.secondary)
 
       Spacer()
     }

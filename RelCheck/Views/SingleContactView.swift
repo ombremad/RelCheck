@@ -18,7 +18,7 @@ struct SingleContactView: View {
 
   var body: some View {
     Form {
-      SingleContactCard(contact: contact)
+      SingleContactCard(contact)
       if hasCheckedIn {
         VStack(alignment: .center, spacing: 16) {
           Image(systemName: "checkmark.message.fill")
@@ -48,7 +48,7 @@ struct SingleContactView: View {
             Spacer()
           }
           Button("button.checkIn") { checkIn() }
-            .buttonStyle(AppButton())
+            .buttonStyle(GlassButton())
         }
         .frame(minHeight: 200)
       }
@@ -66,6 +66,7 @@ struct SingleContactView: View {
     }
     .navigationTitle($contact.name)
     .navigationBarTitleDisplayMode(.inline)
+
     .alert(
       "singleContact.deleteAlert.title",
       isPresented: $showDeleteAlert,
@@ -102,6 +103,6 @@ struct SingleContactView: View {
 }
 
 #Preview {
-  @Previewable @State var contact = PreviewData().contact
+  @Previewable @State var contact = Preview.contact
   SingleContactView(contact: contact).environment(AppNavigator())
 }

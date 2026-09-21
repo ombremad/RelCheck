@@ -142,9 +142,16 @@ struct ContactFormView: View {
   }
 }
 
-#Preview("New Contact") { ContactFormView().environment(AppNavigator()) }
+#Preview("New Contact") {
+  NavigationStack {
+    ContactFormView().environment(AppNavigator())
+  }
+}
 
 #Preview("Edit Contact") {
-  @Previewable @State var contact = PreviewData().contact
-  ContactFormView(contact: contact).environment(AppNavigator())
+  @Previewable @State var contact = Preview.contact
+
+  NavigationStack {
+    ContactFormView(contact: contact).environment(AppNavigator())
+  }
 }

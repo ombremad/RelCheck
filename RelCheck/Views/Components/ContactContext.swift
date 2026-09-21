@@ -34,7 +34,7 @@ struct ContactContext: View {
 }
 
 #Preview {
-  @Previewable @State var contact = PreviewData().contact
+  @Previewable @State var contact = Preview.contact
   Form {
     Section {
       HStack {
