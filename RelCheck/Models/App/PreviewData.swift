@@ -13,5 +13,5 @@ struct PreviewData {
     daysBetweenNotifications: 7,
     icon: .bicycle,
     color: .coral,
-    )
+  )
 }

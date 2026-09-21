@@ -37,7 +37,7 @@ struct ContactRow: View {
           }
           .labeledContentStyle(ContactRowLabels())
         }
-        
+
         Spacer()
 
         Image(systemName: "chevron.forward")
@@ -50,12 +50,12 @@ struct ContactRow: View {
 }
 
 #Preview {
-@Previewable @State var contact = Contact(
-  name: "Anne",
-  daysBetweenNotifications: 7,
-  icon: .bicycle,
-  color: .coral,
-)
+  @Previewable @State var contact = Contact(
+    name: "Anne",
+    daysBetweenNotifications: 7,
+    icon: .bicycle,
+    color: .coral,
+  )
   Form {
     ContactRow(contact: contact).environment(AppNavigator())
   }

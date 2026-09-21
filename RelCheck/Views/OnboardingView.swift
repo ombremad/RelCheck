@@ -28,27 +28,27 @@ struct OnboardingView: View {
         OnboardingCard(
           title: String(localized: "onboardingCard.01.title"),
           message: String(localized: "onboardingCard.01.message"),
-          imageName: "person.line.dotted.person.fill"
+          imageName: "person.line.dotted.person.fill",
         )
         OnboardingCard(
           title: String(localized: "onboardingCard.02.title"),
           message: String(localized: "onboardingCard.02.message"),
-          imageName: "person.fill.badge.plus"
+          imageName: "person.fill.badge.plus",
         )
         OnboardingCard(
           title: String(localized: "onboardingCard.03.title"),
           message: String(localized: "onboardingCard.03.message"),
-          imageName: "bell.badge.fill"
+          imageName: "bell.badge.fill",
         )
         OnboardingCard(
           title: String(localized: "onboardingCard.04.title"),
           message: String(localized: "onboardingCard.04.message"),
-          imageName: "checkmark.message.fill"
+          imageName: "checkmark.message.fill",
         )
         OnboardingCard(
           title: String(localized: "onboardingCard.05.title"),
           message: String(localized: "onboardingCard.05.message"),
-          imageName: "hare.fill"
+          imageName: "hare.fill",
         )
 
         VStack(spacing: 20) {

@@ -22,12 +22,16 @@ extension Contact {
     // Schedule a new notification
     guard
       let nextDate = Calendar.current.date(
-        byAdding: DateComponents(day: daysBetweenNotifications), to: .now)
+        byAdding: DateComponents(day: daysBetweenNotifications),
+        to: .now,
+      )
     else { return }
 
     let notification = Notification(date: nextDate, contact: self)
     notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-      timeInterval: nextDate.timeIntervalSinceNow, contact: self)
+      timeInterval: nextDate.timeIntervalSinceNow,
+      contact: self,
+    )
     modelContext.insert(notification)
   }
 }

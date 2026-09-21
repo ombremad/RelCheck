@@ -13,7 +13,7 @@ class NotificationManager {
   var modelContext: ModelContext?
 
   private init() {}
-  
+
   static let fastCheckInDays = 7
   static let fastCheckInIdentifierPrefix = "fast-check-in-"
   static let fastCheckInInactivityIdentifier = "fastcheckin-inactivity-warning"
@@ -45,10 +45,14 @@ class NotificationManager {
   func deleteAllNotifications() {
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
   }
-  
+
   // Schedule a notification at a specific date
   func scheduleNotificationAtDate(
-    title: String, body: String, date: Date, userInfo: [String: Any], identifier: String
+    title: String,
+    body: String,
+    date: Date,
+    userInfo: [String: Any],
+    identifier: String,
   ) -> String {
     let content = UNMutableNotificationContent()
     content.title = title

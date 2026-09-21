@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthorizationWarningCard: View {
   let isVisible: Bool
-  
+
   var card: some View {
     HStack(alignment: .top, spacing: 12) {
       Image(systemName: "exclamationmark.circle")
@@ -34,7 +34,7 @@ struct AuthorizationWarningCard: View {
     .background(Color.yellow)
     .clipShape(RoundedRectangle(cornerRadius: 16))
   }
-  
+
   var body: some View {
     if isVisible {
       card

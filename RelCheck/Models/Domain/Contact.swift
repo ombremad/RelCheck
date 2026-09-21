@@ -37,7 +37,7 @@ import SwiftData
     name: String,
     daysBetweenNotifications: Int,
     icon: ContactIcon = .personFill,
-    color: ContactColor = .gray
+    color: ContactColor = .gray,
   ) {
     self.id = UUID()
     self.name = name

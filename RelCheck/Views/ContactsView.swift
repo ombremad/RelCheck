@@ -65,7 +65,7 @@ struct ContactsView: View {
 
     .navigationTitle("contacts.title")
     .navigationBarTitleDisplayMode(.inline)
-    
+
     .toolbar {
       ToolbarItem(placement: .confirmationAction) {
         Button {
@@ -84,7 +84,10 @@ struct ContactsView: View {
 
 #Preview("With contacts") {
   let container = try! ModelContainer(
-    for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
+    for: Contact.self,
+    Settings.self,
+    configurations: .init(isStoredInMemoryOnly: true),
+  )
 
   container.mainContext.insert(
     Contact(
@@ -92,28 +95,34 @@ struct ContactsView: View {
       daysBetweenNotifications: 3,
       icon: .bicycle,
       color: .coral,
-    ))
+    )
+  )
   container.mainContext.insert(
     Contact(
       name: "Roger",
       daysBetweenNotifications: 7,
       icon: .heartFill,
       color: .honey,
-    ))
+    )
+  )
   container.mainContext.insert(
     Contact(
       name: "Marcel",
       daysBetweenNotifications: 14,
       icon: .starFill,
       color: .teal,
-    ))
+    )
+  )
 
   return ContactsView().modelContainer(container).environment(AppNavigator())
 }
 
 #Preview("Without contacts") {
   let container = try! ModelContainer(
-    for: Contact.self, Settings.self, configurations: .init(isStoredInMemoryOnly: true))
+    for: Contact.self,
+    Settings.self,
+    configurations: .init(isStoredInMemoryOnly: true),
+  )
 
   ContactsView().modelContainer(container).environment(AppNavigator())
 }

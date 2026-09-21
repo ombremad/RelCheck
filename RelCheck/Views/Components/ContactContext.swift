@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactContext: View {
   var contact: Contact
-  
+
   var body: some View {
     LabeledContent {
       Text("singleContact.everyXDays \(contact.daysBetweenNotifications)")

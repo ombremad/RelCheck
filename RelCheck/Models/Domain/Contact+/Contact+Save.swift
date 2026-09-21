@@ -14,9 +14,12 @@ extension Contact {
     case updatedWithDaysChanged
   }
 
-  func update(name: String, daysBetweenNotifications: Int, icon: ContactIcon, color: ContactColor)
-    -> Bool
-  {
+  func update(
+    name: String,
+    daysBetweenNotifications: Int,
+    icon: ContactIcon,
+    color: ContactColor,
+  ) -> Bool {
     let daysChanged = self.daysBetweenNotifications != daysBetweenNotifications
     self.name = name
     self.daysBetweenNotifications = daysBetweenNotifications
@@ -26,19 +29,31 @@ extension Contact {
   }
 
   static func save(
-    contact: Contact?, name: String, daysBetweenNotifications: Int, icon: ContactIcon,
-    color: ContactColor, modelContext: ModelContext
+    contact: Contact?,
+    name: String,
+    daysBetweenNotifications: Int,
+    icon: ContactIcon,
+    color: ContactColor,
+    modelContext: ModelContext,
   ) -> SaveResult {
     guard let existing = contact else {
       let newContact = Contact(
-        name: name, daysBetweenNotifications: daysBetweenNotifications, icon: icon, color: color)
+        name: name,
+        daysBetweenNotifications: daysBetweenNotifications,
+        icon: icon,
+        color: color,
+      )
       modelContext.insert(newContact)
       try? modelContext.save()
       newContact.scheduleNextNotification(modelContext: modelContext)
       return .created
     }
     let daysChanged = existing.update(
-      name: name, daysBetweenNotifications: daysBetweenNotifications, icon: icon, color: color)
+      name: name,
+      daysBetweenNotifications: daysBetweenNotifications,
+      icon: icon,
+      color: color,
+    )
     try? modelContext.save()
     return daysChanged ? .updatedWithDaysChanged : .updated
   }

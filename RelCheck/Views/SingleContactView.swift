@@ -67,7 +67,8 @@ struct SingleContactView: View {
     .navigationTitle($contact.name)
     .navigationBarTitleDisplayMode(.inline)
     .alert(
-      "singleContact.deleteAlert.title", isPresented: $showDeleteAlert
+      "singleContact.deleteAlert.title",
+      isPresented: $showDeleteAlert,
     ) {
       Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
         contact.delete(from: modelContext)

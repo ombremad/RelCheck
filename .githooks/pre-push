@@ -1,0 +1,7 @@
+#!/bin/sh
+if ! swift format lint --strict --recursive RelCheck; then
+  echo ""
+  echo "swift-format found violations. Fix them with:"
+  echo "  swift format format --in-place --recursive RelCheck"
+  exit 1
+fi

@@ -9,7 +9,13 @@ import SwiftUI
 
 extension LinearGradient {
   static let primary = LinearGradient(
-    colors: [.indigo, .mint], startPoint: .top, endPoint: .bottom)
+    colors: [.indigo, .mint],
+    startPoint: .top,
+    endPoint: .bottom,
+  )
   static let destructive = LinearGradient(
-    colors: [.orange, .red], startPoint: .top, endPoint: .bottom)
+    colors: [.orange, .red],
+    startPoint: .top,
+    endPoint: .bottom,
+  )
 }

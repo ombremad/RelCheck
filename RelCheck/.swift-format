@@ -3,9 +3,11 @@
   "lineLength": 120,
   "maximumBlankLines": 1,
   "respectsExistingLineBreaks": true,
+  "lineBreakBeforeEachArgument": true,
+  "prioritizeKeepingFunctionOutputTogether": true,
   "indentBlankLines": false,
   "indentSwitchCaseLabels": false,
-  "trailingCommaConfiguration": "alwaysUsed",
+  "multilineTrailingCommaBehavior": "alwaysUsed",
   "multiElementCollectionTrailingCommas": true,
   "rules": {
     "AlwaysUseLowerCamelCase": true,

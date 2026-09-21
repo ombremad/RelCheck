@@ -69,7 +69,8 @@ struct SingleContactCard: View {
         name: "Anne",
         daysBetweenNotifications: 7,
         icon: .bicycle,
-        color: .coral
-      ))
+        color: .coral,
+      )
+    )
   }
 }

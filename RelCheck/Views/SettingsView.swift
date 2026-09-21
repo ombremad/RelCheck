@@ -27,7 +27,7 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
             }
           }
-          
+
           if settings.fastCheckIn {
             Picker("settings.fastCheckInHour.label", selection: $settings.fastCheckInHour) {
               ForEach(0..<24, id: \.self) { hour in

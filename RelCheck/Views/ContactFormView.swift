@@ -129,7 +129,7 @@ struct ContactFormView: View {
       daysBetweenNotifications: daysBetweenNotifications,
       icon: selectedIcon,
       color: selectedColor,
-      modelContext: modelContext
+      modelContext: modelContext,
     ) {
     case .created, .updated: navigator.back()
     case .updatedWithDaysChanged: showEditAlert = true
