@@ -12,7 +12,13 @@ extension NotificationManager {
 
   func scheduleFastCheckInNotifications() {
     deleteFastCheckInNotifications()
-    guard isFastCheckInEnabled else { return }
+    addFastCheckInNotifications()
+  }
+
+  // Schedule fast check-in notifications, assuming previous ones were already removed
+  func addFastCheckInNotifications() {
+    guard let settings = currentSettings, settings.fastCheckIn else { return }
+    let fastCheckInHour = min(max(settings.fastCheckInHour, 0), 23)
 
     let title = String(localized: "notification.fastCheckIn.title")
     let body = String(localized: "notification.fastCheckIn.body")
@@ -50,7 +56,7 @@ extension NotificationManager {
       (0..<Self.fastCheckInDays).map {
         "\(Self.fastCheckInIdentifierPrefix)\($0)"
       } + [Self.fastCheckInInactivityIdentifier]
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+    deleteNotifications(identifiers: identifiers)
   }
 
   private var currentSettings: Settings? {
@@ -64,8 +70,4 @@ extension NotificationManager {
     modelContext.insert(settings)
     return settings
   }
-
-  var isFastCheckInEnabled: Bool { currentSettings?.fastCheckIn ?? false }
-
-  private var fastCheckInHour: Int { min(max(currentSettings?.fastCheckInHour ?? 20, 0), 23) }
 }

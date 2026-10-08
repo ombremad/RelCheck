@@ -12,12 +12,8 @@ import SwiftData
 extension Contact {
   func scheduleNextNotification(modelContext: ModelContext) {
     // Delete all existing notifications
-    for notification in notifications ?? [] {
-      if let notificationID = notification.notificationID {
-        NotificationManager.shared.deleteNotification(identifier: notificationID)
-      }
-      modelContext.delete(notification)
-    }
+    NotificationManager.shared.deleteNotifications(identifiers: notifications?.compactMap(\.notificationID) ?? [])
+    for notification in notifications ?? [] { modelContext.delete(notification) }
 
     // Schedule a new notification
     guard

@@ -12,6 +12,10 @@ class NotificationManager {
   static let shared = NotificationManager()
   var modelContext: ModelContext?
 
+  // Notification center calls can block on the system daemon: run them in order, off the main thread
+  private let center = UNUserNotificationCenter.current()
+  private let queue = DispatchQueue(label: "ombremad.notifyme.notifications", qos: .utility)
+
   private init() {}
 
   static let fastCheckInDays = 3
@@ -22,28 +26,32 @@ class NotificationManager {
   // Reconcile scheduled notifications at every app launch
   func reconcileNotifications(contacts: [Contact]) {
     deleteAllNotifications()
-    scheduleFastCheckInNotifications()
+    addFastCheckInNotifications()
     scheduleContactNotifications(contacts)
     scheduleInactivityNotifications()
   }
 
   // Get all pending notifications
   func getPendingNotifications(completion: @escaping ([UNNotificationRequest]) -> Void) {
-    UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+    center.getPendingNotificationRequests { requests in
       DispatchQueue.main.async { completion(requests) }
     }
   }
 
-  // Cancel a specific notification
-  func deleteNotification(identifier: String) {
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [
-      identifier
-    ])
+  // Cancel specific notifications
+  func deleteNotifications(identifiers: [String]) {
+    guard !identifiers.isEmpty else { return }
+    queue.async { [center] in center.removePendingNotificationRequests(withIdentifiers: identifiers) }
   }
 
   // Cancel all notifications
   func deleteAllNotifications() {
-    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    queue.async { [center] in center.removeAllPendingNotificationRequests() }
+  }
+
+  // Add a notification request
+  func enqueue(_ request: UNNotificationRequest) {
+    queue.async { [center] in center.add(request) }
   }
 
   // Schedule a notification at a specific date
@@ -62,9 +70,7 @@ class NotificationManager {
 
     let timeInterval = date.timeIntervalSinceNow
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-
-    UNUserNotificationCenter.current().add(request)
+    enqueue(UNNotificationRequest(identifier: identifier, content: content, trigger: trigger))
 
     return identifier
   }

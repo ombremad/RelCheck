@@ -9,12 +9,8 @@ import SwiftData
 
 extension Contact {
   func delete(from modelContext: ModelContext) {
-    for notification in notifications ?? [] {
-      if let notificationID = notification.notificationID {
-        NotificationManager.shared.deleteNotification(identifier: notificationID)
-      }
-      modelContext.delete(notification)
-    }
+    NotificationManager.shared.deleteNotifications(identifiers: notifications?.compactMap(\.notificationID) ?? [])
+    for notification in notifications ?? [] { modelContext.delete(notification) }
     modelContext.delete(self)
   }
 }

@@ -42,9 +42,7 @@ extension NotificationManager {
     content.userInfo = ["contactID": contact.id.uuidString, "action": "viewContact"]
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-
-    UNUserNotificationCenter.current().add(request)
+    enqueue(UNNotificationRequest(identifier: identifier, content: content, trigger: trigger))
 
     return identifier
   }
