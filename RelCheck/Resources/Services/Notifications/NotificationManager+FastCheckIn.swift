@@ -9,7 +9,7 @@ import SwiftData
 import UserNotifications
 
 extension NotificationManager {
-  // Schedule daily recaps at 8pm
+
   func scheduleFastCheckInNotifications() {
     deleteFastCheckInNotifications()
     guard isFastCheckInEnabled else { return }
@@ -19,8 +19,7 @@ extension NotificationManager {
     let now = Date()
     let calendar = Calendar.current
 
-    // First 8pm still in the future: today if it hasn't passed, otherwise tomorrow
-    guard var firstDate = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: now) else {
+    guard var firstDate = calendar.date(bySettingHour: fastCheckInHour, minute: 0, second: 0, of: now) else {
       return
     }
     if firstDate <= now {
@@ -28,6 +27,7 @@ extension NotificationManager {
       firstDate = tomorrow
     }
 
+    var lastDate: Date?
     for offset in 0..<Self.fastCheckInDays {
       guard let date = calendar.date(byAdding: .day, value: offset, to: firstDate) else {
         continue
@@ -39,19 +39,20 @@ extension NotificationManager {
         userInfo: ["action": "viewFastCheckIn"],
         identifier: "\(Self.fastCheckInIdentifierPrefix)\(offset)",
       )
+      lastDate = date
     }
 
-    scheduleFastCheckInInactivityNotification()
+    if let lastDate { scheduleFastCheckInInactivityNotification(after: lastDate) }
   }
 
   private func deleteFastCheckInNotifications() {
-    let identifiers = (0..<Self.fastCheckInDays).map {
-      "\(Self.fastCheckInIdentifierPrefix)\($0)"
-    }
+    let identifiers =
+      (0..<Self.fastCheckInDays).map {
+        "\(Self.fastCheckInIdentifierPrefix)\($0)"
+      } + [Self.fastCheckInInactivityIdentifier]
     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
   }
 
-  // Current settings row, created with defaults if it doesn't exist yet
   private var currentSettings: Settings? {
     guard let modelContext else { return nil }
 
@@ -64,9 +65,7 @@ extension NotificationManager {
     return settings
   }
 
-  // Whether the user turned the daily fast check-in on
   var isFastCheckInEnabled: Bool { currentSettings?.fastCheckIn ?? false }
 
-  // Hour of day (0–23) for the daily recap
   private var fastCheckInHour: Int { min(max(currentSettings?.fastCheckInHour ?? 20, 0), 23) }
 }

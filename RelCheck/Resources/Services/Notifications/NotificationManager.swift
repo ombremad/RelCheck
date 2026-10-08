@@ -14,7 +14,7 @@ class NotificationManager {
 
   private init() {}
 
-  static let fastCheckInDays = 7
+  static let fastCheckInDays = 3
   static let fastCheckInIdentifierPrefix = "fast-check-in-"
   static let fastCheckInInactivityIdentifier = "fastcheckin-inactivity-warning"
   static let inactivityNotificationDays = 14

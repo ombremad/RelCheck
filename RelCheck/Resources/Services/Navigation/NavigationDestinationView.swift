@@ -15,6 +15,7 @@ struct NavigationDestinationView: View {
     switch destination {
     case .about: AboutView()
     case .contacts: ContactsView()
+    case .debug: DebugNotificationView()
     case .fastCheckIn: FastCheckInView()
     case .newContact: ContactFormView()
     case .settings: SettingsView()

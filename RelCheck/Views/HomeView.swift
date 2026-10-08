@@ -51,6 +51,15 @@ struct HomeView: View {
           Label("button.settings", systemImage: "gear")
         }
       }
+      #if DEBUG
+        ToolbarItem(placement: .primaryAction) {
+          Button {
+            navigator.navigate(to: .debug)
+          } label: {
+            Label("button.debug", systemImage: "ant")
+          }
+        }
+      #endif
     }
 
     .task {

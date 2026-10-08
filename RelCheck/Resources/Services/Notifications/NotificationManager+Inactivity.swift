@@ -10,7 +10,6 @@ import UserNotifications
 extension NotificationManager {
   func scheduleInactivityNotifications() {
     scheduleAppInactivityNotification()
-    scheduleFastCheckInInactivityNotification()
   }
 
   private func scheduleAppInactivityNotification() {
@@ -26,17 +25,15 @@ extension NotificationManager {
     )
   }
 
-  func scheduleFastCheckInInactivityNotification() {
-    guard isFastCheckInEnabled,
-      let targetDate = Calendar.current.date(byAdding: .day, value: Self.fastCheckInDays, to: .now)
-    else { return }
+  func scheduleFastCheckInInactivityNotification(after lastFastCheckIn: Date) {
+    let targetDate = lastFastCheckIn.addingTimeInterval(24 * 60 * 60)
 
     let _ = scheduleNotificationAtDate(
       title: String(localized: "notification.inactivity.fastCheckIn.title"),
       body: String(localized: "notification.inactivity.fastCheckIn.body"),
       date: targetDate,
       userInfo: [:],
-      identifier: "fastcheckin-inactivity-warning",
+      identifier: Self.fastCheckInInactivityIdentifier,
     )
   }
 }

@@ -10,6 +10,7 @@ import Foundation
 enum AppDestination: Hashable, Codable {
   case about
   case contacts
+  case debug
   case fastCheckIn
   case newContact
   case settings
