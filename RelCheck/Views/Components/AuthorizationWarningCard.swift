@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct AuthorizationWarningCard: View {
+  @Environment(\.verticalSizeClass) private var verticalSizeClass
+
+  private var isCompact: Bool { verticalSizeClass == .compact }
+
   var body: some View {
     Section {
       Button {
@@ -17,13 +21,18 @@ struct AuthorizationWarningCard: View {
           Image(systemName: "exclamationmark.circle")
             .resizable()
             .scaledToFit()
-            .frame(maxWidth: 38)
+            .frame(maxWidth: isCompact ? 22 : 38)
           VStack(alignment: .leading) {
-            Text("contacts.authorizationWarning.title")
-              .font(.headline)
-              .foregroundStyle(.black.opacity(0.4))
-            Text("contacts.authorizationWarning.content")
-              .font(.subheadline)
+            if isCompact {
+              Text("contacts.authorizationWarning.contentCompact")
+                .font(.subheadline)
+            } else {
+              Text("contacts.authorizationWarning.title")
+                .font(.headline)
+                .foregroundStyle(.black.opacity(0.4))
+              Text("contacts.authorizationWarning.content")
+                .font(.subheadline)
+            }
           }
         }
         .foregroundStyle(.black)
@@ -39,7 +48,13 @@ struct AuthorizationWarningCard: View {
   }
 }
 
-#Preview {
+#Preview("Regular", traits: .portrait) {
+  Form {
+    AuthorizationWarningCard()
+  }
+}
+
+#Preview("Compact", traits: .landscapeLeft) {
   Form {
     AuthorizationWarningCard()
   }

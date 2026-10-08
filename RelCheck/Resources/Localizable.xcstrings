@@ -340,6 +340,22 @@
         }
       }
     },
+    "contacts.authorizationWarning.contentCompact" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow notifications in iOS settings now."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorise les notifications dans les paramètres iOS."
+          }
+        }
+      }
+    },
     "contacts.authorizationWarning.title" : {
       "localizations" : {
         "en" : {

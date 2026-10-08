@@ -12,7 +12,6 @@ class NotificationManager {
   static let shared = NotificationManager()
   var modelContext: ModelContext?
 
-  // Notification center calls can block on the system daemon: run them in order, off the main thread
   private let center = UNUserNotificationCenter.current()
   private let queue = DispatchQueue(label: "ombremad.notifyme.notifications", qos: .utility)
 
@@ -20,8 +19,13 @@ class NotificationManager {
 
   static let fastCheckInDays = 3
   static let fastCheckInIdentifierPrefix = "fast-check-in-"
-  static let fastCheckInInactivityIdentifier = "fastcheckin-inactivity-warning"
+  static let fastCheckInInactivityIdentifier = "fast-check-in-inactivity"
   static let inactivityNotificationDays = 14
+  static let inactivityLastReminderDate = Calendar.current.date(
+    byAdding: .day,
+    value: inactivityNotificationDays,
+    to: .now,
+  )
 
   // Reconcile scheduled notifications at every app launch
   func reconcileNotifications(contacts: [Contact]) {

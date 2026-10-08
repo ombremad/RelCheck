@@ -13,7 +13,7 @@ extension NotificationManager {
   }
 
   private func scheduleAppInactivityNotification() {
-    guard let targetDate = Calendar.current.date(byAdding: .day, value: Self.inactivityNotificationDays, to: .now)
+    guard let targetDate = Self.inactivityLastReminderDate
     else { return }
 
     let _ = scheduleNotificationAtDate(
@@ -21,7 +21,7 @@ extension NotificationManager {
       body: String(localized: "notification.inactivity.app.body"),
       date: targetDate,
       userInfo: [:],
-      identifier: "app-inactivity-warning",
+      identifier: "app-inactivity",
     )
   }
 
