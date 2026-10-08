@@ -71,11 +71,11 @@ struct SingleContactView: View {
       "singleContact.deleteAlert.title",
       isPresented: $showDeleteAlert,
     ) {
-      Button("singleContact.deleteAlert.destructiveButton", role: .destructive) {
+      Button("button.delete", role: .destructive) {
         contact.delete(from: modelContext)
         navigator.back()
       }
-      Button("singleContact.deleteAlert.dismissButton", role: .cancel) {}
+      Button("button.cancel", role: .cancel) {}
     } message: {
       Text("singleContact.deleteAlert.message")
     }

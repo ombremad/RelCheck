@@ -82,9 +82,9 @@ struct OnboardingView: View {
         Alert(
           title: Text("onboarding.skipAlert.title"),
           message: Text("onboarding.skipAlert.message"),
-          primaryButton: .default(Text("common.cancel")),
+          primaryButton: .default(Text("button.cancel")),
           secondaryButton: .destructive(
-            Text("common.ok"),
+            Text("button.ok"),
             action: completeOnboarding,
           ),
         )

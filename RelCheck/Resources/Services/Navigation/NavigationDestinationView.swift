@@ -14,26 +14,16 @@ struct NavigationDestinationView: View {
   var body: some View {
     switch destination {
     case .about: AboutView()
-    case .contactList: ContactsView(mode: .inline)
-    case .debug: DebugNotificationView()
+    case .contactList: ContactsView()
+    case .debug: DebugView()
     case .fastCheckIn: FastCheckInView()
+    case .home: HomeView()
     case .newContact: ContactFormView()
     case .settings: SettingsView()
-    case .contact: ContactView()
+    case .contact(let id):
+      ContactResolver(id: id) { SingleContactView(contact: $0) }
     case .editContact(let id):
       ContactResolver(id: id) { ContactFormView(contact: $0) }
-    }
-  }
-}
-
-private struct ContactView: View {
-  @Environment(AppNavigator.self) private var navigator
-
-  var body: some View {
-    if let id = navigator.selectedContactID {
-      ContactResolver(id: id) { SingleContactView(contact: $0) }
-        .id(id)
-        .transition(.opacity)
     }
   }
 }
@@ -51,7 +41,7 @@ private struct ContactResolver<Content: View>: View {
     if let contact = matches.first {
       content(contact)
     } else {
-      Text("error.contactNotFound")
+      EmptyStateView(reason: .contactNotFound)
     }
   }
 }

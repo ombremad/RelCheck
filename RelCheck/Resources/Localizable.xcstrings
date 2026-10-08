@@ -14,12 +14,6 @@
             "state" : "translated",
             "value" : "Anne Ferret"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Anne Ferret"
-          }
         }
       }
     },
@@ -35,12 +29,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anne Ferret (aka @ombremad) est une développeuse iOS, née en France, vivant entre son pays de naissance et les Pays-Bas.\\nAncienne journaliste tech, elle a initié un changement de carrière en 2025 : elle a fait l’Apple Foundation Program Advanced et appris à coder ! RelCheck est une de ses premières apps."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anne Ferret (ook bekend als @ombremad) is iOS-ontwikkelaar, geboren in Frankrijk en wonend tussen haar geboorteland en Nederland.\\nAls voormalig techjournalist is ze in 2025 van carrière veranderd: ze heeft het Apple Foundation Program Advanced gevolgd en heeft leren programmeren. RelCheck is een van haar eerste apps."
           }
         }
       }
@@ -58,12 +46,6 @@
             "state" : "translated",
             "value" : "Site web d’Anne Ferret"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Website van Anne Ferret"
-          }
         }
       }
     },
@@ -79,12 +61,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liens"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Links"
           }
         }
       }
@@ -102,12 +78,6 @@
             "state" : "translated",
             "value" : "RelCheck sur GitHub"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "RelCheck op GitHub"
-          }
         }
       }
     },
@@ -122,12 +92,6 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "RelCheck"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
             "value" : "RelCheck"
           }
         }
@@ -146,12 +110,6 @@
             "state" : "translated",
             "value" : "RelCheck (nom de code : notifyme) est né en tant que petit projet de hackathon durant l’Apple Foundation Program Advanced. Une version 0.1 a été terminée en environ 36 heures, grâce aux efforts de deux personnes : Dembo et Anne. La dernière a décidé de continue à travailler sur le projet pour l’améliorer autant que possible.\\nCette app est faite pour, et dédiée à, toustes mes adelphes de TDAH et neuro-atypiques. Avec amour !"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "RelCheck (codenaam: notifyme) is ontstaan als klein hackathonproject tijdens het Apple Foundation Program Advanced. Binnen ongeveer 36 uur is versie 0.1 afgerond, dankzij de inzet van twee mensen: Dembo en Anne. Anne heeft daarna besloten om door te gaan met het project en het steeds verder te verbeteren.\\nDeze app is gemaakt voor, en opgedragen aan, iedereen met ADHD en een neurodivers brein. Met heel veel liefde!"
-          }
         }
       }
     },
@@ -168,12 +126,6 @@
             "state" : "translated",
             "value" : "À propos"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Over"
-          }
         }
       }
     },
@@ -188,6 +140,54 @@
       },
       "shouldTranslate" : false
     },
+    "authorizationWarning.content" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to allow notifications in iOS if you want this app to work properly."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu dois autoriser les notifications dans iOS pour que cette app fonctionne correctement."
+          }
+        }
+      }
+    },
+    "authorizationWarning.contentCompact" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow notifications in iOS settings now."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorise les notifications dans les paramètres iOS."
+          }
+        }
+      }
+    },
+    "authorizationWarning.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attention"
+          }
+        }
+      }
+    },
     "button.addContact" : {
       "localizations" : {
         "en" : {
@@ -201,91 +201,21 @@
             "state" : "translated",
             "value" : "Ajouter un contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Voeg een contact toe"
-          }
         }
       }
     },
-    "button.changedDays.changeCheckIn %lld" : {
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Reschedule: next check-in will be tomorrow"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Reschedule: next check-in will be in %lld days"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Replanifier : prochaine prise de contact demain"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Replanifier : prochaine prise de contact dans %lld jours"
-                }
-              }
-            }
-          }
-        },
-        "nl" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "Verplaats: volgend contactmoment is morgen"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "Verplaats: volgend contactmoment is over %lld dagen"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "button.changedDays.keepCurrentCheckIn %@" : {
+    "button.cancel" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Keep next check-in on %@"
+            "value" : "Cancel"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Garder la prochaine prise de contact le %@"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Behoud: volgend contactmoment op %@"
+            "value" : "Annuler"
           }
         }
       }
@@ -303,12 +233,6 @@
             "state" : "translated",
             "value" : "Contact pris"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Check in"
-          }
         }
       }
     },
@@ -324,12 +248,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Verwijder"
           }
         }
       }
@@ -347,11 +265,21 @@
             "state" : "translated",
             "value" : "Éditer"
           }
-        },
-        "nl" : {
+        }
+      }
+    },
+    "button.ok" : {
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Bewerk"
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -369,555 +297,10 @@
             "state" : "translated",
             "value" : "Enregistrer"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Bewaar"
-          }
         }
       }
     },
-    "button.settings" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Réglages"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Instellingen"
-          }
-        }
-      }
-    },
-    "common.cancel" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Annuler"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Annuleer"
-          }
-        }
-      }
-    },
-    "common.ok" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "OK"
-          }
-        }
-      }
-    },
-    "contacts.authorizationWarning.content" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You need to allow notifications in iOS if you want this app to work properly."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tu dois autoriser les notifications dans iOS pour que cette app fonctionne correctement."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je moet meldingen toestaan in iOS zodat deze app goed werkt."
-          }
-        }
-      }
-    },
-    "contacts.authorizationWarning.contentCompact" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Allow notifications in iOS settings now."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autorise les notifications dans les paramètres iOS."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Sta nu meldingen toe in je iOS-instellingen."
-          }
-        }
-      }
-    },
-    "contacts.authorizationWarning.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Warning"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Attention"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Waarschuwing"
-          }
-        }
-      }
-    },
-    "contacts.contentUnavailableCTA" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your contacts list is empty. Add one now!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tu n’as pas encore de contact. Crées-en un maintenant !"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je contactenlijst is leeg. Voeg er nu een toe!"
-          }
-        }
-      }
-    },
-    "contacts.contentUnavailableTitle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contacts list empty"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Liste de contacts vide"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactenlijst is leeg"
-          }
-        }
-      }
-    },
-    "contacts.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contacts"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contacts"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contacten"
-          }
-        }
-      }
-    },
-    "debugnotifications.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Debug notifications"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "editContact.changedDays.message" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Days between notifications have been changed for this contact. Do you want to apply this setting right now or wait until after your next planned check-in?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L’intervalle de jours entre les notifications a été changé. Veux-tu appliquer ce changement dès maintenant ou après la prochaine prise de contact ?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Het aantal dagen tussen meldingen voor dit contact is aangepast. Wil je deze instelling nu meteen toepassen of wachten tot na je volgende geplande contactmoment?"
-          }
-        }
-      }
-    },
-    "editContact.changedDays.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reschedule next check-in?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Replanifier la prochaine prise de contact ?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Volgend contactmoment verplaatsen?"
-          }
-        }
-      }
-    },
-    "editContact.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit contact"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Édition du contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contact bewerken"
-          }
-        }
-      }
-    },
-    "error.contactNotFound" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error: Contact not found"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erreur : Contact introuvable"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Fout: contact niet gevonden"
-          }
-        }
-      }
-    },
-    "fastCheckIn.intro" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select every contact you’ve talked to in the last 24 hours."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélectionne toutes les personnes avec qui tu as pris contact ces dernières 24 heures."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Selecteer alle personen met wie je de afgelopen 24 uur contact hebt gehad."
-          }
-        }
-      }
-    },
-    "fastCheckIn.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fast check-in"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélection rapide"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Snel contactmoment"
-          }
-        }
-      }
-    },
-    "home.button.addContact.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "New contact"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nouveau contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Nieuw contact"
-          }
-        }
-      }
-    },
-    "home.button.allContacts.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All contacts"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tous les contacts"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Alle contacten"
-          }
-        }
-      }
-    },
-    "home.button.fastCheckIn.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fast check-in"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélection rapide"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Snel contactmoment"
-          }
-        }
-      }
-    },
-    "home.history.subtitle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your last check-ins"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vos dernières prises de contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je laatste contactmomenten"
-          }
-        }
-      }
-    },
-    "home.history.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "History"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Historique"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Geschiedenis"
-          }
-        }
-      }
-    },
-    "home.next.subtitle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Who’s next?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Qui est le prochain ?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Wie is de volgende?"
-          }
-        }
-      }
-    },
-    "home.next.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upcoming"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "À suivre"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Binnenkort"
-          }
-        }
-      }
-    },
-    "home.overdue.subtitle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take some time to check-in now"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reprends contact maintenant"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Neem nu de tijd om weer contact op te nemen"
-          }
-        }
-      }
-    },
-    "home.overdue.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Overdue"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En retard"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Achterstallig"
-          }
-        }
-      }
-    },
-    "newContact.checkInFrequency.picker" : {
+    "contactForm.checkInFrequency.picker" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -930,16 +313,10 @@
             "state" : "translated",
             "value" : "Fréquence de contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactfrequentie"
-          }
         }
       }
     },
-    "newContact.checkInFrequency.picker %lld" : {
+    "contactForm.checkInFrequency.picker %lld" : {
       "localizations" : {
         "en" : {
           "variations" : {
@@ -976,28 +353,10 @@
               }
             }
           }
-        },
-        "nl" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "%lld dag"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "%lld dagen"
-                }
-              }
-            }
-          }
         }
       }
     },
-    "newContact.header.checkInFrequency" : {
+    "contactForm.header.checkInFrequency" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1010,16 +369,10 @@
             "state" : "translated",
             "value" : "Fréquence de contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactfrequentie"
-          }
         }
       }
     },
-    "newContact.header.color" : {
+    "contactForm.header.color" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1032,16 +385,10 @@
             "state" : "translated",
             "value" : "Couleur"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Kleur"
-          }
         }
       }
     },
-    "newContact.header.contactAppearance" : {
+    "contactForm.header.contactAppearance" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1054,16 +401,10 @@
             "state" : "translated",
             "value" : "Apparence du contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Uiterlijk van het contact"
-          }
         }
       }
     },
-    "newContact.header.contactInformation" : {
+    "contactForm.header.contactInformation" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1076,16 +417,10 @@
             "state" : "translated",
             "value" : "Information du contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactinformatie"
-          }
         }
       }
     },
-    "newContact.header.icon" : {
+    "contactForm.header.icon" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1098,16 +433,10 @@
             "state" : "translated",
             "value" : "Icône"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Pictogram"
-          }
         }
       }
     },
-    "newContact.inputField.name" : {
+    "contactForm.inputField.name" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1120,11 +449,392 @@
             "state" : "translated",
             "value" : "Nom"
           }
-        },
-        "nl" : {
+        }
+      }
+    },
+    "contacts.title" : {
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Naam"
+            "state" : "translated",
+            "value" : "Contacts"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contacts"
+          }
+        }
+      }
+    },
+    "contentUnavailable.contactNotFound.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred. Maybe the contact was deleted?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il y a eu une erreur. Le contact a peut-être été supprimé."
+          }
+        }
+      }
+    },
+    "contentUnavailable.contactNotFound.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact not found"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact introuvable"
+          }
+        }
+      }
+    },
+    "contentUnavailable.contactsListEmpty.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your contacts list is empty. Add one now!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu n’as pas encore de contact. Crées-en un maintenant !"
+          }
+        }
+      }
+    },
+    "contentUnavailable.contactsListEmpty.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contacts list empty"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste de contacts vide"
+          }
+        }
+      }
+    },
+    "contentUnavailable.noOverdueContact.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There’s no overdue check-in. Keep up the good work."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun retard à déplorer, continue comme ça."
+          }
+        }
+      }
+    },
+    "contentUnavailable.noOverdueContact.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All clear!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout est bon !"
+          }
+        }
+      }
+    },
+    "contentUnavailable.noRecentCheckIn.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven’t checked in with anyone yet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu n’as enregistré aucune prise de contact pour le moment."
+          }
+        }
+      }
+    },
+    "contentUnavailable.noRecentCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No check-in yet"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de prise de contact"
+          }
+        }
+      }
+    },
+    "debugNotifications.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug notifications"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "editContact.changedDays.changeCheckIn %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be tomorrow"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Reschedule: next check-in will be in %lld days"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact demain"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Replanifier : prochaine prise de contact dans %lld jours"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "editContact.changedDays.keepCurrentCheckIn %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep next check-in on %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder la prochaine prise de contact le %@"
+          }
+        }
+      }
+    },
+    "editContact.changedDays.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Days between notifications have been changed for this contact. Do you want to apply this setting right now or wait until after your next planned check-in?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’intervalle de jours entre les notifications a été changé. Veux-tu appliquer ce changement dès maintenant ou après la prochaine prise de contact ?"
+          }
+        }
+      }
+    },
+    "editContact.changedDays.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reschedule next check-in?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replanifier la prochaine prise de contact ?"
+          }
+        }
+      }
+    },
+    "editContact.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Édition du contact"
+          }
+        }
+      }
+    },
+    "fastCheckIn.intro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select every contact you’ve talked to in the last 24 hours."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionne toutes les personnes avec qui tu as pris contact ces dernières 24 heures."
+          }
+        }
+      }
+    },
+    "fastCheckIn.savedAlert.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your check-ins were saved for the day."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes prises de contact du jour ont été enregistrées."
+          }
+        }
+      }
+    },
+    "fastCheckIn.savedAlert.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’est fait !"
+          }
+        }
+      }
+    },
+    "fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélection rapide"
+          }
+        }
+      }
+    },
+    "home.overdue.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overdue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En retard"
+          }
+        }
+      }
+    },
+    "home.recent.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Récents"
+          }
+        }
+      }
+    },
+    "home.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "home.upcoming.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À suivre"
           }
         }
       }
@@ -1142,12 +852,6 @@
             "state" : "translated",
             "value" : "Nouveau contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Nieuw contact"
-          }
         }
       }
     },
@@ -1163,12 +867,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reviens sur tes dernières 24 heures !"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tijd voor je dagelijkse terugblik!"
           }
         }
       }
@@ -1186,12 +884,6 @@
             "state" : "translated",
             "value" : "Sélection rapide"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Snel contactmoment"
-          }
         }
       }
     },
@@ -1207,12 +899,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Relance RelCheck pour restaurer le fonctionnement des rappels"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je krijgt pas weer herinneringen nadat je RelCheck opnieuw hebt geopend."
           }
         }
       }
@@ -1230,12 +916,6 @@
             "state" : "translated",
             "value" : "Notifications désactivées"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Meldingen uitgeschakeld"
-          }
         }
       }
     },
@@ -1251,12 +931,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les rappels quotidiens sont désactivés jusqu’au prochain lancement de RelCheck."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je krijgt pas weer meldingen voor je snelle contactmomenten nadat je RelCheck opnieuw hebt geopend."
           }
         }
       }
@@ -1274,12 +948,6 @@
             "state" : "translated",
             "value" : "Résumé quotidien désactivé"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Dagelijkse herinneringen uitgeschakeld"
-          }
         }
       }
     },
@@ -1295,12 +963,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il est temps de reprendre contact."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Het is tijd om weer contact op te nemen."
           }
         }
       }
@@ -1318,12 +980,6 @@
             "state" : "translated",
             "value" : "Dis bonjour à %@!"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeg hallo tegen %@!"
-          }
         }
       }
     },
@@ -1339,12 +995,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Commencer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Start"
           }
         }
       }
@@ -1362,12 +1012,6 @@
             "state" : "translated",
             "value" : "Bienvenue à bord !"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welkom aan boord!"
-          }
         }
       }
     },
@@ -1383,12 +1027,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Overslaan"
           }
         }
       }
@@ -1406,12 +1044,6 @@
             "state" : "translated",
             "value" : "Veux-tu passer la séquence d’introduction ?"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Wil je de introductie overslaan?"
-          }
         }
       }
     },
@@ -1427,12 +1059,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Overslaan"
           }
         }
       }
@@ -1450,12 +1076,6 @@
             "state" : "translated",
             "value" : "Tout le monde n’arrive pas à garder contact avec ses proches. Certain·es n’y arrivent pas naturellement. C’est là que RelCheck vient à la rescousse."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Niet iedereen slaagt erin om van nature contact te houden met dierbaren. Bij sommige mensen zit dat simpelweg niet zo in elkaar. Daar komt RelCheck om de hoek kijken."
-          }
         }
       }
     },
@@ -1471,12 +1091,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Là pour aider"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Hier om te helpen"
           }
         }
       }
@@ -1494,12 +1108,6 @@
             "state" : "translated",
             "value" : "D’abord, ajoute une personne dans l’app, et choisis à quelle fréquence tu veux être rappelé·e de reprendre contact."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Voeg eerst iemand toe aan de app en bepaal hoe vaak je eraan herinnerd wilt worden om weer contact op te nemen."
-          }
         }
       }
     },
@@ -1515,12 +1123,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoute un nouveau contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Voeg een nieuw contact toe"
           }
         }
       }
@@ -1538,12 +1140,6 @@
             "state" : "translated",
             "value" : "Tu reçois une notification quand il est temps de renouer le contact avec quelqu’un."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je krijgt een melding zodra het tijd is om weer contact op te nemen met iemand."
-          }
         }
       }
     },
@@ -1559,12 +1155,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Meldingen"
           }
         }
       }
@@ -1582,12 +1172,6 @@
             "state" : "translated",
             "value" : "Parle à quelqu’un de la manière de ton choix (appel, SMS…), et indique à l’app une prise de contact. Tu peux le faire à l’échéance en cliquant sur la notification, ou à tout moment dans l’app."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Praat met iemand op de manier die jij wilt (bellen, appen…) en registreer dat contactmoment simpelweg in de app. Je kunt dit doen zodra het zover is door op de melding te tikken, of eerder al rechtstreeks in de app."
-          }
         }
       }
     },
@@ -1603,12 +1187,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prise de contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactmoment"
           }
         }
       }
@@ -1626,12 +1204,6 @@
             "state" : "translated",
             "value" : "Tu peux aussi activer la sélection rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je kunt 'Snel contactmoment' ook inschakelen bij Instellingen. Elke dag krijg je een melding om snel aan te geven met welke contacten je vandaag contact hebt gehad."
-          }
         }
       }
     },
@@ -1647,12 +1219,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélection rapide"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Snel contactmoment"
           }
         }
       }
@@ -1670,12 +1236,6 @@
             "state" : "translated",
             "value" : "À propos de cette application"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Over deze app"
-          }
         }
       }
     },
@@ -1691,12 +1251,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélection rapide quotidienne"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Dagelijks snel contactmoment"
           }
         }
       }
@@ -1714,12 +1268,6 @@
             "state" : "translated",
             "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Elke dag krijg je een melding waarmee je snel kunt aangeven met welke contacten je de afgelopen 24 uur contact hebt gehad."
-          }
         }
       }
     },
@@ -1735,12 +1283,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heure de rappel"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Herinneringsuur"
           }
         }
       }
@@ -1758,12 +1300,6 @@
             "state" : "translated",
             "value" : "Revoir l’introduction"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Bekijk de introductie opnieuw"
-          }
         }
       }
     },
@@ -1779,12 +1315,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatique"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Automatisch"
           }
         }
       }
@@ -1802,12 +1332,6 @@
             "state" : "translated",
             "value" : "Sombre"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Donker"
-          }
         }
       }
     },
@@ -1823,12 +1347,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thème"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Thema"
           }
         }
       }
@@ -1846,12 +1364,6 @@
             "state" : "translated",
             "value" : "Clair"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Licht"
-          }
         }
       }
     },
@@ -1867,12 +1379,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Instellingen"
           }
         }
       }
@@ -1890,12 +1396,6 @@
             "state" : "translated",
             "value" : "Contact pris !"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contactmoment voltooid!"
-          }
         }
       }
     },
@@ -1911,56 +1411,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fréquence de contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contactfrequentie"
-          }
-        }
-      }
-    },
-    "singleContact.deleteAlert.destructiveButton" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Supprimer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Verwijder"
-          }
-        }
-      }
-    },
-    "singleContact.deleteAlert.dismissButton" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Annuler"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Annuleer"
           }
         }
       }
@@ -1978,12 +1428,6 @@
             "state" : "translated",
             "value" : "Veux-tu vraiment supprimer ce contact ? Cette action est irréversible !"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weet je zeker dat je dit contact wilt verwijderen? Dit kun je niet ongedaan maken."
-          }
         }
       }
     },
@@ -2000,12 +1444,6 @@
             "state" : "translated",
             "value" : "Supprimer le contact"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Contact verwijderen"
-          }
         }
       }
     },
@@ -2021,12 +1459,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tu viens de prendre contact avec %@ ?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Heb je zojuist een contactmoment gehad met %@?"
           }
         }
       }
@@ -2068,20 +1500,42 @@
               }
             }
           }
-        },
-        "nl" : {
+        }
+      }
+    },
+    "singleContact.forXDays %lld" : {
+      "localizations" : {
+        "en" : {
           "variations" : {
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "elke dag"
+                  "state" : "translated",
+                  "value" : "for 1 day"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "om de %lld dagen"
+                  "state" : "translated",
+                  "value" : "for %lld days"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "depuis 1 jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "depuis %lld jours"
                 }
               }
             }
@@ -2101,12 +1555,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Historique de prise de contact"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Geschiedenis van contactmomenten"
           }
         }
       }
@@ -2148,23 +1596,21 @@
               }
             }
           }
+        }
+      }
+    },
+    "singleContact.lastCheckIn" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last check-in"
+          }
         },
-        "nl" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "morgen"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "machine_translated",
-                  "value" : "over %lld dagen"
-                }
-              }
-            }
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dernier contact"
           }
         }
       }
@@ -2182,12 +1628,6 @@
             "state" : "translated",
             "value" : "Prochain contact prévu"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Volgend contactmoment"
-          }
         }
       }
     },
@@ -2203,12 +1643,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tu n’as pas encore pris contact avec %@."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "Je hebt nog geen contactmoment gehad met %@."
           }
         }
       }
@@ -2226,17 +1660,24 @@
             "state" : "translated",
             "value" : "en retard"
           }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "achterstallig"
-          }
         }
       }
     },
-    "TBC" : {
-      "shouldTranslate" : false
+    "singleContact.overdueLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overdue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En retard"
+          }
+        }
+      }
     }
   },
   "version" : "1.3"

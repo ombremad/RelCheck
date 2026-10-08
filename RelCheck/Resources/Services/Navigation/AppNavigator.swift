@@ -5,17 +5,20 @@
 //  Created by Anne Ferret on 08/12/2025.
 //
 
-import SwiftUI
+import Foundation
 
 @Observable
 final class AppNavigator {
-  var path: [AppDestination] = [] {
-    didSet {
-      if !path.contains(.contact) { selectedContactID = nil }
-    }
-  }
+  var selectedSection: AppDestination? = .home
 
-  private(set) var selectedContactID: UUID?
+  // One navigation stack per section
+  var paths: [AppDestination: [AppDestination]] = [:]
+
+  // Stack of the selected section
+  var path: [AppDestination] {
+    get { paths[selectedSection ?? .home, default: []] }
+    set { paths[selectedSection ?? .home] = newValue }
+  }
 
   private(set) var hasSeenOnboarding: Bool {
     didSet {
@@ -31,17 +34,25 @@ final class AppNavigator {
     path.append(destination)
   }
 
+  // Main menu tap: switch section, or go back to its root if it's already selected
+  func select(_ section: AppDestination) {
+    if selectedSection == section {
+      path = []
+    } else {
+      selectedSection = section
+    }
+  }
+
+  // Back to Home's first screen, closing whatever is open in the current section
+  func goHome() {
+    path = []
+    selectedSection = .home
+    path = []
+  }
+
   func back() {
     guard !path.isEmpty else { return }
     path.removeLast()
-  }
-
-  func showContact(_ id: UUID) {
-    // Go back to the contact page if anything is on top of it
-    while path.contains(.contact) && path.last != .contact { back() }
-
-    if path.last != .contact { path.append(.contact) }
-    withAnimation { selectedContactID = id }
   }
 
   func completeOnboarding() {

@@ -8,7 +8,7 @@
 import UserNotifications
 
 struct DebugNotification: Identifiable {
-  enum Kind: String { case pending = "Scheduled", delivered = "Delivered" }
+  enum Kind { case pending, delivered }
 
   let id: String
   let kind: Kind

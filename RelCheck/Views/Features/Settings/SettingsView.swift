@@ -68,6 +68,16 @@ struct SettingsView: View {
           }
         }
 
+        #if DEBUG
+          Section {
+            Button {
+              navigator.push(.debug)
+            } label: {
+              Label("debug.title", systemImage: "ant")
+            }
+          }
+        #endif
+
       }
       .navigationTitle("settings.title").navigationBarTitleDisplayMode(.inline)
 

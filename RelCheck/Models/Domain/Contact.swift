@@ -25,6 +25,14 @@ import SwiftData
     notifications?.filter { !$0.isCompleted && $0.date > Date() }.sorted { $0.date < $1.date }.first
   }
 
+  @Transient var overdueNotification: Notification? {
+    notifications?.filter { !$0.isCompleted && $0.date <= Date() }.sorted { $0.date < $1.date }.first
+  }
+
+  @Transient var lastCheckIn: CheckIn? {
+    checkIns?.max { $0.date < $1.date }
+  }
+
   @Transient var icon: ContactIcon {
     ContactIcon(rawValue: iconName) ?? .personFill
   }

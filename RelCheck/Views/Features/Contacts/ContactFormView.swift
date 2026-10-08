@@ -39,11 +39,11 @@ struct ContactFormView: View {
 
   var body: some View {
     Form {
-      Section("newContact.header.contactInformation") {
-        TextField("newContact.inputField.name", text: $name)
+      Section("contactForm.header.contactInformation") {
+        TextField("contactForm.inputField.name", text: $name)
       }
 
-      Section("newContact.header.contactAppearance") {
+      Section("contactForm.header.contactAppearance") {
         HStack {
           Button {
             showIconPicker = true
@@ -53,7 +53,7 @@ struct ContactFormView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 28, height: 28)
-              Text("newContact.header.icon")
+              Text("contactForm.header.icon")
                 .foregroundStyle(.primary)
               Spacer()
             }
@@ -67,7 +67,7 @@ struct ContactFormView: View {
               Circle()
                 .frame(width: 28, height: 28)
                 .foregroundStyle(selectedColor)
-              Text("newContact.header.color")
+              Text("contactForm.header.color")
                 .foregroundStyle(.primary)
               Spacer()
             }
@@ -76,10 +76,10 @@ struct ContactFormView: View {
         }
       }
 
-      Section("newContact.header.checkInFrequency") {
-        Picker("newContact.checkInFrequency.picker", selection: $daysBetweenNotifications) {
+      Section("contactForm.header.checkInFrequency") {
+        Picker("contactForm.checkInFrequency.picker", selection: $daysBetweenNotifications) {
           ForEach(1...90, id: \.self) { day in
-            Text("newContact.checkInFrequency.picker \(day)").tag(day)
+            Text("contactForm.checkInFrequency.picker \(day)").tag(day)
           }
         }.pickerStyle(.wheel)
       }
@@ -107,10 +107,10 @@ struct ContactFormView: View {
     .alert("editContact.changedDays.title", isPresented: $showEditAlert) {
       if let existingContact = contactToEdit {
         if let nextPlannedCheckIn = existingContact.nextUpcomingNotification?.dateFormatted {
-          Button("button.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
+          Button("editContact.changedDays.keepCurrentCheckIn \(nextPlannedCheckIn)") {
             navigator.back()
           }
-          Button("button.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
+          Button("editContact.changedDays.changeCheckIn \(existingContact.daysBetweenNotifications)") {
             createNotification(for: existingContact)
             navigator.back()
           }

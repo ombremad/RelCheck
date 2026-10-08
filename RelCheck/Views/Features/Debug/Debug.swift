@@ -1,5 +1,5 @@
 //
-//  NotificationDebugView.swift
+//  DebugView.swift
 //  RelCheck
 //
 //  Created by Anne Ferret on 08/10/2026.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct DebugNotificationView: View {
+struct DebugView: View {
   @State private var store = DebugNotificationStore()
 
   var body: some View {
     List(store.items) { item in
       VStack(alignment: .leading, spacing: 4) {
         HStack {
-          Text(item.kind.rawValue)
+          Text(item.kind.hashValue.description)
             .font(.caption.bold())
           Spacer()
           if let date = item.date {
@@ -27,7 +27,7 @@ struct DebugNotificationView: View {
         Text(item.id).font(.caption2).foregroundStyle(.secondary)
       }
     }
-    .navigationTitle("debugnotifications.title")
+    .navigationTitle("debugNotifications.title")
     .task { await store.refresh() }
     .refreshable { await store.refresh() }
   }

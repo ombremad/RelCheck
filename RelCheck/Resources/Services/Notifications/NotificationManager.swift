@@ -36,13 +36,6 @@ class NotificationManager {
     scheduleInactivityNotifications()
   }
 
-  // Get all pending notifications
-  func getPendingNotifications(completion: @escaping ([UNNotificationRequest]) -> Void) {
-    center.getPendingNotificationRequests { requests in
-      DispatchQueue.main.async { completion(requests) }
-    }
-  }
-
   // Cancel specific notifications
   func deleteNotifications(identifiers: [String]) {
     guard !identifiers.isEmpty else { return }

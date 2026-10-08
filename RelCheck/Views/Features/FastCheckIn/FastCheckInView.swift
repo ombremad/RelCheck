@@ -15,15 +15,20 @@ struct FastCheckInView: View {
   @Query(sort: \Contact.name) private var contacts: [Contact]
 
   @State private var selectedContacts: [Contact] = []
+  @State private var showSavedAlert = false
 
   var body: some View {
     List {
       Section { Text("fastCheckIn.intro").font(.callout) }
 
-      Section {
-        ForEach(contacts) { contact in
-          FastCheckInContactRow(contact: contact, isSelected: selectedContacts.contains(contact)) {
-            toggleSelection(for: contact)
+      if contacts.isEmpty {
+        EmptyStateView(reason: .contactsListEmpty)
+      } else {
+        Section {
+          ForEach(contacts) { contact in
+            FastCheckInContactRow(contact: contact, isSelected: selectedContacts.contains(contact)) {
+              toggleSelection(for: contact)
+            }
           }
         }
       }
@@ -36,9 +41,19 @@ struct FastCheckInView: View {
       ToolbarItem(placement: .confirmationAction) {
         Button("button.save", systemImage: "checkmark") {
           saveRecap()
-          navigator.back()
+          showSavedAlert = true
         }
+        .disabled(selectedContacts.isEmpty)
       }
+    }
+
+    .alert("fastCheckIn.savedAlert.title", isPresented: $showSavedAlert) {
+      Button("button.ok") {
+        selectedContacts = []
+        navigator.goHome()
+      }
+    } message: {
+      Text("fastCheckIn.savedAlert.message")
     }
   }
 
