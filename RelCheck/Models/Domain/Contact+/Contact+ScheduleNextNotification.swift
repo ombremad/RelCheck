@@ -24,8 +24,8 @@ extension Contact {
     else { return }
 
     let notification = Notification(date: nextDate, contact: self)
-    notification.notificationID = NotificationManager.shared.scheduleContactNotification(
-      timeInterval: nextDate.timeIntervalSinceNow,
+    notification.notificationID = NotificationManager.shared.scheduleContactNotificationAtDate(
+      date: nextDate,
       contact: self,
     )
     modelContext.insert(notification)

@@ -14,6 +14,12 @@
             "state" : "translated",
             "value" : "Anne Ferret"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Anne Ferret"
+          }
         }
       }
     },
@@ -29,6 +35,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anne Ferret (aka @ombremad) est une développeuse iOS, née en France, vivant entre son pays de naissance et les Pays-Bas.\\nAncienne journaliste tech, elle a initié un changement de carrière en 2025 : elle a fait l’Apple Foundation Program Advanced et appris à coder ! RelCheck est une de ses premières apps."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anne Ferret (ook bekend als @ombremad) is iOS-ontwikkelaar, geboren in Frankrijk en wonend tussen haar geboorteland en Nederland.\\nAls voormalig techjournalist is ze in 2025 van carrière veranderd: ze heeft het Apple Foundation Program Advanced gevolgd en heeft leren programmeren. RelCheck is een van haar eerste apps."
           }
         }
       }
@@ -46,6 +58,12 @@
             "state" : "translated",
             "value" : "Site web d’Anne Ferret"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Website van Anne Ferret"
+          }
         }
       }
     },
@@ -61,6 +79,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liens"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Links"
           }
         }
       }
@@ -78,6 +102,12 @@
             "state" : "translated",
             "value" : "RelCheck sur GitHub"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "RelCheck op GitHub"
+          }
         }
       }
     },
@@ -92,6 +122,12 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "RelCheck"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "RelCheck"
           }
         }
@@ -110,6 +146,12 @@
             "state" : "translated",
             "value" : "RelCheck (nom de code : notifyme) est né en tant que petit projet de hackathon durant l’Apple Foundation Program Advanced. Une version 0.1 a été terminée en environ 36 heures, grâce aux efforts de deux personnes : Dembo et Anne. La dernière a décidé de continue à travailler sur le projet pour l’améliorer autant que possible.\\nCette app est faite pour, et dédiée à, toustes mes adelphes de TDAH et neuro-atypiques. Avec amour !"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RelCheck (codenaam: notifyme) is ontstaan als klein hackathonproject tijdens het Apple Foundation Program Advanced. Binnen ongeveer 36 uur is versie 0.1 afgerond, dankzij de inzet van twee mensen: Dembo en Anne. Anne heeft daarna besloten om door te gaan met het project en het steeds verder te verbeteren.\\nDeze app is gemaakt voor, en opgedragen aan, iedereen met ADHD en een neurodivers brein. Met heel veel liefde!"
+          }
         }
       }
     },
@@ -125,6 +167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Over"
           }
         }
       }
@@ -152,6 +200,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter un contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Voeg een contact toe"
           }
         }
       }
@@ -193,6 +247,24 @@
               }
             }
           }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Verplaats: volgend contactmoment is morgen"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Verplaats: volgend contactmoment is over %lld dagen"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -208,6 +280,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Garder la prochaine prise de contact le %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Behoud: volgend contactmoment op %@"
           }
         }
       }
@@ -225,6 +303,12 @@
             "state" : "translated",
             "value" : "Contact pris"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Check in"
+          }
         }
       }
     },
@@ -240,6 +324,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Verwijder"
           }
         }
       }
@@ -257,6 +347,12 @@
             "state" : "translated",
             "value" : "Éditer"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bewerk"
+          }
         }
       }
     },
@@ -272,6 +368,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bewaar"
           }
         }
       }
@@ -289,6 +391,12 @@
             "state" : "translated",
             "value" : "Réglages"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Instellingen"
+          }
         }
       }
     },
@@ -305,6 +413,12 @@
             "state" : "translated",
             "value" : "Annuler"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Annuleer"
+          }
         }
       }
     },
@@ -319,6 +433,12 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
             "value" : "OK"
           }
         }
@@ -337,6 +457,12 @@
             "state" : "translated",
             "value" : "Tu dois autoriser les notifications dans iOS pour que cette app fonctionne correctement."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je moet meldingen toestaan in iOS zodat deze app goed werkt."
+          }
         }
       }
     },
@@ -352,6 +478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autorise les notifications dans les paramètres iOS."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sta nu meldingen toe in je iOS-instellingen."
           }
         }
       }
@@ -369,6 +501,12 @@
             "state" : "translated",
             "value" : "Attention"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Waarschuwing"
+          }
         }
       }
     },
@@ -384,6 +522,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tu n’as pas encore de contact. Crées-en un maintenant !"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je contactenlijst is leeg. Voeg er nu een toe!"
           }
         }
       }
@@ -401,6 +545,12 @@
             "state" : "translated",
             "value" : "Liste de contacts vide"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactenlijst is leeg"
+          }
         }
       }
     },
@@ -416,6 +566,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contacts"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contacten"
           }
         }
       }
@@ -444,6 +600,12 @@
             "state" : "translated",
             "value" : "L’intervalle de jours entre les notifications a été changé. Veux-tu appliquer ce changement dès maintenant ou après la prochaine prise de contact ?"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Het aantal dagen tussen meldingen voor dit contact is aangepast. Wil je deze instelling nu meteen toepassen of wachten tot na je volgende geplande contactmoment?"
+          }
         }
       }
     },
@@ -459,6 +621,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Replanifier la prochaine prise de contact ?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Volgend contactmoment verplaatsen?"
           }
         }
       }
@@ -476,6 +644,12 @@
             "state" : "translated",
             "value" : "Édition du contact"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contact bewerken"
+          }
         }
       }
     },
@@ -491,6 +665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur : Contact introuvable"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Fout: contact niet gevonden"
           }
         }
       }
@@ -508,6 +688,12 @@
             "state" : "translated",
             "value" : "Sélectionne toutes les personnes avec qui tu as pris contact ces dernières 24 heures."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Selecteer alle personen met wie je de afgelopen 24 uur contact hebt gehad."
+          }
         }
       }
     },
@@ -523,6 +709,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélection rapide"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Snel contactmoment"
           }
         }
       }
@@ -540,6 +732,12 @@
             "state" : "translated",
             "value" : "Nouveau contact"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nieuw contact"
+          }
         }
       }
     },
@@ -555,6 +753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tous les contacts"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alle contacten"
           }
         }
       }
@@ -572,6 +776,12 @@
             "state" : "translated",
             "value" : "Sélection rapide"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Snel contactmoment"
+          }
         }
       }
     },
@@ -587,6 +797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vos dernières prises de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je laatste contactmomenten"
           }
         }
       }
@@ -604,6 +820,12 @@
             "state" : "translated",
             "value" : "Historique"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Geschiedenis"
+          }
         }
       }
     },
@@ -619,6 +841,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qui est le prochain ?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Wie is de volgende?"
           }
         }
       }
@@ -636,6 +864,12 @@
             "state" : "translated",
             "value" : "À suivre"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Binnenkort"
+          }
         }
       }
     },
@@ -651,6 +885,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reprends contact maintenant"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Neem nu de tijd om weer contact op te nemen"
           }
         }
       }
@@ -668,6 +908,12 @@
             "state" : "translated",
             "value" : "En retard"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Achterstallig"
+          }
         }
       }
     },
@@ -683,6 +929,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fréquence de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactfrequentie"
           }
         }
       }
@@ -724,6 +976,24 @@
               }
             }
           }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "%lld dag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "%lld dagen"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -739,6 +1009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fréquence de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactfrequentie"
           }
         }
       }
@@ -756,6 +1032,12 @@
             "state" : "translated",
             "value" : "Couleur"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kleur"
+          }
         }
       }
     },
@@ -771,6 +1053,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apparence du contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Uiterlijk van het contact"
           }
         }
       }
@@ -788,6 +1076,12 @@
             "state" : "translated",
             "value" : "Information du contact"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactinformatie"
+          }
         }
       }
     },
@@ -803,6 +1097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Icône"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pictogram"
           }
         }
       }
@@ -820,6 +1120,12 @@
             "state" : "translated",
             "value" : "Nom"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Naam"
+          }
         }
       }
     },
@@ -835,6 +1141,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveau contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nieuw contact"
           }
         }
       }
@@ -852,6 +1164,12 @@
             "state" : "translated",
             "value" : "Reviens sur tes dernières 24 heures !"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tijd voor je dagelijkse terugblik!"
+          }
         }
       }
     },
@@ -868,6 +1186,12 @@
             "state" : "translated",
             "value" : "Sélection rapide"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Snel contactmoment"
+          }
         }
       }
     },
@@ -876,13 +1200,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Launch RelCheck again to keep notifications running!"
+            "value" : "You won’t get any more reminders until you run RelCheck again."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Relancer RelCheck pour que les notifications continuent !"
+            "value" : "Relance RelCheck pour restaurer le fonctionnement des rappels"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je krijgt pas weer herinneringen nadat je RelCheck opnieuw hebt geopend."
           }
         }
       }
@@ -892,13 +1222,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "It’s been a month"
+            "value" : "Notifications disabled"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ça fait un mois..."
+            "value" : "Notifications désactivées"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Meldingen uitgeschakeld"
           }
         }
       }
@@ -908,13 +1244,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-ins notifications will be silenced until you launch the app again."
+            "value" : "Fast check-ins notifications are disabled until you run RelCheck again."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les rappels quotidiens sont désactivés jusqu’au prochain lancement de l’app."
+            "value" : "Les rappels quotidiens sont désactivés jusqu’au prochain lancement de RelCheck."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je krijgt pas weer meldingen voor je snelle contactmomenten nadat je RelCheck opnieuw hebt geopend."
           }
         }
       }
@@ -932,6 +1274,12 @@
             "state" : "translated",
             "value" : "Résumé quotidien désactivé"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dagelijkse herinneringen uitgeschakeld"
+          }
         }
       }
     },
@@ -947,6 +1295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il est temps de reprendre contact."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Het is tijd om weer contact op te nemen."
           }
         }
       }
@@ -964,6 +1318,12 @@
             "state" : "translated",
             "value" : "Dis bonjour à %@!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeg hallo tegen %@!"
+          }
         }
       }
     },
@@ -979,6 +1339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Commencer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Start"
           }
         }
       }
@@ -996,6 +1362,12 @@
             "state" : "translated",
             "value" : "Bienvenue à bord !"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welkom aan boord!"
+          }
         }
       }
     },
@@ -1011,6 +1383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Overslaan"
           }
         }
       }
@@ -1028,6 +1406,12 @@
             "state" : "translated",
             "value" : "Veux-tu passer la séquence d’introduction ?"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Wil je de introductie overslaan?"
+          }
         }
       }
     },
@@ -1043,6 +1427,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Overslaan"
           }
         }
       }
@@ -1060,6 +1450,12 @@
             "state" : "translated",
             "value" : "Tout le monde n’arrive pas à garder contact avec ses proches. Certain·es n’y arrivent pas naturellement. C’est là que RelCheck vient à la rescousse."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Niet iedereen slaagt erin om van nature contact te houden met dierbaren. Bij sommige mensen zit dat simpelweg niet zo in elkaar. Daar komt RelCheck om de hoek kijken."
+          }
         }
       }
     },
@@ -1075,6 +1471,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Là pour aider"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hier om te helpen"
           }
         }
       }
@@ -1092,6 +1494,12 @@
             "state" : "translated",
             "value" : "D’abord, ajoute une personne dans l’app, et choisis à quelle fréquence tu veux être rappelé·e de reprendre contact."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Voeg eerst iemand toe aan de app en bepaal hoe vaak je eraan herinnerd wilt worden om weer contact op te nemen."
+          }
         }
       }
     },
@@ -1107,6 +1515,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoute un nouveau contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Voeg een nieuw contact toe"
           }
         }
       }
@@ -1124,6 +1538,12 @@
             "state" : "translated",
             "value" : "Tu reçois une notification quand il est temps de renouer le contact avec quelqu’un."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je krijgt een melding zodra het tijd is om weer contact op te nemen met iemand."
+          }
         }
       }
     },
@@ -1139,6 +1559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Meldingen"
           }
         }
       }
@@ -1156,6 +1582,12 @@
             "state" : "translated",
             "value" : "Parle à quelqu’un de la manière de ton choix (appel, SMS…), et indique à l’app une prise de contact. Tu peux le faire à l’échéance en cliquant sur la notification, ou à tout moment dans l’app."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Praat met iemand op de manier die jij wilt (bellen, appen…) en registreer dat contactmoment simpelweg in de app. Je kunt dit doen zodra het zover is door op de melding te tikken, of eerder al rechtstreeks in de app."
+          }
         }
       }
     },
@@ -1171,6 +1603,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prise de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactmoment"
           }
         }
       }
@@ -1188,6 +1626,12 @@
             "state" : "translated",
             "value" : "Tu peux aussi activer la sélection rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je kunt 'Snel contactmoment' ook inschakelen bij Instellingen. Elke dag krijg je een melding om snel aan te geven met welke contacten je vandaag contact hebt gehad."
+          }
         }
       }
     },
@@ -1203,6 +1647,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélection rapide"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Snel contactmoment"
           }
         }
       }
@@ -1220,6 +1670,12 @@
             "state" : "translated",
             "value" : "À propos de cette application"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Over deze app"
+          }
         }
       }
     },
@@ -1235,6 +1691,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélection rapide quotidienne"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dagelijks snel contactmoment"
           }
         }
       }
@@ -1252,6 +1714,12 @@
             "state" : "translated",
             "value" : "Chaque jour, reçois une notification qui permet de sélectionner rapidement toutes les personnes avec qui tu as pris contact ces 24 dernières heures."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Elke dag krijg je een melding waarmee je snel kunt aangeven met welke contacten je de afgelopen 24 uur contact hebt gehad."
+          }
         }
       }
     },
@@ -1267,6 +1735,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heure de rappel"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Herinneringsuur"
           }
         }
       }
@@ -1284,6 +1758,12 @@
             "state" : "translated",
             "value" : "Revoir l’introduction"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bekijk de introductie opnieuw"
+          }
         }
       }
     },
@@ -1299,6 +1779,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatique"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Automatisch"
           }
         }
       }
@@ -1316,6 +1802,12 @@
             "state" : "translated",
             "value" : "Sombre"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Donker"
+          }
         }
       }
     },
@@ -1331,6 +1823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thème"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Thema"
           }
         }
       }
@@ -1348,6 +1846,12 @@
             "state" : "translated",
             "value" : "Clair"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Licht"
+          }
         }
       }
     },
@@ -1363,6 +1867,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Instellingen"
           }
         }
       }
@@ -1380,6 +1890,12 @@
             "state" : "translated",
             "value" : "Contact pris !"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contactmoment voltooid!"
+          }
         }
       }
     },
@@ -1395,6 +1911,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fréquence de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactfrequentie"
           }
         }
       }
@@ -1412,6 +1934,12 @@
             "state" : "translated",
             "value" : "Supprimer"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Verwijder"
+          }
         }
       }
     },
@@ -1427,6 +1955,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Annuleer"
           }
         }
       }
@@ -1444,6 +1978,12 @@
             "state" : "translated",
             "value" : "Veux-tu vraiment supprimer ce contact ? Cette action est irréversible !"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weet je zeker dat je dit contact wilt verwijderen? Dit kun je niet ongedaan maken."
+          }
         }
       }
     },
@@ -1460,6 +2000,12 @@
             "state" : "translated",
             "value" : "Supprimer le contact"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contact verwijderen"
+          }
         }
       }
     },
@@ -1475,6 +2021,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tu viens de prendre contact avec %@ ?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Heb je zojuist een contactmoment gehad met %@?"
           }
         }
       }
@@ -1516,6 +2068,24 @@
               }
             }
           }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "elke dag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "om de %lld dagen"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -1531,6 +2101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Historique de prise de contact"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Geschiedenis van contactmomenten"
           }
         }
       }
@@ -1572,6 +2148,24 @@
               }
             }
           }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "morgen"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "over %lld dagen"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -1587,6 +2181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prochain contact prévu"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Volgend contactmoment"
           }
         }
       }
@@ -1604,6 +2204,12 @@
             "state" : "translated",
             "value" : "Tu n’as pas encore pris contact avec %@."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Je hebt nog geen contactmoment gehad met %@."
+          }
         }
       }
     },
@@ -1620,6 +2226,12 @@
             "state" : "translated",
             "value" : "en retard"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "achterstallig"
+          }
         }
       }
     },
@@ -1627,5 +2239,5 @@
       "shouldTranslate" : false
     }
   },
-  "version" : "1.1"
+  "version" : "1.3"
 }

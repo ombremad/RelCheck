@@ -28,25 +28,6 @@ extension NotificationManager {
     }
   }
 
-  // Schedule contact notification at a time interval
-  func scheduleContactNotification(
-    timeInterval: TimeInterval,
-    contact: Contact,
-    identifier: String = UUID().uuidString,
-  ) -> String {
-    let content = UNMutableNotificationContent()
-    content.title = String(localized: "notification.reminder.title \(contact.name)")
-    content.body = String(localized: "notification.reminder.body")
-    content.sound = .default
-
-    content.userInfo = ["contactID": contact.id.uuidString, "action": "viewContact"]
-
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-    enqueue(UNNotificationRequest(identifier: identifier, content: content, trigger: trigger))
-
-    return identifier
-  }
-
   // Schedule contact notification at a specific date
   func scheduleContactNotificationAtDate(
     date: Date,

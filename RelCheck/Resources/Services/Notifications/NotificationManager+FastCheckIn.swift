@@ -34,7 +34,7 @@ extension NotificationManager {
     }
 
     var lastDate: Date?
-    for offset in 0..<Self.fastCheckInDays {
+    for offset in 0..<Self.fastCheckInInactivityDays {
       guard let date = calendar.date(byAdding: .day, value: offset, to: firstDate) else {
         continue
       }
@@ -53,7 +53,7 @@ extension NotificationManager {
 
   private func deleteFastCheckInNotifications() {
     let identifiers =
-      (0..<Self.fastCheckInDays).map {
+      (0..<Self.fastCheckInInactivityDays).map {
         "\(Self.fastCheckInIdentifierPrefix)\($0)"
       } + [Self.fastCheckInInactivityIdentifier]
     deleteNotifications(identifiers: identifiers)

@@ -17,15 +17,16 @@ class NotificationManager {
 
   private init() {}
 
-  static let fastCheckInDays = 3
-  static let fastCheckInIdentifierPrefix = "fast-check-in-"
-  static let fastCheckInInactivityIdentifier = "fast-check-in-inactivity"
-  static let inactivityNotificationDays = 14
-  static let inactivityLastReminderDate = Calendar.current.date(
+  static let fastCheckInInactivityDays = 3
+  static let appInactivityDays = 30
+  static let appInactivityDate = Calendar.current.date(
     byAdding: .day,
-    value: inactivityNotificationDays,
+    value: appInactivityDays,
     to: .now,
   )
+
+  static let fastCheckInIdentifierPrefix = "fast-check-in-"
+  static let fastCheckInInactivityIdentifier = "fast-check-in-inactivity"
 
   // Reconcile scheduled notifications at every app launch
   func reconcileNotifications(contacts: [Contact]) {
@@ -66,6 +67,9 @@ class NotificationManager {
     userInfo: [String: Any],
     identifier: String,
   ) -> String {
+    // The app goes dormant after the last inactivity reminder: nothing may be scheduled later
+    if let lastReminder = Self.appInactivityDate, date > lastReminder { return identifier }
+
     let content = UNMutableNotificationContent()
     content.title = title
     content.body = body

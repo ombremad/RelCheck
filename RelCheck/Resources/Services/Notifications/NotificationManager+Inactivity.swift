@@ -13,7 +13,7 @@ extension NotificationManager {
   }
 
   private func scheduleAppInactivityNotification() {
-    guard let targetDate = Self.inactivityLastReminderDate
+    guard let targetDate = Self.appInactivityDate
     else { return }
 
     let _ = scheduleNotificationAtDate(
