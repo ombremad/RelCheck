@@ -9,11 +9,11 @@ import Foundation
 
 enum AppDestination: Hashable, Codable {
   case about
-  case contacts
+  case contact
+  case contactList
+  case editContact(id: UUID)
   case debug
   case fastCheckIn
   case newContact
   case settings
-  case singleContact(id: UUID)
-  case editContact(id: UUID)
 }

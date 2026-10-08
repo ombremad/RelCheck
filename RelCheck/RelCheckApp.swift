@@ -31,7 +31,6 @@ import SwiftUI
       fatalError("Failed to create ModelContainer: \(error)")
     }
 
-    // Share the main context so notification scheduling reads the same settings as the views
     NotificationManager.shared.modelContext = container.mainContext
 
     self.navigator = navigator

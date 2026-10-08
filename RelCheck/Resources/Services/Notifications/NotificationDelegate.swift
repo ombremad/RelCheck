@@ -33,7 +33,7 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
         if let idString = userInfo["contactID"] as? String,
           let contactID = UUID(uuidString: idString)
         {
-          self?.navigator?.push(.singleContact(id: contactID))
+          self?.navigator?.showContact(contactID)
         }
 
       default:

@@ -16,7 +16,6 @@ struct ContactsView: View {
   @Query(sort: \Contact.name) private var contacts: [Contact]
 
   var mode: ContactsDisplayMode
-  var onSelect: ((Contact) -> Void)? = nil
 
   // Computed properties
   private var settings: Settings {
@@ -40,20 +39,6 @@ struct ContactsView: View {
     }
   }
 
-  @ViewBuilder
-  private func row(for contact: Contact) -> some View {
-    if let onSelect {
-      Button {
-        onSelect(contact)
-      } label: {
-        ContactRow(contact: contact, mode: mode)
-      }
-      .buttonStyle(.plain)
-    } else {
-      ContactRow(contact: contact, mode: mode)
-    }
-  }
-
   var body: some View {
     List {
       if contacts.isEmpty {
@@ -69,13 +54,14 @@ struct ContactsView: View {
       }
 
       ForEach(sortedContacts) { contact in
-        row(for: contact).swipeActions {
-          Button(role: .destructive) {
-            deleteContact(contact)
-          } label: {
-            Label("button.delete", systemImage: "trash")
+        ContactRow(contact: contact, mode: mode)
+          .swipeActions {
+            Button(role: .destructive) {
+              deleteContact(contact)
+            } label: {
+              Label("button.delete", systemImage: "trash")
+            }
           }
-        }
       }
     }
 

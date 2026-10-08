@@ -46,7 +46,7 @@ struct HomeActionCard: View {
     var destination: AppDestination {
       switch self {
       case .addContact: return .newContact
-      case .allContacts: return .contacts
+      case .allContacts: return .contactList
       case .fastCheckIn: return .fastCheckIn
       }
     }

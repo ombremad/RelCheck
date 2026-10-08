@@ -14,15 +14,26 @@ struct NavigationDestinationView: View {
   var body: some View {
     switch destination {
     case .about: AboutView()
-    case .contacts: ContactsView(mode: .inline)
+    case .contactList: ContactsView(mode: .inline)
     case .debug: DebugNotificationView()
     case .fastCheckIn: FastCheckInView()
     case .newContact: ContactFormView()
     case .settings: SettingsView()
-    case .singleContact(let id):
-      ContactResolver(id: id) { SingleContactView(contact: $0) }
+    case .contact: ContactView()
     case .editContact(let id):
       ContactResolver(id: id) { ContactFormView(contact: $0) }
+    }
+  }
+}
+
+private struct ContactView: View {
+  @Environment(AppNavigator.self) private var navigator
+
+  var body: some View {
+    if let id = navigator.selectedContactID {
+      ContactResolver(id: id) { SingleContactView(contact: $0) }
+        .id(id)
+        .transition(.opacity)
     }
   }
 }

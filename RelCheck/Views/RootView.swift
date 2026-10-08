@@ -30,25 +30,34 @@ struct RootView: View {
   var body: some View {
     Group {
       if navigator.hasSeenOnboarding {
-        if horizontalSizeClass == .regular {
-          NavigationSplitView {
-            ContactsView(
-              mode: .column,
-              onSelect: { contact in
-                navigator.push(.singleContact(id: contact.id))
-              },
-            )
-            .navigationSplitViewColumnWidth(min: 280, ideal: 320, max: 400)
-          } detail: {
-            mainStack
-          }
-        } else {
-          mainStack
-        }
+        pickLayout
       } else {
         OnboardingView(completeOnboarding: { navigator.completeOnboarding() })
       }
     }
     .preferredColorScheme(theme.colorScheme)
+  }
+
+  @ViewBuilder
+  private var pickLayout: some View {
+    switch horizontalSizeClass {
+    case .compact: compactLayout
+    case .regular: wideLayout
+    default: wideLayout
+    }
+  }
+
+  @ViewBuilder
+  private var wideLayout: some View {
+    NavigationSplitView {
+      ContactsView(mode: .column)
+    } detail: {
+      mainStack
+    }
+  }
+
+  @ViewBuilder
+  private var compactLayout: some View {
+    mainStack
   }
 }

@@ -9,7 +9,13 @@ import SwiftUI
 
 @Observable
 final class AppNavigator {
-  var path = NavigationPath()
+  var path: [AppDestination] = [] {
+    didSet {
+      if !path.contains(.contact) { selectedContactID = nil }
+    }
+  }
+
+  private(set) var selectedContactID: UUID?
 
   private(set) var hasSeenOnboarding: Bool {
     didSet {
@@ -25,13 +31,17 @@ final class AppNavigator {
     path.append(destination)
   }
 
-  func replace(_ destination: AppDestination) {
-    path = NavigationPath([destination])
-  }
-
   func back() {
     guard !path.isEmpty else { return }
     path.removeLast()
+  }
+
+  func showContact(_ id: UUID) {
+    // Go back to the contact page if anything is on top of it
+    while path.contains(.contact) && path.last != .contact { back() }
+
+    if path.last != .contact { path.append(.contact) }
+    withAnimation { selectedContactID = id }
   }
 
   func completeOnboarding() {

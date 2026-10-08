@@ -15,16 +15,15 @@ struct ContactRow: View {
 
   var body: some View {
     Button {
-      switch mode {
-      case .inline: navigator.push(.singleContact(id: contact.id))
-      case .column: navigator.replace(.singleContact(id: contact.id))
-      }
+      navigator.showContact(contact.id)
     } label: {
       HStack(spacing: 8) {
         content
         Spacer()
-        Image(systemName: "chevron.forward")
-          .foregroundStyle(.quaternary)
+        if mode == .inline {
+          Image(systemName: "chevron.forward")
+            .foregroundStyle(.quaternary)
+        }
       }
       .labeledContentStyle(ContactRowLabels())
       .contentShape(Rectangle())
