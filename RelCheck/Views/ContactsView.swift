@@ -15,6 +15,7 @@ struct ContactsView: View {
   @Query private var settingsArray: [Settings]
   @Query(sort: \Contact.name) private var contacts: [Contact]
 
+  var mode: ContactsDisplayMode
   var onSelect: ((Contact) -> Void)? = nil
 
   // Computed properties
@@ -45,11 +46,11 @@ struct ContactsView: View {
       Button {
         onSelect(contact)
       } label: {
-        ContactRow(contact: contact)
+        ContactRow(contact: contact, mode: mode)
       }
       .buttonStyle(.plain)
     } else {
-      ContactRow(contact: contact)
+      ContactRow(contact: contact, mode: mode)
     }
   }
 
@@ -62,7 +63,7 @@ struct ContactsView: View {
           Text("contacts.contentUnavailableCTA")
         } actions: {
           Button("button.addContact") {
-            navigator.navigate(to: .newContact)
+            navigator.push(.newContact)
           }.buttonStyle(.borderedProminent)
         }
       }
@@ -84,7 +85,7 @@ struct ContactsView: View {
     .toolbar {
       ToolbarItem(placement: .confirmationAction) {
         Button {
-          navigator.navigate(to: .newContact)
+          navigator.push(.newContact)
         } label: {
           Label("button.addContact", systemImage: "person.badge.plus")
         }
@@ -97,11 +98,20 @@ struct ContactsView: View {
   }
 }
 
-#Preview("With contacts") {
-  ContactsView().modelContainer(Preview.Container.contacts).environment(AppNavigator())
+#Preview("Inline") {
+  ContactsView(mode: .inline)
+    .modelContainer(Preview.Container.contacts)
+    .environment(AppNavigator())
+}
+
+#Preview("Column") {
+  ContactsView(mode: .column)
+    .modelContainer(Preview.Container.contacts)
+    .environment(AppNavigator())
 }
 
 #Preview("Without contacts") {
-  ContactsView().modelContainer(Preview.Container.empty)
+  ContactsView(mode: .inline)
+    .modelContainer(Preview.Container.empty)
     .environment(AppNavigator())
 }

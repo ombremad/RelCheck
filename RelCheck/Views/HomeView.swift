@@ -46,7 +46,7 @@ struct HomeView: View {
     .toolbar {
       ToolbarItem(placement: .primaryAction) {
         Button {
-          navigator.navigate(to: .settings)
+          navigator.push(.settings)
         } label: {
           Label("button.settings", systemImage: "gear")
         }
@@ -54,7 +54,7 @@ struct HomeView: View {
       #if DEBUG
         ToolbarItem(placement: .primaryAction) {
           Button {
-            navigator.navigate(to: .debug)
+            navigator.push(.debug)
           } label: {
             Label("button.debug", systemImage: "ant")
           }

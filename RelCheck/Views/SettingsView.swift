@@ -62,7 +62,7 @@ struct SettingsView: View {
             Label("settings.seeOnboardingAgain.label", systemImage: "rectangle.stack")
           }
           Button {
-            navigator.navigate(to: .about)
+            navigator.push(.about)
           } label: {
             Label("settings.about.label", systemImage: "questionmark.text.page")
           }

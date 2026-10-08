@@ -116,7 +116,7 @@ struct HomeFocusCard: View {
 
   private func contactButton(_ contact: Contact) -> some View {
     Button {
-      navigator.navigate(to: .singleContact(id: contact.id))
+      navigator.push(.singleContact(id: contact.id))
     } label: {
       VStack(spacing: 12) {
         Avatar(contact)

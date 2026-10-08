@@ -54,7 +54,7 @@ struct HomeActionCard: View {
 
   var body: some View {
     Button {
-      navigator.navigate(to: card.destination)
+      navigator.push(card.destination)
     } label: {
       Label {
         Text(card.title)

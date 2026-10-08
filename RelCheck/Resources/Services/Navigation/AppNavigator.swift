@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-@Observable class AppNavigator {
+@Observable
+final class AppNavigator {
   var path = NavigationPath()
 
   private(set) var hasSeenOnboarding: Bool {
@@ -20,8 +21,12 @@ import SwiftUI
     self.hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
   }
 
-  func navigate(to destination: AppDestination) {
+  func push(_ destination: AppDestination) {
     path.append(destination)
+  }
+
+  func replace(_ destination: AppDestination) {
+    path = NavigationPath([destination])
   }
 
   func back() {

@@ -14,7 +14,7 @@ struct NavigationDestinationView: View {
   var body: some View {
     switch destination {
     case .about: AboutView()
-    case .contacts: ContactsView()
+    case .contacts: ContactsView(mode: .inline)
     case .debug: DebugNotificationView()
     case .fastCheckIn: FastCheckInView()
     case .newContact: ContactFormView()

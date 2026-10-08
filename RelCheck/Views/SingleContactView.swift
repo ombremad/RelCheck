@@ -87,7 +87,7 @@ struct SingleContactView: View {
       }
       ToolbarItem(placement: .primaryAction) {
         Button {
-          navigator.navigate(to: .editContact(id: contact.id))
+          navigator.push(.editContact(id: contact.id))
         } label: {
           Label("button.edit", systemImage: "pencil")
         }

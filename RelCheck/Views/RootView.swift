@@ -32,9 +32,12 @@ struct RootView: View {
       if navigator.hasSeenOnboarding {
         if horizontalSizeClass == .regular {
           NavigationSplitView {
-            ContactsView(onSelect: { contact in
-              navigator.navigate(to: .singleContact(id: contact.id))
-            })
+            ContactsView(
+              mode: .column,
+              onSelect: { contact in
+                navigator.push(.singleContact(id: contact.id))
+              },
+            )
             .navigationSplitViewColumnWidth(min: 280, ideal: 320, max: 400)
           } detail: {
             mainStack
