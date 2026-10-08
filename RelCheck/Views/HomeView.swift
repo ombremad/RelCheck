@@ -10,7 +10,6 @@ import SwiftData
 
 struct HomeView: View {
   @Environment(\.modelContext) private var modelContext
-  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
   @Environment(AppNavigator.self) private var navigator
 
   @Query private var settingsArray: [Settings]
@@ -29,11 +28,7 @@ struct HomeView: View {
       HomeFocusCard(card: .next, contacts: contacts)
 
       Section {
-        HomeActionCard(.fastCheckIn)
-        if horizontalSizeClass != .regular {
-          HomeActionCard(.addContact)
-          HomeActionCard(.allContacts)
-        }
+        HomeActionCards()
       }
     }
     .listSectionSpacing(.custom(16))
@@ -77,7 +72,15 @@ struct HomeView: View {
   }
 }
 
-#Preview {
+#Preview("Regular", traits: .portrait) {
+  NavigationStack {
+    HomeView()
+      .modelContainer(Preview.Container.contacts)
+      .environment(AppNavigator())
+  }
+}
+
+#Preview("Compact", traits: .landscapeRight) {
   NavigationStack {
     HomeView()
       .modelContainer(Preview.Container.contacts)

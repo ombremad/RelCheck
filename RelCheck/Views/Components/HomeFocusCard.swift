@@ -9,12 +9,15 @@ import SwiftUI
 
 struct HomeFocusCard: View {
   @Environment(AppNavigator.self) private var navigator
+  @Environment(\.verticalSizeClass) private var verticalSizeClass
 
   @ScaledMetric(relativeTo: .body) private var cellWidth: CGFloat = 92
   private static let edgeInset: CGFloat = 32
 
   var card: FocusCardType
   let contacts: [Contact]
+
+  private var isCompact: Bool { verticalSizeClass == .compact }
 
   enum FocusCardType {
     case overdue, next, history
@@ -81,8 +84,10 @@ struct HomeFocusCard: View {
       VStack(alignment: .trailing) {
         Text(card.title)
           .font(.headline)
-        Text(card.subtitle)
-          .font(.subheadline)
+        if !isCompact {
+          Text(card.subtitle)
+            .font(.subheadline)
+        }
       }
     }
     .accessibilityElement(children: .combine)
@@ -118,7 +123,7 @@ struct HomeFocusCard: View {
     Button {
       navigator.showContact(contact.id)
     } label: {
-      VStack(spacing: 12) {
+      VStack(spacing: isCompact ? 6 : 12) {
         Avatar(contact)
           .accessibilityHidden(true)
 
@@ -128,10 +133,12 @@ struct HomeFocusCard: View {
             .lineLimit(1)
             .foregroundStyle(Color.primary)
 
-          Text("TBC")
-            .font(.subheadline)
-            .lineLimit(1)
-            .foregroundStyle(Color.secondary)
+          if !isCompact {
+            Text("TBC")
+              .font(.subheadline)
+              .lineLimit(1)
+              .foregroundStyle(Color.secondary)
+          }
         }
       }
       .frame(width: cellWidth)
@@ -147,7 +154,27 @@ struct HomeFocusCard: View {
   }
 }
 
-#Preview {
+#Preview("Regular", traits: .portrait) {
+  @Previewable @State var contacts = Preview.contacts
+
+  Form {
+    HomeFocusCard(
+      card: .overdue,
+      contacts: contacts,
+    )
+    HomeFocusCard(
+      card: .next,
+      contacts: contacts,
+    )
+    HomeFocusCard(
+      card: .history,
+      contacts: contacts,
+    )
+  }
+  .environment(AppNavigator())
+}
+
+#Preview("Compact", traits: .landscapeLeft) {
   @Previewable @State var contacts = Preview.contacts
 
   Form {
