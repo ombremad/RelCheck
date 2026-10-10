@@ -42,9 +42,7 @@ struct OnboardingView: View {
 
   private var finalPage: some View {
     VStack(spacing: 20) {
-      Image(systemName: "sparkles")
-        .font(.system(size: 60))
-        .foregroundStyle(LinearGradient.primary)
+      HeroSymbol("sparkles")
 
       Text("onboarding.ready")
         .font(.title)

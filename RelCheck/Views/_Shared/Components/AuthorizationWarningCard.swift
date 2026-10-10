@@ -9,10 +9,29 @@ import SwiftUI
 
 struct AuthorizationWarningCard: View {
   @Environment(\.verticalSizeClass) private var verticalSizeClass
+  @Environment(\.scenePhase) private var scenePhase
+
+  @State private var permissionGranted: Bool?
 
   private var isCompact: Bool { verticalSizeClass == .compact }
 
   var body: some View {
+    Group {
+      if permissionGranted == false {
+        card
+      } else {
+        Color.clear.frame(width: 0, height: 0)
+      }
+    }
+    .animation(.easeInOut, value: permissionGranted)
+    .task { checkPermission() }
+
+    .onChange(of: scenePhase) { _, phase in
+      if phase == .active { checkPermission() }
+    }
+  }
+
+  private var card: some View {
     Button {
       NotificationManager.shared.openSettings()
     } label: {
@@ -28,25 +47,27 @@ struct AuthorizationWarningCard: View {
           } else {
             Text("authorizationWarning.title")
               .font(.headline)
-              .foregroundStyle(.black.opacity(0.4))
+              .foregroundStyle(Color.warningTitle)
             Text("authorizationWarning.content")
               .font(.subheadline)
           }
         }
         Spacer(minLength: 0)
       }
-      .foregroundStyle(.black)
+      .foregroundStyle(Color.warningForeground)
       .padding()
       .background(
-        LinearGradient(
-          colors: [.yellow, .yellow.opacity(0.5)],
-          startPoint: .topLeading,
-          endPoint: .bottomTrailing,
-        ),
+        LinearGradient.warning,
         in: .rect(cornerRadius: Constants.Layout.cornerRadius),
       )
     }
     .buttonStyle(.plain)
+  }
+
+  private func checkPermission() {
+    NotificationManager.shared.requestPermission { granted in
+      permissionGranted = granted
+    }
   }
 }
 

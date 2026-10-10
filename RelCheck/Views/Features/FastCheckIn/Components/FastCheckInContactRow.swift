@@ -8,22 +8,16 @@
 import SwiftUI
 
 struct FastCheckInContactRow: View {
+  @Environment(\.verticalSizeClass) private var verticalSizeClass
+  private var isCompact: Bool { verticalSizeClass == .compact }
+
   let contact: Contact
   let isSelected: Bool
   let onTap: () -> Void
 
   var body: some View {
     HStack(spacing: 8) {
-      Circle()
-        .foregroundStyle(contact.color)
-        .frame(width: 40, height: 40)
-        .overlay(
-          contact.icon.image
-            .resizable()
-            .scaledToFit()
-            .foregroundStyle(.white)
-            .padding(8)
-        )
+      Avatar(contact, mode: isCompact ? .compactList : .list)
       Text(contact.name)
         .font(.headline)
         .foregroundStyle(isSelected ? .white : .primary)

@@ -30,7 +30,7 @@ enum UserTheme: String, Codable, CaseIterable {
 
 @Model class Settings {
   var fastCheckIn: Bool = false
-  var fastCheckInHour: Int = 20
+  var fastCheckInHour: Int = Constants.FastCheckIn.defaultHour
   var themeName: String = UserTheme.auto.rawValue
 
   @Transient var theme: UserTheme {
@@ -40,7 +40,7 @@ enum UserTheme: String, Codable, CaseIterable {
 
   init(
     fastCheckIn: Bool = false,
-    fastCheckInHour: Int = 20,
+    fastCheckInHour: Int = Constants.FastCheckIn.defaultHour,
     theme: UserTheme = .auto,
   ) {
     self.fastCheckIn = fastCheckIn

@@ -11,7 +11,7 @@ import SwiftData
 @Model class Contact {
   var id: UUID = UUID()
   var name: String = ""
-  var daysBetweenNotifications: Int = 7
+  var daysBetweenNotifications: Int = Constants.Contacts.defaultDaysBetweenNotifications
   var iconName: String = ContactIcon.personFill.rawValue
   var colorName: String = ContactColor.gray.rawValue
 

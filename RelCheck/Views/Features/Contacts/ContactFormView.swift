@@ -29,10 +29,14 @@ struct ContactFormView: View {
   @State private var showIconPicker: Bool = false
   @State private var showColorPicker: Bool = false
 
+  private static let swatchSize: CGFloat = 28
+
   init(contact: Contact? = nil) {
     self.contactToEdit = contact
     _name = State(initialValue: contact?.name ?? "")
-    _daysBetweenNotifications = State(initialValue: contact?.daysBetweenNotifications ?? 7)
+    _daysBetweenNotifications = State(
+      initialValue: contact?.daysBetweenNotifications ?? Constants.Contacts.defaultDaysBetweenNotifications
+    )
     _selectedIcon = State(initialValue: contact?.icon ?? .personFill)
     _selectedColor = State(initialValue: contact?.color ?? .gray)
   }
@@ -52,7 +56,7 @@ struct ContactFormView: View {
               selectedIcon.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 28, height: 28)
+                .frame(width: Self.swatchSize, height: Self.swatchSize)
               Text("contactForm.header.icon")
                 .foregroundStyle(.primary)
               Spacer()
@@ -65,7 +69,7 @@ struct ContactFormView: View {
           } label: {
             HStack {
               Circle()
-                .frame(width: 28, height: 28)
+                .frame(width: Self.swatchSize, height: Self.swatchSize)
                 .foregroundStyle(selectedColor)
               Text("contactForm.header.color")
                 .foregroundStyle(.primary)
@@ -78,7 +82,7 @@ struct ContactFormView: View {
 
       Section("contactForm.header.checkInFrequency") {
         Picker("contactForm.checkInFrequency.picker", selection: $daysBetweenNotifications) {
-          ForEach(1...90, id: \.self) { day in
+          ForEach(Constants.Contacts.checkInFrequencyRange, id: \.self) { day in
             Text("contactForm.checkInFrequency.picker \(day)").tag(day)
           }
         }.pickerStyle(.wheel)

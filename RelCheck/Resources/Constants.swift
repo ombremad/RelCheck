@@ -11,6 +11,24 @@ import SwiftData
 struct Constants {
   struct Layout {
     static let cornerRadius: CGFloat = 24
+    static let heroIconSize: CGFloat = 64
+    static let labelIconWidth: CGFloat = 24
+    static let compactLabelIconWidth: CGFloat = 8
+    static let pickerGridMinimum: CGFloat = 60
+    static let pickerGridSpacing: CGFloat = 12
+  }
+
+  struct Contacts {
+    static let defaultDaysBetweenNotifications = 7
+    static let checkInFrequencyRange = 1...90
+  }
+
+  struct FastCheckIn {
+    static let defaultHour = 20
+  }
+
+  struct Time {
+    static let secondsInDay: TimeInterval = 86_400
   }
 }
 

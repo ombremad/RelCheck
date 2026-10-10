@@ -13,7 +13,10 @@ struct ColorPickerSheet: View {
 
   var body: some View {
     NavigationStack {
-      LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
+      LazyVGrid(
+        columns: [GridItem(.adaptive(minimum: Constants.Layout.pickerGridMinimum))],
+        spacing: Constants.Layout.pickerGridSpacing,
+      ) {
         ForEach(ContactColor.allCases, id: \.self) { color in
           ZStack {
             Circle()

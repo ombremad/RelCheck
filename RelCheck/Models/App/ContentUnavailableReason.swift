@@ -36,7 +36,7 @@ enum ContentUnavailableReason {
   var systemImage: String {
     switch self {
     case .contactsListEmpty: "questionmark.app.fill"
-    case .noOverdueContact: "checkmark.circle"
+    case .noOverdueContact: "party.popper"
     case .noRecentCheckIn: "clock"
     case .contactNotFound: "person.crop.circle.badge.questionmark"
     }

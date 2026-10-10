@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContactRow: View {
   @Environment(AppNavigator.self) private var navigator
+  @Environment(\.verticalSizeClass) private var verticalSizeClass
+
+  private var isCompact: Bool { verticalSizeClass == .compact }
 
   let contact: Contact
   var mode: ContactsListMode = .regular
@@ -18,7 +21,11 @@ struct ContactRow: View {
       navigator.push(.contact(id: contact.id))
     } label: {
       HStack(spacing: 8) {
-        content
+        if isCompact {
+          compactContent
+        } else {
+          regularContent
+        }
         Spacer()
         Image(systemName: "chevron.forward")
           .foregroundStyle(.quaternary)
@@ -29,7 +36,15 @@ struct ContactRow: View {
     .buttonStyle(.plain)
   }
 
-  private var content: some View {
+  private var compactContent: some View {
+    HStack(spacing: 8) {
+      Avatar(contact, mode: .compactList)
+      Text(contact.name).font(.headline)
+      details
+    }
+  }
+
+  private var regularContent: some View {
     HStack(spacing: 8) {
       Avatar(contact)
       VStack(alignment: .leading) {
@@ -40,10 +55,10 @@ struct ContactRow: View {
   }
 
   private var details: some View {
-    HStack(spacing: 16) {
-      firstDetail
-      Spacer()
-      secondDetail
+    HStack(spacing: 0) {
+      firstDetail.lineLimit(1).allowsTightening(true)
+      Spacer(minLength: 0)
+      secondDetail.lineLimit(1).allowsTightening(true)
     }
   }
 
@@ -98,7 +113,8 @@ private struct LastCheckIn: View {
   var body: some View {
     LabeledContent {
       if let lastCheckIn = contact.lastCheckIn {
-        Text(lastCheckIn.date, format: .relative(presentation: .named))
+        let days = Calendar.current.dateComponents([.day], from: lastCheckIn.date, to: .now).day ?? 0
+        Text("singleContact.xDaysAgo \(days)")
       } else {
         OverdueCapsule()
       }
@@ -131,7 +147,7 @@ private struct OverdueCapsule: View {
       .fontWeight(.bold)
       .padding(.horizontal, 8)
       .background(LinearGradient.destructive)
-      .clipShape(Capsule())
+      .clipShape(.rect(cornerRadius: Constants.Layout.cornerRadius))
   }
 }
 

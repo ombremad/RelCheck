@@ -11,10 +11,8 @@ import Foundation
 final class AppNavigator {
   var selectedSection: AppDestination? = .home
 
-  // One navigation stack per section
   var paths: [AppDestination: [AppDestination]] = [:]
 
-  // Stack of the selected section
   var path: [AppDestination] {
     get { paths[selectedSection ?? .home, default: []] }
     set { paths[selectedSection ?? .home] = newValue }
@@ -34,7 +32,6 @@ final class AppNavigator {
     path.append(destination)
   }
 
-  // Main menu tap: switch section, or go back to its root if it's already selected
   func select(_ section: AppDestination) {
     if selectedSection == section {
       path = []
@@ -43,7 +40,6 @@ final class AppNavigator {
     }
   }
 
-  // Back to Home's first screen, closing whatever is open in the current section
   func goHome() {
     path = []
     selectedSection = .home

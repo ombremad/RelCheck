@@ -19,38 +19,43 @@ struct HomeView: View {
         : .overdue)
   }
 
-  var showsPermissionWarning = false
-
   var body: some View {
-    VStack(spacing: 16) {
-      VStack(spacing: 16) {
-        if showsPermissionWarning {
-          AuthorizationWarningCard()
-        }
+    VStack(spacing: 0) {
+      AuthorizationWarningCard()
+        .padding(.horizontal)
 
-        if contacts.isEmpty {
-          EmptyStateView(reason: .contactsListEmpty)
-        } else {
-          Picker(selection: Binding(get: { selectedList }, set: { pickedList = $0 })) {
-            ForEach([ContactsListMode.overdue, .upcoming, .recent], id: \.self) { kind in
-              Text(kind.title).tag(kind)
-            }
-          } label: {
-            EmptyView()
-          }
-          .pickerStyle(.segmented)
-
-          ContactsList(contacts: contacts, mode: selectedList)
-        }
+      if contacts.isEmpty {
+        EmptyStateView(reason: .contactsListEmpty)
+      } else {
+        ContactsList(contacts: contacts, mode: selectedList)
+          .scrollContentBackground(.hidden)
       }
-      .padding(.horizontal)
-
     }
-    .background(Color(.systemGroupedBackground))
-    .animation(.easeInOut, value: showsPermissionWarning)
+    .background(LinearGradient.subtleBackground(selectedList.backgroundColor))
 
     .navigationTitle("home.title")
     .navigationBarTitleDisplayMode(.inline)
+
+    .toolbar {
+      if !contacts.isEmpty {
+        ToolbarItem(placement: .principal) {
+          Picker(
+            "home.mode.title",
+            selection: Binding(
+              get: { selectedList },
+              set: { newMode in
+                pickedList = newMode
+              },
+            ),
+          ) {
+            ForEach([ContactsListMode.overdue, .upcoming, .recent], id: \.self) { mode in
+              Text(mode.title).tag(mode)
+            }
+          }
+          .pickerStyle(.segmented)
+        }
+      }
+    }
   }
 }
 

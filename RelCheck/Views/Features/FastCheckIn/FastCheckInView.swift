@@ -1,5 +1,5 @@
 //
-//  DailyRecapView.swift
+//  FastCheckInView.swift
 //  RelCheck
 //
 //  Created by Anne Ferret on 08/12/2025.
@@ -19,8 +19,6 @@ struct FastCheckInView: View {
 
   var body: some View {
     List {
-      Section { Text("fastCheckIn.intro").font(.callout) }
-
       if contacts.isEmpty {
         EmptyStateView(reason: .contactsListEmpty)
       } else {
@@ -30,6 +28,8 @@ struct FastCheckInView: View {
               toggleSelection(for: contact)
             }
           }
+        } header: {
+          Text("fastCheckIn.intro").font(.callout)
         }
       }
     }

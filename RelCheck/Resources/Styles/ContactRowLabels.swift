@@ -12,7 +12,7 @@ struct ContactRowLabels: LabeledContentStyle {
     HStack {
       configuration.label
         .labelStyle(.iconOnly)
-        .frame(width: 8, alignment: .center)
+        .frame(width: Constants.Layout.compactLabelIconWidth, alignment: .center)
       configuration.content
         .foregroundStyle(.secondary)
         .fontWeight(.medium)

@@ -130,6 +130,7 @@
       }
     },
     "app.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -452,7 +453,7 @@
         }
       }
     },
-    "contacts.title" : {
+    "contacts.shortTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -464,6 +465,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contacts"
+          }
+        }
+      }
+    },
+    "contacts.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All your contacts from A to Z"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous tes contacts de A à Z"
+          }
+        }
+      }
+    },
+    "contacts.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All contacts"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les contacts"
           }
         }
       }
@@ -759,18 +792,66 @@
         }
       }
     },
-    "fastCheckIn.title" : {
+    "fastCheckIn.shortTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-in"
+            "value" : "Recap"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide"
+            "value" : "Récap'"
+          }
+        }
+      }
+    },
+    "fastCheckIn.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast recap"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Récap' rapide"
+          }
+        }
+      }
+    },
+    "home.mode.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode"
+          }
+        }
+      }
+    },
+    "home.overdue.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re late to those check-ins"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes prises de contact en retard"
           }
         }
       }
@@ -787,6 +868,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "En retard"
+          }
+        }
+      }
+    },
+    "home.recent.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your most recent check-ins"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes prises de contact les plus récentes"
           }
         }
       }
@@ -819,6 +916,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "home.upcoming.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your next upcoming check-ins"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tes prises de contact à venir"
           }
         }
       }
@@ -876,13 +989,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-in"
+            "value" : "Fast recap"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide"
+            "value" : "Récap' rapide"
           }
         }
       }
@@ -924,7 +1037,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-ins notifications are disabled until you run RelCheck again."
+            "value" : "Fast recap notifications are disabled until you run RelCheck again."
           }
         },
         "fr" : {
@@ -1196,13 +1309,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can also toggle the “fast check-in\" in Settings. Every day, you’ll get a notification to select quickly, of all your contacts, the ones you’ve made contact with today."
+            "value" : "You can also toggle the “fast recap\" in Settings. Every day, you’ll get a notification to select quickly, of all your contacts, the ones you’ve made contact with today."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tu peux aussi activer la sélection rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
+            "value" : "Tu peux aussi activer le récap' rapide dans les Réglages. Chaque jour, tu recevras une notification pour sélectionner rapidement, parmi tous tes contacts, ceux à qui tu as parlé aujourd’hui."
           }
         }
       }
@@ -1212,13 +1325,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fast check-in"
+            "value" : "Fast recap"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide"
+            "value" : "Récap' rapide"
           }
         }
       }
@@ -1244,13 +1357,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Daily fast check-in"
+            "value" : "Daily fast recap"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélection rapide quotidienne"
+            "value" : "Récap' rapide quotidien"
           }
         }
       }
@@ -1260,7 +1373,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Every day, receive a notification allowing you to fast check-in every contact you’ve talked with in the last 24 hours."
+            "value" : "Every day, receive a notification allowing you to check in with every contact you’ve talked with in the last 24 hours."
           }
         },
         "fr" : {
@@ -1658,7 +1771,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "en retard"
+            "value" : "retard"
           }
         }
       }
@@ -1675,6 +1788,58 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "En retard"
+          }
+        }
+      }
+    },
+    "singleContact.xDaysAgo %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "yesterday"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld days ago"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "today"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "hier"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "il y a %lld jours"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "aujourd’hui"
+                }
+              }
+            }
           }
         }
       }

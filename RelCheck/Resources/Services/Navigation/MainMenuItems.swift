@@ -21,6 +21,14 @@ extension AppDestination {
     }
   }
 
+  var menuShortTitle: LocalizedStringKey {
+    switch self {
+    case .contactList: "contacts.shortTitle"
+    case .fastCheckIn: "fastCheckIn.shortTitle"
+    default: menuTitle
+    }
+  }
+
   var menuIcon: String {
     switch self {
     case .contactList: "person.2"

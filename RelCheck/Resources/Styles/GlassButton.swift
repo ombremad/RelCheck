@@ -21,13 +21,13 @@ struct GlassButton: ButtonStyle {
     if #available(iOS 26.0, *) {
       return
         baseView
-        .contentShape(Capsule())
+        .contentShape(.rect(cornerRadius: Constants.Layout.cornerRadius))
         .glassEffect(.regular.tint(.accent).interactive())
     } else {
       return
         baseView
         .background(Color.accentColor)
-        .clipShape(Capsule())
+        .clipShape(.rect(cornerRadius: Constants.Layout.cornerRadius))
     }
   }
 }

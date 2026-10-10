@@ -16,6 +16,9 @@ struct SingleContactView: View {
   @State private var hasCheckedIn: Bool = false
   @State private var showDeleteAlert: Bool = false
 
+  private static let messageIconWidth: CGFloat = 55
+  private static let checkInRowMinHeight: CGFloat = 200
+
   var body: some View {
     Form {
       SingleContactCard(contact)
@@ -25,7 +28,7 @@ struct SingleContactView: View {
             .resizable()
             .scaledToFit()
             .foregroundStyle(.white)
-            .frame(maxWidth: 55)
+            .frame(maxWidth: Self.messageIconWidth)
           HStack {
             Spacer()
             Text("singleContact.checkInCompleted").font(.headline)
@@ -33,7 +36,7 @@ struct SingleContactView: View {
           }
         }
         .foregroundStyle(.white)
-        .frame(minHeight: 200)
+        .frame(minHeight: Self.checkInRowMinHeight)
         .listRowBackground(LinearGradient.primary)
       } else {
         VStack(alignment: .center, spacing: 16) {
@@ -41,7 +44,7 @@ struct SingleContactView: View {
             .resizable()
             .scaledToFit()
             .foregroundStyle(LinearGradient.primary)
-            .frame(maxWidth: 55)
+            .frame(maxWidth: Self.messageIconWidth)
           HStack {
             Spacer()
             Text("singleContact.didYouJustCheckInWith \(contact.name)").font(.headline)
@@ -50,7 +53,7 @@ struct SingleContactView: View {
           Button("button.checkIn") { checkIn() }
             .buttonStyle(GlassButton())
         }
-        .frame(minHeight: 200)
+        .frame(minHeight: Self.checkInRowMinHeight)
       }
       Section {
         if contact.checkIns?.isEmpty == true {
@@ -82,8 +85,7 @@ struct SingleContactView: View {
 
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
-        Button("button.delete", systemImage: "trash") { showDeleteAlert = true }
-          .tint(.red)
+        Button("button.delete", systemImage: "trash", role: .destructive) { showDeleteAlert = true }
       }
       ToolbarItem(placement: .primaryAction) {
         Button {

@@ -26,7 +26,7 @@ extension NotificationManager {
   }
 
   func scheduleFastCheckInInactivityNotification(after lastFastCheckIn: Date) {
-    let targetDate = lastFastCheckIn.addingTimeInterval(24 * 60 * 60)
+    let targetDate = lastFastCheckIn.addingTimeInterval(Constants.Time.secondsInDay)
 
     let _ = scheduleNotificationAtDate(
       title: String(localized: "notification.inactivity.fastCheckIn.title"),

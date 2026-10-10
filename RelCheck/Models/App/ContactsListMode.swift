@@ -19,6 +19,33 @@ enum ContactsListMode: CaseIterable {
     }
   }
 
+  var subtitle: LocalizedStringKey {
+    switch self {
+    case .regular: "contacts.subtitle"
+    case .overdue: "home.overdue.subtitle"
+    case .upcoming: "home.upcoming.subtitle"
+    case .recent: "home.recent.subtitle"
+    }
+  }
+
+  var icon: String {
+    switch self {
+    case .regular: "person.crop.rectangle.stack"
+    case .overdue: "hourglass"
+    case .upcoming: "forward"
+    case .recent: "checklist.checked"
+    }
+  }
+
+  var backgroundColor: Color {
+    switch self {
+    case .overdue: .red
+    case .upcoming: .green
+    case .recent: .blue
+    default: Color.clear
+    }
+  }
+
   var emptyReason: ContentUnavailableReason {
     switch self {
     case .regular, .upcoming: .contactsListEmpty

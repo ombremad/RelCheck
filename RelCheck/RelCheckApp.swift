@@ -21,12 +21,15 @@ import SwiftUI
     UNUserNotificationCenter.current().delegate = notificationDelegate
 
     do {
-      container = try ModelContainer(
-        for: CheckIn.self,
-        Contact.self,
-        Notification.self,
-        Settings.self,
-      )
+      #if DEBUG
+        if Screenshots.isEnabled {
+          container = try Screenshots.makeContainer()
+        } else {
+          container = try Self.makeContainer()
+        }
+      #else
+        container = try Self.makeContainer()
+      #endif
     } catch {
       fatalError("Failed to create ModelContainer: \(error)")
     }
@@ -35,6 +38,15 @@ import SwiftUI
 
     self.navigator = navigator
     self.notificationDelegate = notificationDelegate
+  }
+
+  private static func makeContainer() throws -> ModelContainer {
+    try ModelContainer(
+      for: CheckIn.self,
+      Contact.self,
+      Notification.self,
+      Settings.self,
+    )
   }
 
   var body: some Scene {

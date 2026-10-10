@@ -14,7 +14,10 @@ struct IconPickerSheet: View {
   var body: some View {
     NavigationStack {
       ScrollView {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 12) {
+        LazyVGrid(
+          columns: [GridItem(.adaptive(minimum: Constants.Layout.pickerGridMinimum))],
+          spacing: Constants.Layout.pickerGridSpacing,
+        ) {
           ForEach(ContactIcon.allCases, id: \.self) { icon in
             icon.image
               .resizable()

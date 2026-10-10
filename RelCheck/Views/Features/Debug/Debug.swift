@@ -28,6 +28,7 @@ struct DebugView: View {
       }
     }
     .navigationTitle("debugNotifications.title")
+    .navigationBarTitleDisplayMode(.inline)
     .task { await store.refresh() }
     .refreshable { await store.refresh() }
   }

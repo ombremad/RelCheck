@@ -10,8 +10,6 @@ import SwiftUI
 struct MainMenuView: View {
   @Environment(AppNavigator.self) private var navigator
 
-  var permissionGranted: Bool
-
   var body: some View {
     List(
       selection: Binding(
@@ -24,20 +22,16 @@ struct MainMenuView: View {
           Label(item.menuTitle, systemImage: item.menuIcon)
         }
       }
-      if !permissionGranted {
-        AuthorizationWarningCard()
-          .listRowInsets(EdgeInsets())
-          .listRowBackground(Color.clear)
-          .animation(.easeInOut, value: permissionGranted)
-      }
+      AuthorizationWarningCard()
+        .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.clear)
     }
-    .navigationTitle("app.title")
   }
 }
 
 #Preview("Sidebar") {
   NavigationSplitView {
-    MainMenuView(permissionGranted: false)
+    MainMenuView()
   } detail: {
     Text("Detail")
   }

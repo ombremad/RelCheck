@@ -22,22 +22,50 @@ struct ContactsList: View {
     List {
       if shownContacts.isEmpty {
         EmptyStateView(reason: mode.emptyReason)
-      }
-
-      ForEach(shownContacts) { contact in
-        ContactRow(contact: contact, mode: mode)
-          .swipeActions {
-            if mode == .regular {
-              Button(role: .destructive) {
-                deleteContact(contact)
-              } label: {
-                Label("button.delete", systemImage: "trash")
-              }
-            }
-          }
+      } else if mode == .regular {
+        Section { rows }
+      } else {
+        Section {
+          rows
+        } header: {
+          header
+        }
       }
     }
     .listStyle(.insetGrouped)
+  }
+
+  @ViewBuilder
+  private var rows: some View {
+    ForEach(shownContacts) { contact in
+      ContactRow(contact: contact, mode: mode)
+        .swipeActions {
+          if mode == .regular {
+            Button(role: .destructive) {
+              deleteContact(contact)
+            } label: {
+              Label("button.delete", systemImage: "trash")
+            }
+          }
+        }
+    }
+  }
+
+  @ViewBuilder
+  private var header: some View {
+    HStack(alignment: .center) {
+      Image(systemName: mode.icon)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(width: 20, height: 20)
+        .accessibilityHidden(true)
+      Text(mode.subtitle)
+        .font(.callout)
+        .lineLimit(1)
+        .allowsTightening(true)
+      Spacer()
+    }
+    .foregroundStyle(.secondary)
   }
 
   private func deleteContact(_ contact: Contact) {

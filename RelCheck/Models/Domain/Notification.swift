@@ -21,7 +21,7 @@ import SwiftData
 
   @Transient var daysLeftUntilDate: Int {
     let timeInterval = date.timeIntervalSinceNow
-    return Int((timeInterval / 86400) + 1)
+    return Int((timeInterval / Constants.Time.secondsInDay) + 1)
   }
 
   init(date: Date, contact: Contact) {

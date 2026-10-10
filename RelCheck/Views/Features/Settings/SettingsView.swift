@@ -73,7 +73,7 @@ struct SettingsView: View {
             Button {
               navigator.push(.debug)
             } label: {
-              Label("debug.title", systemImage: "ant")
+              Label("Debug", systemImage: "ant")
             }
           }
         #endif
