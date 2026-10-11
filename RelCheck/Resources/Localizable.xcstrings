@@ -129,18 +129,6 @@
         }
       }
     },
-    "app.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "RelCheck"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "authorizationWarning.content" : {
       "localizations" : {
         "en" : {
@@ -628,6 +616,17 @@
           }
         }
       }
+    },
+    "debugNotifications.scheduleElliot" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule Elliot"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "debugNotifications.title" : {
       "localizations" : {
