@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 extension Contact {
-  @MainActor
   func checkIn(modelContext: ModelContext) {
     scheduleNextNotification(modelContext: modelContext)
     let checkIn = CheckIn(date: .now, contact: self)

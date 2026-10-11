@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# pick staged files
+
+staged=()
+while IFS= read -r f; do
+  staged+=("$f")
+done < <(git diff --cached --name-only --diff-filter=ACMR -- 'RelCheck/*.swift')
+[ ${#staged[@]} -eq 0 ] && exit 0
+
+for f in "${staged[@]}"; do
+  if ! git diff --quiet -- "$f"; then
+    echo "$f has both staged and unstaged changes."
+    echo "Stage or stash everything in it, then commit again."
+    exit 1
+  fi
+done
+
+# format in-place and add to commit
+
+swift format format --in-place "${staged[@]}"
+git add -- "${staged[@]}"
+
+# failure case
+
+if ! swift format lint --strict "${staged[@]}"; then
+  echo ""
+  echo "Some violations can't be fixed automatically. Fix them by hand, then commit again."
+  exit 1
+fi
