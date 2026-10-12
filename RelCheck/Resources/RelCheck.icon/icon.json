@@ -21,15 +21,16 @@
       "layers" : [
         {
           "fill" : {
-            "solid" : "extended-gray:1.00000,0.50000"
+            "solid" : "srgb:1.00000,1.00000,1.00000,0.50000"
           },
-          "image-name" : "Group.svg",
-          "name" : "Group",
+          "hidden" : false,
+          "image-name" : "Group fixed.svg",
+          "name" : "Group fixed",
           "position" : {
             "scale" : 1,
             "translation-in-points" : [
               0,
-              -35
+              0
             ]
           }
         }
@@ -38,7 +39,7 @@
         "scale" : 0.9,
         "translation-in-points" : [
           0,
-          0
+          -35
         ]
       },
       "refractivity" : {
@@ -60,12 +61,12 @@
       "blur-material" : null,
       "layers" : [
         {
-          "blend-mode" : "normal",
           "fill" : {
-            "solid" : "extended-gray:1.00000,0.50000"
+            "solid" : "srgb:1.00000,1.00000,1.00000,0.50000"
           },
-          "image-name" : "Group 1.svg",
-          "name" : "Group 1"
+          "hidden" : false,
+          "image-name" : "Group 1 fixed.svg",
+          "name" : "Group 1 fixed"
         }
       ],
       "lighting" : "individual",

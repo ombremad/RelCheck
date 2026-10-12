@@ -5,10 +5,13 @@
 //  Created by Anne Ferret on 08/10/2026.
 //
 
+import SwiftData
 import SwiftUI
 
 struct DebugView: View {
   @State private var store = DebugNotificationStore()
+  @Query(filter: #Predicate<Contact> { $0.name == "Elliot" }, sort: \Contact.name)
+  private var elliots: [Contact]
 
   var body: some View {
     List(store.items) { item in
@@ -29,6 +32,16 @@ struct DebugView: View {
     }
     .navigationTitle("debugNotifications.title")
     .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      Button("debugNotifications.scheduleElliot", systemImage: "bell.badge") {
+        guard let elliot = elliots.first else { return }
+        _ = NotificationManager.shared.scheduleContactNotificationAtDate(
+          date: .now.addingTimeInterval(15),
+          contact: elliot,
+        )
+      }
+      .disabled(elliots.isEmpty)
+    }
     .task { await store.refresh() }
     .refreshable { await store.refresh() }
   }
