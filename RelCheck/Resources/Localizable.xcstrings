@@ -617,6 +617,38 @@
         }
       }
     },
+    "debugNotifications.schedule" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmer"
+          }
+        }
+      }
+    },
+    "debugNotifications.scheduleContact" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule contact"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmer contact"
+          }
+        }
+      }
+    },
     "debugNotifications.scheduleElliot" : {
       "localizations" : {
         "en" : {
@@ -624,9 +656,30 @@
             "state" : "translated",
             "value" : "Schedule Elliot"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmer Elliot"
+          }
         }
-      },
-      "shouldTranslate" : false
+      }
+    },
+    "debugNotifications.scheduleFastCheckIn" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule fast check-in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmer récap rapide"
+          }
+        }
+      }
     },
     "debugNotifications.title" : {
       "localizations" : {
@@ -635,9 +688,14 @@
             "state" : "translated",
             "value" : "Debug notifications"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug notifications"
+          }
         }
-      },
-      "shouldTranslate" : false
+      }
     },
     "editContact.changedDays.changeCheckIn %lld" : {
       "localizations" : {

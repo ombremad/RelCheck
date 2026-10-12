@@ -27,13 +27,13 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     DispatchQueue.main.async { [weak self] in
       switch action {
       case "viewFastCheckIn":
-        self?.navigator?.push(.fastCheckIn)
+        self?.navigator?.open(.fastCheckIn)
 
       case "viewContact":
         if let idString = userInfo["contactID"] as? String,
           let contactID = UUID(uuidString: idString)
         {
-          self?.navigator?.push(.contact(id: contactID))
+          self?.navigator?.open(.contactList, path: [.contact(id: contactID)])
         }
 
       default:
