@@ -10,6 +10,7 @@ import SwiftUI
 
 struct DebugView: View {
   @State private var store = DebugNotificationStore()
+  @Query(sort: \Contact.name) private var contacts: [Contact]
   @Query(filter: #Predicate<Contact> { $0.name == "Elliot" }, sort: \Contact.name)
   private var elliots: [Contact]
 
@@ -33,14 +34,31 @@ struct DebugView: View {
     .navigationTitle("debugNotifications.title")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      Button("debugNotifications.scheduleElliot", systemImage: "bell.badge") {
-        guard let elliot = elliots.first else { return }
-        _ = NotificationManager.shared.scheduleContactNotificationAtDate(
-          date: .now.addingTimeInterval(15),
-          contact: elliot,
-        )
+      Menu("debugNotifications.schedule", systemImage: "bell.badge") {
+        Button("debugNotifications.scheduleContact") {
+          guard let contact = contacts.first else { return }
+          _ = NotificationManager.shared.scheduleContactNotificationAtDate(
+            date: .now.addingTimeInterval(15),
+            contact: contact,
+          )
+        }
+        .disabled(contacts.isEmpty)
+
+        Button("debugNotifications.scheduleElliot") {
+          guard let elliot = elliots.first else { return }
+          _ = NotificationManager.shared.scheduleContactNotificationAtDate(
+            date: .now.addingTimeInterval(15),
+            contact: elliot,
+          )
+        }
+        .disabled(elliots.isEmpty)
+
+        Button("debugNotifications.scheduleFastCheckIn") {
+          _ = NotificationManager.shared.scheduleFastCheckInNotificationAtDate(
+            date: .now.addingTimeInterval(15)
+          )
+        }
       }
-      .disabled(elliots.isEmpty)
     }
     .task { await store.refresh() }
     .refreshable { await store.refresh() }

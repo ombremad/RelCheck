@@ -20,8 +20,6 @@ extension NotificationManager {
     guard let settings = currentSettings, settings.fastCheckIn else { return }
     let fastCheckInHour = min(max(settings.fastCheckInHour, 0), 23)
 
-    let title = String(localized: "notification.fastCheckIn.title")
-    let body = String(localized: "notification.fastCheckIn.body")
     let now = Date()
     let calendar = Calendar.current
 
@@ -38,17 +36,28 @@ extension NotificationManager {
       guard let date = calendar.date(byAdding: .day, value: offset, to: firstDate) else {
         continue
       }
-      let _ = scheduleNotificationAtDate(
-        title: title,
-        body: body,
+      let _ = scheduleFastCheckInNotificationAtDate(
         date: date,
-        userInfo: ["action": "viewFastCheckIn"],
         identifier: "\(Self.fastCheckInIdentifierPrefix)\(offset)",
       )
       lastDate = date
     }
 
     if let lastDate { scheduleFastCheckInInactivityNotification(after: lastDate) }
+  }
+
+  // Schedule fast check-in notification at a specific date
+  func scheduleFastCheckInNotificationAtDate(
+    date: Date,
+    identifier: String = UUID().uuidString,
+  ) -> String {
+    scheduleNotificationAtDate(
+      title: String(localized: "notification.fastCheckIn.title"),
+      body: String(localized: "notification.fastCheckIn.body"),
+      date: date,
+      userInfo: ["action": "viewFastCheckIn"],
+      identifier: identifier,
+    )
   }
 
   private func deleteFastCheckInNotifications() {

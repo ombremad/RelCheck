@@ -40,6 +40,11 @@ final class AppNavigator {
     }
   }
 
+  func open(_ section: AppDestination, path: [AppDestination] = []) {
+    selectedSection = section
+    paths[section] = path
+  }
+
   func goHome() {
     path = []
     selectedSection = .home
